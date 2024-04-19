@@ -1,0 +1,124 @@
+.header{
+    max-width: 1400px;
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+}
+.dropdown__icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 8;
+}
+.dropdown__icon span {
+    display: inline-block;
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50px;
+    transition: .5s;
+}
+.dropdown__icon span:nth-child(1) {
+	left: 6px;
+	transform: rotate(45deg);
+}
+.navbar__option-container div:hover .dropdown__icon span:nth-child(1) {
+    transform: rotate(135deg);
+}
+.dropdown__icon span:nth-child(2) {
+	right: 6px;
+	transform: rotate(-45deg);
+}
+.navbar__option-container div:hover .dropdown__icon span:nth-child(2) {
+	transform: rotate(-135deg);
+}
+.header__navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar__logo{
+    height: 80px;
+    cursor: pointer;
+}
+
+.navbar__list{
+    list-style: none;       
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.navbar__option-container{
+    position: relative;
+    width: 33%;
+    height: 40px;
+    align-content: center;
+    cursor: pointer;
+}
+
+.navbar__option{
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar__sublist{
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    padding: 10px 0;
+    margin-top: -60px;
+    border-radius: 8px;
+    justify-self: center;
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--primary);
+    transition: all 0.3s ease-out;
+}
+
+.navbar__suboption{
+    margin: 10px;
+    font-weight: 400;
+}
+
+.navbar__option-container div:hover .navbar__sublist{
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+    padding-top: 60px;
+}
+
+.navbar__option-container div:hover .navbar__option{
+    font-weight: bold;
+    filter: drop-shadow(0 0 5px);
+    position: relative;
+    z-index: 999;
+}
+
+.navbar__suboption:hover{
+    font-weight: bold; 
+    filter: drop-shadow(0 0 5px);
+}
+
+.navbar__login{
+    cursor: pointer;
+    width: 300px;
+}
+
+.login__logo{
+    margin-right: 10px;
+}
+
+.navbar__login:hover .login__text{
+    font-weight: bold;
+    filter: drop-shadow(0 0 5px);
+}

@@ -1,0 +1,53 @@
+* {
+      font-family: Montserrat;
+}
+footer {
+      max-width: 1400px;
+}
+#footerlogo img {
+      width: 200px;
+}
+footer a {
+      color: white;
+      text-decoration: none;
+}
+footer p {
+      color: rgb(132, 132, 132);
+      font-size: 12px;
+      text-align: center;
+}
+footer i {
+      display: flex!important;
+      align-items: center;
+      justify-content: center;
+}
+footer i::before {
+      margin-right: 1em;
+}
+footer ul {
+      padding: 0;
+}
+footer li {
+      list-style-type: none;
+      padding: 0.5em;
+      text-align: center;
+}
+footer h4 {
+      color: white;
+      margin: 0;
+      text-transform: uppercase;
+      font-family: 'Miriam Libre';
+      font-size: 20px;
+      text-align: center;
+}
+#footertop {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+}
+#footer__top div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 2em 0 2em;
+}
