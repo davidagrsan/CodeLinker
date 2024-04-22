@@ -124,6 +124,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="signUp.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Proyectos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="signUp.aspx.cs">
+      <DependentUpon>signUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signUp.aspx.designer.cs">
+      <DependentUpon>signUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
