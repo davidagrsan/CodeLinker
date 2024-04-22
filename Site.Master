@@ -45,7 +45,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <header class="header">
+        <header id="navbar__header" class="header" runat="server">
             <nav class="header__navbar">
                 <img src="Content/img/header-logo.png" alt="Logo" class="navbar__logo">
                 <ul class="navbar__list">
@@ -87,7 +87,7 @@
                 </ul>
                 <div class="navbar__login">
                     <i class="fa-solid fa-user login__logo"></i>
-                    <asp:Button ID="login__text" runat="server" Text="Iniciar sesión/Registrarse" />
+                    <span class="login__text"><a href="Login.aspx" class="navbar__option">Iniciar sesión/Registrarse</a></span>
                 </div>
             </nav>
         </header>

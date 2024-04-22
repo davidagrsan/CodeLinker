@@ -15,12 +15,14 @@ namespace CodeLinker
     {
 
         /// <summary>
+        /// Control navbar__header.
         /// Control login__text.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navbar__header;
         protected global::System.Web.UI.WebControls.Button login__text;
 
         /// <summary>
