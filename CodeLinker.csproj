@@ -206,6 +206,7 @@
       <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALFilters.cs" />
+    <Compile Include="DAL\DALUser.cs" />
     <Compile Include="DBConnection.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

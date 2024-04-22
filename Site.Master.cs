@@ -11,7 +11,12 @@ namespace CodeLinker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["connected"] = false;
+            if ((bool)Session["connected"])
+            {
+                HyperLink login__text = (HyperLink)FindControl("loginLink");
+                login__text.Text = "Hola";
+            }
         }
     }
 }

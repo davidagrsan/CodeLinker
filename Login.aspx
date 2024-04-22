@@ -1,30 +1,31 @@
-﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CodeLinker._Default" %>
+﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CodeLinker.Login" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/login.css"/>
-    <main class="home">
+    <main class="login">
         <div>
-        <form action="" method="post" class="modal_content">
             <div>
-                <br>
+                <br />
                 <img src="Content/img/header-logo.png" alt="logo CodeLinker">
-                <br><br>
+                <br />
             </div>
             <div>
-                <label for="loginName"><b>User or Email</b></label><br>
-                <input type="text" name="user" id="loginName" placeholder="Username or Email">
+                <br /><br />
+                <asp:Label ID="lblConnected" runat="server" Text=""></asp:Label>
+                <br /><br />
+                <label for="loginName"><b>Usuario o Correo</b></label><br />
+                <asp:TextBox ID="txtBoxUser" runat="server" placeholder="Usuario o Correo"></asp:TextBox>
                 <br><br>
                 <label for="pwd"><b>Password</b></label><br>
-                <input type="password" name="user" id="loginName" placeholder="Password">
+                <asp:TextBox ID="txtBoxPwd" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
                 <br><br>
                 <input type="checkbox" name="forgotPassword" id="forgotPassword">Did you forget your password?
                 <br><br>
-                <button class="login__button">Log In</button>
+                <asp:Button ID="btnLogin" runat="server" Text="Inicia sesión" OnClick="btnLogin_Click" />
                 <br><br>
                 <p>¿You don't have an account? <a href="">Register</a></p>
             </div>
-        </form>
-    </div>
+        </div>
     </main>
 
 </asp:Content>
