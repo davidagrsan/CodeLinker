@@ -204,6 +204,7 @@
     <Compile Include="Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DALFilters.cs" />
     <Compile Include="DBConnection.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -219,6 +220,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\ProgrammingLanguage.cs" />
+    <Compile Include="Model\ProjectCategory.cs" />
+    <Compile Include="Model\ProjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proyectos.aspx.cs">
       <DependentUpon>Proyectos.aspx</DependentUpon>
