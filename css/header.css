@@ -38,7 +38,7 @@
 .navbar__option-container div:hover .dropdown__icon span:nth-child(2) {
 	transform: rotate(-135deg);
 }
-.navbar-proyectos__container {
+.navbar-proyectos__container, .navbar-aprende__container  {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-.navbar__option{
+.navbar__option-container .navbar__option{
     color: #fff;
     text-decoration: none;
 }
@@ -123,8 +123,12 @@
 .login__logo{
     margin-right: 10px;
 }
-
-.navbar__login:hover .login__text{
+#login__text {
+    background: none;
+    color: #fff;
+    border: none;
+}
+.navbar__login:hover #login__text{
     font-weight: bold;
     filter: drop-shadow(0 0 5px);
 }

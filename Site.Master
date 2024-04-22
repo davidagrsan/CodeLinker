@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - CodeLinker</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/header.css"/>
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
+    <link rel="stylesheet" href="css/contacto.css"/>
 </head>
 <body>
     <form runat="server">
@@ -65,15 +66,22 @@
                     </li>
                     <li class="navbar__option-container">
                         <div>
-                            <a href="#" class="navbar__option">Aprende</a>
+                            <div class="navbar-aprende__container">
+                                <a href="#" class="navbar__option">Aprende</a>
+                                <div class="dropdown__icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
                             <ul class="navbar__sublist">
-                                <li class="navbar__suboption">Opcion</li>
+                                <li class="navbar__suboption">Opcion 1</li>
+                                <li class="navbar__suboption">Opcion 2</li>
                             </ul>
                         </div>
                     </li>
                     <li class="navbar__option-container">
                         <div>
-                            <a href="#" class="navbar__option">Contacto</a>
+                            <a href="Contacto.aspx" class="navbar__option">Contacto</a>
                         </div>
                     </li>
                 </ul>
@@ -125,7 +133,6 @@
         </div>
     </form>
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
 </body>
 </html>

@@ -3,6 +3,9 @@
 }
 footer {
       max-width: 1400px;
+      margin: auto;
+      padding-top: 3em;
+      padding-bottom: 1em;
 }
 #footerlogo img {
       width: 200px;
