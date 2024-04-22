@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CodeLinker.Login" %>
+﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="signUp.aspx.cs" Inherits="CodeLinker.Login" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/login.css"/>
@@ -18,6 +18,9 @@
                 <br><br>
                 <label for="pwd"><b>Contraseña</b></label><br>
                 <asp:TextBox ID="txtBoxPwd" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
+                <br><br>
+                <label for="cnf"><b>Confirmar contraseña</b></label><br>
+                <asp:TextBox ID="TextBox1" runat="server" TextMode="Password" placeholder="Confirm password"></asp:TextBox>
                 <br><br>
                 <input type="checkbox" name="forgotPassword" id="forgotPassword">Has olvidado tu contraseña?
                 <br><br>
