@@ -9,15 +9,15 @@ namespace CodeLinker.DAL
     {
         DBConnectionDataContext dc = new DBConnectionDataContext();
 
-        public bool logInCredentials(string username, string password)
+        public (bool Status, User user) logInCredentials(string username, string password)
         {
             var query = (from user in dc.User
                          where user.UserName == username
                          select user).FirstOrDefault();
 
-            if (query == null) return false;
-            if (query.Password == password) return true;
-            else return false;
+            if (query == null) return (false, null);
+            if (query.Password == password) return (true, query);
+            else return (false, null);
         }
     }
 }
