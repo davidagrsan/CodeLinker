@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace CodeLinker
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class SignUp : System.Web.UI.Page
     {
         DALUser uDAL = new DALUser();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,7 +25,7 @@ namespace CodeLinker
         {
             if(txtBoxUser.Text != ""|| txtBoxPwd.Text != "")
             {
-                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text))
+                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).Status)
                 {
                     Session["connected"] = true;
                     Response.Redirect("Default.aspx");

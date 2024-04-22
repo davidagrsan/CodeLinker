@@ -23,7 +23,7 @@
                 <br><br>
                 <asp:Button ID="btnLogin" runat="server" Text="Inicia sesión" OnClick="btnLogin_Click" />
                 <br><br>
-                <p>¿Aún no tienes una cuenta? <a href="">Regístrate</a></p>
+                <p>¿Aún no tienes una cuenta? <a href="signUp.aspx">Regístrate</a></p>
             </div>
         </div>
     </main>
