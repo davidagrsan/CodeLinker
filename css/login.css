@@ -1,0 +1,23 @@
+img{
+    width: 300px;
+}
+
+body{
+    text-align: center;
+}
+
+button{
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+input[type=text],[type=password]{
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
