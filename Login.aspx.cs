@@ -25,9 +25,10 @@ namespace CodeLinker
         {
             if(txtBoxUser.Text != ""|| txtBoxPwd.Text != "")
             {
-                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text))
+                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).Status)
                 {
                     Session["connected"] = true;
+                    Session["connectedUser"] = uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).user;
                     Response.Redirect("Default.aspx");
                 }
                 else lblConnected.Text = "Usuario y/o contraseña incorrecto";

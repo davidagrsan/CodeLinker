@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace CodeLinker
@@ -11,11 +12,11 @@ namespace CodeLinker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["connected"] = false;
-            if ((bool)Session["connected"])
+            bool connected = (bool)Session["connected"];
+            User connectedUser = (User)Session["connectedUser"];
+            if (connected)
             {
-                HyperLink login__text = (HyperLink)FindControl("loginLink");
-                login__text.Text = "Hola";
+                login__text.InnerHtml = "Bienvenid@ " + connectedUser.UserName + "!";
             }
         }
     }
