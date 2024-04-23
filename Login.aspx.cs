@@ -16,7 +16,6 @@ namespace CodeLinker
         {
             var header = Master.FindControl("navbar__header") as HtmlGenericControl;
             header.Style["display"] = "none";
-
             var footer = Master.FindControl("footer") as HtmlGenericControl;
             footer.Style["display"] = "none";
 

@@ -2,20 +2,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <main class="proyectos">
-            <h1>&#60;Proyectos&#62;
-        </h1>
+            <h1>&#60;Proyectos&#62;</h1>
             <section id="project__filters">
-                <asp:Button ID="butClean" runat="server" Text="Limpiar filtros" />
                 <div id="project__CheckBoxes">
                     <div>
+                        <asp:Button ID="butClean" runat="server" Text="Limpiar filtros" />
                         <asp:CheckBox ID="checkOpen" runat="server" />
                         <asp:Label ID="lblCheckOpen" runat="server" Text="Proceso abierto"></asp:Label>
                     </div>
                    <div>
                         <asp:CheckBox ID="checkEnded" runat="server" />
                         <asp:Label ID="lblCheckEnded" runat="server" Text="Solo finalizados"></asp:Label>
-                    </div>
-                    <div>
                     </div>
                 </div>
                 <div id="project__DropDownLists">
@@ -49,7 +46,7 @@
                     <div class="project__thirdRow">
                         <div class="project__participantsContainer">
                             <i class="fa-solid fa-users"></i>
-                            <div>
+                            <div class="project__users">
                                 <p class="project__actualParticipants">2</p>
                                 <span class="separator">/</span>
                                 <p class="project__maxParticipants">3</p>
