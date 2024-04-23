@@ -118,10 +118,10 @@
                 <div id="footercontacto">
                     <h4>Contacto</h4>
                     <ul>
-                        <a href="#"><i class="fa-brands fa-linkedin"><li>LinkedIn</li></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"><li>Instagram</li></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter"><li>Twitter</li></i></a>
-                        <a href="#"><i class="fa-brands fa-discord"><li>Discord</li></i></a>
+                        <a href="#"><li class="fa-brands fa-linkedin"><li>LinkedIn</li></a>
+                        <a href="#"><li class="fa-brands fa-instagram"><li>Instagram</li></a>
+                        <a href="#"><li class="fa-brands fa-twitter"><li>Twitter</li></a>
+                        <a href="#"><li class="fa-brands fa-discord"><li>Discord</li></a>
                         <a href="#"><li>Envíanos tu mensaje</li></a>
                     </ul>
                 </div>
