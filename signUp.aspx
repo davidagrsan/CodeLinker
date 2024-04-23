@@ -11,20 +11,21 @@
             </div>
             <div>
                 <br /><br />
-                <asp:Label ID="lblConnected" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblCreationStatus" runat="server"></asp:Label>
                 <br /><br />
-                <label for="loginName"><b>Usuario o Correo</b></label><br />
-                <asp:TextBox ID="txtBoxUser" runat="server" placeholder="Usuario o Correo"></asp:TextBox>
+                <label for="loginName"><b>Usuario</b></label><br />
+                <asp:TextBox ID="txtBoxUser" runat="server" placeholder="Usuario"></asp:TextBox>
+                <br><br>
+                <label for="loginEmail"><b>Email</b></label><br />
+                <asp:TextBox ID="txtBoxEmail" runat="server" placeholder="Email"></asp:TextBox>
                 <br><br>
                 <label for="pwd"><b>Contraseña</b></label><br>
                 <asp:TextBox ID="txtBoxPwd" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
                 <br><br>
                 <label for="cnf"><b>Confirmar contraseña</b></label><br>
-                <asp:TextBox ID="TextBox1" runat="server" TextMode="Password" placeholder="Confirm password"></asp:TextBox>
+                <asp:TextBox ID="txtBoxConfirmPwd" runat="server" TextMode="Password" placeholder="Confirma la contraseña"></asp:TextBox>
                 <br><br>
-                <input type="checkbox" name="forgotPassword" id="forgotPassword">Has olvidado tu contraseña?
-                <br><br>
-                <asp:Button ID="btnLogin" runat="server" Text="Inicia sesión" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnRegister" runat="server" Text="Registrate" OnClick="btnRegister_Click" />
                 <br><br>
                 <p>¿Ya tienes una cuenta? <a href="Login.aspx">Inicia sesión</a></p>
             </div>
