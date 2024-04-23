@@ -16,23 +16,7 @@ namespace CodeLinker
         {
             var header = Master.FindControl("navbar__header") as HtmlGenericControl;
             header.Style["display"] = "none";
-
             var footer = Master.FindControl("footer") as HtmlGenericControl;
-            footer.Style["display"] = "none";
-        }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            if(txtBoxUser.Text != ""|| txtBoxPwd.Text != "")
-            {
-                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).Status)
-                {
-                    Session["connected"] = true;
-                    Session["connectedUser"] = uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).user;
-                    Response.Redirect("Default.aspx");
-                }
-                else lblConnected.Text = "Usuario y/o contraseña incorrecto";
-            }
-        }
+            footer.Style["display"] = "none";        }
     }
 }

@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/home.css"/>
     <link rel="stylesheet" href="css/footer.css"/>
     <link rel="stylesheet" href="css/contacto.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/proyectos.css"/>
 </head>
 <body>
     <form runat="server">
@@ -59,7 +61,7 @@
                                 </div>
                             </div>
                             <ul class="navbar__sublist">
-                                <li class="navbar__suboption">Ver proyectos</li>
+                                <a href="Proyectos.aspx"><li class="navbar__suboption">Ver proyectos</li></a>
                                 <li class="navbar__suboption">Crear proyecto</li>
                             </ul>
                         </div>
@@ -74,8 +76,9 @@
                                 </div>
                             </div>
                             <ul class="navbar__sublist">
-                                <li class="navbar__suboption">Opcion 1</li>
-                                <li class="navbar__suboption">Opcion 2</li>
+                                <li class="navbar__suboption">Proyectos de CodeLinker</li>
+                                <li class="navbar__suboption">Proyectos de la comunidad</li>
+                                <li class="navbar__suboption">Crea tu proyecto</li>
                             </ul>
                         </div>
                     </li>

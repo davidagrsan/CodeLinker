@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CodeLinker.Login" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CodeLinker._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/login.css"/>
@@ -23,9 +23,9 @@
                 <br><br>
                 <asp:Button ID="btnLogin" runat="server" Text="Inicia sesión" OnClick="btnLogin_Click" />
                 <br><br>
-                <p>¿Aún no tienes una cuenta? <a href="signUp.aspx">Regístrate</a></p>
+                <p>¿Aún no tienes una cuenta? <a href="">Register</a></p>
             </div>
-        </div>
+    </div>
     </main>
 
 </asp:Content>
