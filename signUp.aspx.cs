@@ -43,7 +43,7 @@ namespace CodeLinker
                 return;
             }
             //If all the checks are passed, it will create the new user
-            User nuevoUsuario = new User
+            User newUser = new User
             {
                 UserName = txtBoxUser.Text,
                 Password = txtBoxConfirmPwd.Text,
