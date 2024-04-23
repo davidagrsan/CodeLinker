@@ -23,16 +23,18 @@ namespace CodeLinker
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtBoxUser.Text != ""|| txtBoxPwd.Text != "")
+            if (txtBoxUserLogIn.Text != "" || txtBoxPwdLogIn.Text != "")
             {
-                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).Status)
+                if (uDAL.logInCredentials(txtBoxUserLogIn.Text, txtBoxPwdLogIn.Text).Status)
                 {
                     Session["connected"] = true;
-                    Session["connectedUser"] = uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).user;
+                    Session["connectedUser"] = uDAL.logInCredentials(txtBoxUserLogIn.Text, txtBoxPwdLogIn.Text).user;
                     Response.Redirect("Default.aspx");
                 }
-                else lblConnected.Text = "Usuario y/o contraseña incorrecto";
+                else lblConnectedLogIn.Text = "Usuario y/o contraseña incorrecto";
             }
+            else
+                lblConnectedLogIn.Text = "Por favor, introduzca su usuario y contraseña";
         }
     }
 }
