@@ -19,6 +19,7 @@ namespace CodeLinker
 
             var footer = Master.FindControl("footer") as HtmlGenericControl;
             footer.Style["display"] = "none";
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
