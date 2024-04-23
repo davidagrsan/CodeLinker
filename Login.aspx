@@ -21,7 +21,7 @@
                 <br><br>
                 <input type="checkbox" name="forgotPassword" id="forgotPassword">Has olvidado tu contraseña?
                 <br><br>
-                <asp:Button ID="btnLogin" runat="server" Text="Inicia sesión" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" runat="server" Text="Crear sesión" OnClick="btnLogin_Click" />
                 <br><br>
                 <p>¿Aún no tienes una cuenta? <a href="signUp.aspx">Regístrate</a></p>
             </div>

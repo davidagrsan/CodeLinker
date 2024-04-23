@@ -21,17 +21,44 @@ namespace CodeLinker
             footer.Style["display"] = "none";
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnRegister_Click(object sender, EventArgs e)
         {
-            if(txtBoxUser.Text != ""|| txtBoxPwd.Text != "")
+            bool creationStatus = false;
+            //Check if all textboxes have any kind of Value
+            if (txtBoxUser.Text == "" || txtBoxPwd.Text == "" || txtBoxConfirmPwd.Text == "" || txtBoxEmail.Text == "")
             {
-                if (uDAL.logInCredentials(txtBoxUser.Text, txtBoxPwd.Text).Status)
-                {
-                    Session["connected"] = true;
-                    Response.Redirect("Default.aspx");
-                }
-                else lblConnected.Text = "Usuario y/o contraseña incorrecto";
+                lblCreationStatus.Text = "Por favor, rellena todos los campos";
+                return;
             }
+            //Checks for password requirements: Length >= 8, UpperCase, LowerCase, Number and special Character
+            if(!(txtBoxPwd.Text.Length > 7 && txtBoxPwd.Text.Any(char.IsUpper) && txtBoxPwd.Text.Any(char.IsLower) && txtBoxPwd.Text.Any(char.IsDigit) && txtBoxPwd.Text.Any(c => !char.IsLetterOrDigit(c))))
+            {
+                lblCreationStatus.Text = "Por favor, asegúrese que la contraseña cumpla los requisitos de longitud y complejidad (mínimo 8 carácteres, minúscula, mayúscula, número y carácter especial";
+                return;
+            }
+            //Checks if both passwords matches
+            if (!txtBoxPwd.Text.Equals(txtBoxConfirmPwd.Text))
+            {
+                lblCreationStatus.Text = "Las contraseñas no coinciden";
+                return;
+            }
+            //If all the checks are passed, it will create the new user
+            User nuevoUsuario = new User
+            {
+                UserName = txtBoxUser.Text,
+                Password = txtBoxConfirmPwd.Text,
+                Email = txtBoxEmail.Text,
+                SpecialityFK = null,
+                UserTypeFK = null
+            };
+
+            creationStatus = uDAL.CreateUser(nuevoUsuario);
+            //If the Insert gets an exception which type is SqlConnection (Since UserName and Email are Unique constraints) it will tell the user that email or user are on use
+            if (creationStatus)
+                Response.Redirect("Default.aspx");
+            else
+                lblCreationStatus.Text = "El usuario o correo están en uso";
+
         }
     }
 }
