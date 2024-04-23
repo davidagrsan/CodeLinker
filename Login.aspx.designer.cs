@@ -11,7 +11,7 @@ namespace CodeLinker
 {
 
 
-    public partial class Login
+    public partial class _Default
     {
 
         /// <summary>

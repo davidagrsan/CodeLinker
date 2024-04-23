@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/login.css"/>
-    <main class="login">
+    <main class="signup">
         <div>
             <div>
                 <br />
