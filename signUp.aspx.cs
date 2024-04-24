@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -24,14 +25,21 @@ namespace CodeLinker
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             bool creationStatus = false;
+            string emailFormat = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             //Comprueba que no se dejen campos vacíos
             if (txtBoxUser.Text == "" || txtBoxPwd.Text == "" || txtBoxConfirmPwd.Text == "" || txtBoxEmail.Text == "")
             {
                 lblCreationStatus.Text = "Por favor, rellena todos los campos";
                 return;
             }
+            //Comprueba el formato del correo
+            if(!Regex.IsMatch(txtBoxEmail.Text, emailFormat))
+            {
+                lblCreationStatus.Text = "Por favor, introduzca un correo válido";
+                return;
+            }
             //Asegura los requisitos mínimos de complejidad de la contraseña: mínimo 8 caracteres, mayúscula, minúscula, número y carácter especial
-            if(!(txtBoxPwd.Text.Length > 7 && txtBoxPwd.Text.Any(char.IsUpper) && txtBoxPwd.Text.Any(char.IsLower) && txtBoxPwd.Text.Any(char.IsDigit) && txtBoxPwd.Text.Any(c => !char.IsLetterOrDigit(c))))
+            if (!(txtBoxPwd.Text.Length > 7 && txtBoxPwd.Text.Any(char.IsUpper) && txtBoxPwd.Text.Any(char.IsLower) && txtBoxPwd.Text.Any(char.IsDigit) && txtBoxPwd.Text.Any(c => !char.IsLetterOrDigit(c))))
             {
                 lblCreationStatus.Text = "Por favor, asegúrese que la contraseña cumpla los requisitos de longitud y complejidad (mínimo 8 carácteres, minúscula, mayúscula, número y carácter especial";
                 return;
