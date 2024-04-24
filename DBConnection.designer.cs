@@ -42,9 +42,6 @@ namespace CodeLinker
     partial void InsertProjectCategory(ProjectCategory instance);
     partial void UpdateProjectCategory(ProjectCategory instance);
     partial void DeleteProjectCategory(ProjectCategory instance);
-    partial void InsertProjectHasCategory(ProjectHasCategory instance);
-    partial void UpdateProjectHasCategory(ProjectHasCategory instance);
-    partial void DeleteProjectHasCategory(ProjectHasCategory instance);
     partial void InsertProjectType(ProjectType instance);
     partial void UpdateProjectType(ProjectType instance);
     partial void DeleteProjectType(ProjectType instance);
@@ -67,9 +64,8 @@ namespace CodeLinker
     partial void UpdateUserReviewsProject(UserReviewsProject instance);
     partial void DeleteUserReviewsProject(UserReviewsProject instance);
         #endregion
-
         public DBConnectionDataContext() :
-		base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
@@ -127,14 +123,6 @@ namespace CodeLinker
 			get
 			{
 				return this.GetTable<ProjectCategory>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ProjectHasCategory> ProjectHasCategory
-		{
-			get
-			{
-				return this.GetTable<ProjectHasCategory>();
 			}
 		}
 		
@@ -515,7 +503,7 @@ namespace CodeLinker
 		
 		private int _ProjectTypeFK;
 		
-		private EntitySet<ProjectHasCategory> _ProjectHasCategory;
+		private int _ProjectCategoryFK;
 		
 		private EntitySet<UserLikesProject> _UserLikesProject;
 		
@@ -526,6 +514,8 @@ namespace CodeLinker
 		private EntityRef<ProgrammingLanguage> _ProgrammingLanguage;
 		
 		private EntityRef<ProgrammingLanguage> _ProgrammingLanguage1;
+		
+		private EntityRef<ProjectCategory> _ProjectCategory;
 		
 		private EntityRef<ProjectType> _ProjectType;
 		
@@ -563,16 +553,18 @@ namespace CodeLinker
     partial void OnSecondaryLanguageChanged();
     partial void OnProjectTypeFKChanging(int value);
     partial void OnProjectTypeFKChanged();
+    partial void OnProjectCategoryFKChanging(int value);
+    partial void OnProjectCategoryFKChanged();
     #endregion
 		
 		public Project()
 		{
-			this._ProjectHasCategory = new EntitySet<ProjectHasCategory>(new Action<ProjectHasCategory>(this.attach_ProjectHasCategory), new Action<ProjectHasCategory>(this.detach_ProjectHasCategory));
 			this._UserLikesProject = new EntitySet<UserLikesProject>(new Action<UserLikesProject>(this.attach_UserLikesProject), new Action<UserLikesProject>(this.detach_UserLikesProject));
 			this._UserParticipatesProject = new EntitySet<UserParticipatesProject>(new Action<UserParticipatesProject>(this.attach_UserParticipatesProject), new Action<UserParticipatesProject>(this.detach_UserParticipatesProject));
 			this._UserReviewsProject = new EntitySet<UserReviewsProject>(new Action<UserReviewsProject>(this.attach_UserReviewsProject), new Action<UserReviewsProject>(this.detach_UserReviewsProject));
 			this._ProgrammingLanguage = default(EntityRef<ProgrammingLanguage>);
 			this._ProgrammingLanguage1 = default(EntityRef<ProgrammingLanguage>);
+			this._ProjectCategory = default(EntityRef<ProjectCategory>);
 			this._ProjectType = default(EntityRef<ProjectType>);
 			OnCreated();
 		}
@@ -889,16 +881,27 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectHasCategory", Storage="_ProjectHasCategory", ThisKey="ProjectId", OtherKey="ProjectFK")]
-		public EntitySet<ProjectHasCategory> ProjectHasCategory
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectCategoryFK", DbType="Int NOT NULL")]
+		public int ProjectCategoryFK
 		{
 			get
 			{
-				return this._ProjectHasCategory;
+				return this._ProjectCategoryFK;
 			}
 			set
 			{
-				this._ProjectHasCategory.Assign(value);
+				if ((this._ProjectCategoryFK != value))
+				{
+					if (this._ProjectCategory.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProjectCategoryFKChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectCategoryFK = value;
+					this.SendPropertyChanged("ProjectCategoryFK");
+					this.OnProjectCategoryFKChanged();
+				}
 			}
 		}
 		
@@ -1009,6 +1012,40 @@ namespace CodeLinker
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCategory_Project", Storage="_ProjectCategory", ThisKey="ProjectCategoryFK", OtherKey="CategoryId", IsForeignKey=true)]
+		public ProjectCategory ProjectCategory
+		{
+			get
+			{
+				return this._ProjectCategory.Entity;
+			}
+			set
+			{
+				ProjectCategory previousValue = this._ProjectCategory.Entity;
+				if (((previousValue != value) 
+							|| (this._ProjectCategory.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProjectCategory.Entity = null;
+						previousValue.Project.Remove(this);
+					}
+					this._ProjectCategory.Entity = value;
+					if ((value != null))
+					{
+						value.Project.Add(this);
+						this._ProjectCategoryFK = value.CategoryId;
+					}
+					else
+					{
+						this._ProjectCategoryFK = default(int);
+					}
+					this.SendPropertyChanged("ProjectCategory");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectType_Project", Storage="_ProjectType", ThisKey="ProjectTypeFK", OtherKey="ProjectTypeId", IsForeignKey=true)]
 		public ProjectType ProjectType
 		{
@@ -1063,18 +1100,6 @@ namespace CodeLinker
 			}
 		}
 		
-		private void attach_ProjectHasCategory(ProjectHasCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = this;
-		}
-		
-		private void detach_ProjectHasCategory(ProjectHasCategory entity)
-		{
-			this.SendPropertyChanging();
-			entity.Project = null;
-		}
-		
 		private void attach_UserLikesProject(UserLikesProject entity)
 		{
 			this.SendPropertyChanging();
@@ -1122,7 +1147,7 @@ namespace CodeLinker
 		
 		private string _CategoryName;
 		
-		private EntitySet<ProjectHasCategory> _ProjectHasCategory;
+		private EntitySet<Project> _Project;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1136,7 +1161,7 @@ namespace CodeLinker
 		
 		public ProjectCategory()
 		{
-			this._ProjectHasCategory = new EntitySet<ProjectHasCategory>(new Action<ProjectHasCategory>(this.attach_ProjectHasCategory), new Action<ProjectHasCategory>(this.detach_ProjectHasCategory));
+			this._Project = new EntitySet<Project>(new Action<Project>(this.attach_Project), new Action<Project>(this.detach_Project));
 			OnCreated();
 		}
 		
@@ -1180,16 +1205,16 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCategory_ProjectHasCategory", Storage="_ProjectHasCategory", ThisKey="CategoryId", OtherKey="CategoryFK")]
-		public EntitySet<ProjectHasCategory> ProjectHasCategory
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCategory_Project", Storage="_Project", ThisKey="CategoryId", OtherKey="ProjectCategoryFK")]
+		public EntitySet<Project> Project
 		{
 			get
 			{
-				return this._ProjectHasCategory;
+				return this._Project;
 			}
 			set
 			{
-				this._ProjectHasCategory.Assign(value);
+				this._Project.Assign(value);
 			}
 		}
 		
@@ -1213,208 +1238,16 @@ namespace CodeLinker
 			}
 		}
 		
-		private void attach_ProjectHasCategory(ProjectHasCategory entity)
+		private void attach_Project(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.ProjectCategory = this;
 		}
 		
-		private void detach_ProjectHasCategory(ProjectHasCategory entity)
+		private void detach_Project(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.ProjectCategory = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProjectHasCategory")]
-	public partial class ProjectHasCategory : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CategoryProjectRelationId;
-		
-		private System.Nullable<int> _CategoryFK;
-		
-		private System.Nullable<int> _ProjectFK;
-		
-		private EntityRef<ProjectCategory> _ProjectCategory;
-		
-		private EntityRef<Project> _Project;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCategoryProjectRelationIdChanging(int value);
-    partial void OnCategoryProjectRelationIdChanged();
-    partial void OnCategoryFKChanging(System.Nullable<int> value);
-    partial void OnCategoryFKChanged();
-    partial void OnProjectFKChanging(System.Nullable<int> value);
-    partial void OnProjectFKChanged();
-    #endregion
-		
-		public ProjectHasCategory()
-		{
-			this._ProjectCategory = default(EntityRef<ProjectCategory>);
-			this._Project = default(EntityRef<Project>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryProjectRelationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int CategoryProjectRelationId
-		{
-			get
-			{
-				return this._CategoryProjectRelationId;
-			}
-			set
-			{
-				if ((this._CategoryProjectRelationId != value))
-				{
-					this.OnCategoryProjectRelationIdChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryProjectRelationId = value;
-					this.SendPropertyChanged("CategoryProjectRelationId");
-					this.OnCategoryProjectRelationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CategoryFK", DbType="Int")]
-		public System.Nullable<int> CategoryFK
-		{
-			get
-			{
-				return this._CategoryFK;
-			}
-			set
-			{
-				if ((this._CategoryFK != value))
-				{
-					if (this._ProjectCategory.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCategoryFKChanging(value);
-					this.SendPropertyChanging();
-					this._CategoryFK = value;
-					this.SendPropertyChanged("CategoryFK");
-					this.OnCategoryFKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectFK", DbType="Int")]
-		public System.Nullable<int> ProjectFK
-		{
-			get
-			{
-				return this._ProjectFK;
-			}
-			set
-			{
-				if ((this._ProjectFK != value))
-				{
-					if (this._Project.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProjectFKChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectFK = value;
-					this.SendPropertyChanged("ProjectFK");
-					this.OnProjectFKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProjectCategory_ProjectHasCategory", Storage="_ProjectCategory", ThisKey="CategoryFK", OtherKey="CategoryId", IsForeignKey=true)]
-		public ProjectCategory ProjectCategory
-		{
-			get
-			{
-				return this._ProjectCategory.Entity;
-			}
-			set
-			{
-				ProjectCategory previousValue = this._ProjectCategory.Entity;
-				if (((previousValue != value) 
-							|| (this._ProjectCategory.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ProjectCategory.Entity = null;
-						previousValue.ProjectHasCategory.Remove(this);
-					}
-					this._ProjectCategory.Entity = value;
-					if ((value != null))
-					{
-						value.ProjectHasCategory.Add(this);
-						this._CategoryFK = value.CategoryId;
-					}
-					else
-					{
-						this._CategoryFK = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ProjectCategory");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_ProjectHasCategory", Storage="_Project", ThisKey="ProjectFK", OtherKey="ProjectId", IsForeignKey=true)]
-		public Project Project
-		{
-			get
-			{
-				return this._Project.Entity;
-			}
-			set
-			{
-				Project previousValue = this._Project.Entity;
-				if (((previousValue != value) 
-							|| (this._Project.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Project.Entity = null;
-						previousValue.ProjectHasCategory.Remove(this);
-					}
-					this._Project.Entity = value;
-					if ((value != null))
-					{
-						value.ProjectHasCategory.Add(this);
-						this._ProjectFK = value.ProjectId;
-					}
-					else
-					{
-						this._ProjectFK = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Project");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -1678,6 +1511,8 @@ namespace CodeLinker
 		
 		private System.Nullable<int> _UserTypeFK;
 		
+		private System.Nullable<bool> _Privacy;
+		
 		private EntitySet<UserKnowsLanguage> _UserKnowsLanguage;
 		
 		private EntitySet<UserLikesProject> _UserLikesProject;
@@ -1720,6 +1555,8 @@ namespace CodeLinker
     partial void OnSpecialityFKChanged();
     partial void OnUserTypeFKChanging(System.Nullable<int> value);
     partial void OnUserTypeFKChanged();
+    partial void OnPrivacyChanging(System.Nullable<bool> value);
+    partial void OnPrivacyChanged();
     #endregion
 		
 		public User()
@@ -1997,6 +1834,26 @@ namespace CodeLinker
 					this._UserTypeFK = value;
 					this.SendPropertyChanged("UserTypeFK");
 					this.OnUserTypeFKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Privacy", DbType="Bit")]
+		public System.Nullable<bool> Privacy
+		{
+			get
+			{
+				return this._Privacy;
+			}
+			set
+			{
+				if ((this._Privacy != value))
+				{
+					this.OnPrivacyChanging(value);
+					this.SendPropertyChanging();
+					this._Privacy = value;
+					this.SendPropertyChanged("Privacy");
+					this.OnPrivacyChanged();
 				}
 			}
 		}

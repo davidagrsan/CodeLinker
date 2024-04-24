@@ -43,11 +43,13 @@ namespace CodeLinker
                 return;
             }
             //Si todo lo anterior se cumple, crea el nuevo usuario y lo sube
+            byte[] defaultProfilePicture = System.IO.File.ReadAllBytes("Content/img/logo-without-letters.png");
             User newUser = new User
             {
                 UserName = txtBoxUser.Text,
                 Password = txtBoxConfirmPwd.Text,
                 Email = txtBoxEmail.Text,
+                ProfilePhoto = defaultProfilePicture,
                 SpecialityFK = null,
                 UserTypeFK = null
             };
