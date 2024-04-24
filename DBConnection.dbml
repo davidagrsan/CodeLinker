@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CodeLinker" Class="DBConnectionDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CodeLinker" Class="DBConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.ProgrammingLanguage" Member="ProgrammingLanguage">
     <Type Name="ProgrammingLanguage">
       <Column Name="LanguageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -32,12 +32,13 @@
       <Column Name="Mainlanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SecondaryLanguage" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ProjectTypeFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Project_ProjectHasCategory" Member="ProjectHasCategory" ThisKey="ProjectId" OtherKey="ProjectFK" Type="ProjectHasCategory" />
+      <Column Name="ProjectCategoryFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Project_UserLikesProject" Member="UserLikesProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserLikesProject" />
       <Association Name="Project_UserParticipatesProject" Member="UserParticipatesProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserParticipatesProject" />
       <Association Name="Project_UserReviewsProject" Member="UserReviewsProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserReviewsProject" />
       <Association Name="ProgrammingLanguage_Project" Member="ProgrammingLanguage" ThisKey="Mainlanguage" OtherKey="LanguageId" Type="ProgrammingLanguage" IsForeignKey="true" />
       <Association Name="ProgrammingLanguage_Project1" Member="ProgrammingLanguage1" ThisKey="SecondaryLanguage" OtherKey="LanguageId" Type="ProgrammingLanguage" IsForeignKey="true" />
+      <Association Name="ProjectCategory_Project" Member="ProjectCategory" ThisKey="ProjectCategoryFK" OtherKey="CategoryId" Type="ProjectCategory" IsForeignKey="true" />
       <Association Name="ProjectType_Project" Member="ProjectType" ThisKey="ProjectTypeFK" OtherKey="ProjectTypeId" Type="ProjectType" IsForeignKey="true" />
     </Type>
   </Table>
@@ -45,16 +46,7 @@
     <Type Name="ProjectCategory">
       <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CategoryName" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Association Name="ProjectCategory_ProjectHasCategory" Member="ProjectHasCategory" ThisKey="CategoryId" OtherKey="CategoryFK" Type="ProjectHasCategory" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProjectHasCategory" Member="ProjectHasCategory">
-    <Type Name="ProjectHasCategory">
-      <Column Name="CategoryProjectRelationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CategoryFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProjectFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ProjectCategory_ProjectHasCategory" Member="ProjectCategory" ThisKey="CategoryFK" OtherKey="CategoryId" Type="ProjectCategory" IsForeignKey="true" />
-      <Association Name="Project_ProjectHasCategory" Member="Project" ThisKey="ProjectFK" OtherKey="ProjectId" Type="Project" IsForeignKey="true" />
+      <Association Name="ProjectCategory_Project" Member="Project" ThisKey="CategoryId" OtherKey="ProjectCategoryFK" Type="Project" />
     </Type>
   </Table>
   <Table Name="dbo.ProjectType" Member="ProjectType">
@@ -86,6 +78,7 @@
       <Column Name="GitHubURL" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
       <Column Name="SpecialityFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserTypeFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Privacy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="User_UserKnowsLanguage" Member="UserKnowsLanguage" ThisKey="UserId" OtherKey="UserFK" Type="UserKnowsLanguage" />
       <Association Name="User_UserLikesProject" Member="UserLikesProject" ThisKey="UserId" OtherKey="UserFK" Type="UserLikesProject" />
       <Association Name="User_UserParticipatesProject" Member="UserParticipatesProject" ThisKey="UserId" OtherKey="UserFK" Type="UserParticipatesProject" />

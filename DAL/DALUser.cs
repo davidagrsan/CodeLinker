@@ -45,5 +45,22 @@ namespace CodeLinker.DAL
             }
             return false;
         }
+
+        public void UpdateUser(User updatedUser)
+        {
+            try
+            {
+                var query = (from user in dc.User
+                             where user.UserId == updatedUser.UserId
+                             select user).FirstOrDefault();
+
+                query.ProfilePhoto = updatedUser.ProfilePhoto;
+                dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
