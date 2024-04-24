@@ -16,7 +16,8 @@ namespace CodeLinker
             User connectedUser = (User)Session["connectedUser"];
             if (connected)
             {
-                login__text.InnerHtml = "Bienvenid@ " + connectedUser.UserName + "!";
+                login__text.InnerHtml = connectedUser.UserName;
+                login__text.HRef = "UserProfile.aspx";
             }
         }
     }
