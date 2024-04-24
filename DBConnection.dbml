@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CodeLinker" Class="DBConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CodeLinker" Class="DBConnectionDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.ProgrammingLanguage" Member="ProgrammingLanguage">
     <Type Name="ProgrammingLanguage">
       <Column Name="LanguageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -79,13 +79,13 @@
       <Column Name="ProfilePhoto" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="LinkedInURL" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
       <Column Name="GitHubURL" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
-      <Column Name="SpecialityFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UserTypeFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SpecialityFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserTypeFK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="User_UserKnowsLanguage" Member="UserKnowsLanguage" ThisKey="UserId" OtherKey="UserFK" Type="UserKnowsLanguage" />
       <Association Name="User_UserLikesProject" Member="UserLikesProject" ThisKey="UserId" OtherKey="UserFK" Type="UserLikesProject" />
       <Association Name="User_UserParticipatesProject" Member="UserParticipatesProject" ThisKey="UserId" OtherKey="UserFK" Type="UserParticipatesProject" />

@@ -15,39 +15,39 @@ namespace CodeLinker
     {
 
         /// <summary>
-        /// Control lblConnected.
+        /// Control lblConnectedLogIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConnected;
+        protected global::System.Web.UI.WebControls.Label lblConnectedLogIn;
 
         /// <summary>
-        /// Control txtBoxUser.
+        /// Control txtBoxUserLogIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxUser;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxUserLogIn;
 
         /// <summary>
-        /// Control txtBoxPwd.
+        /// Control txtBoxPwdLogIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBoxPwd;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxPwdLogIn;
 
         /// <summary>
-        /// Control btnLogin.
+        /// Control btn__login.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btn__login;
     }
 }

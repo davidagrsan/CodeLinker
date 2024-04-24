@@ -15,13 +15,13 @@ namespace CodeLinker
     {
 
         /// <summary>
-        /// Control lblConnected.
+        /// Control lblCreationStatus.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConnected;
+        protected global::System.Web.UI.WebControls.Label lblCreationStatus;
 
         /// <summary>
         /// Control txtBoxUser.
@@ -33,6 +33,15 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.TextBox txtBoxUser;
 
         /// <summary>
+        /// Control txtBoxEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxEmail;
+
+        /// <summary>
         /// Control txtBoxPwd.
         /// </summary>
         /// <remarks>
@@ -42,21 +51,21 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.TextBox txtBoxPwd;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtBoxConfirmPwd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxConfirmPwd;
 
         /// <summary>
-        /// Control btnLogin.
+        /// Control btnRegister.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

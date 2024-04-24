@@ -69,7 +69,7 @@ namespace CodeLinker
         #endregion
 
         public DBConnectionDataContext() :
-base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
+		base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
@@ -1674,9 +1674,9 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 		
 		private string _GitHubURL;
 		
-		private int _SpecialityFK;
+		private System.Nullable<int> _SpecialityFK;
 		
-		private int _UserTypeFK;
+		private System.Nullable<int> _UserTypeFK;
 		
 		private EntitySet<UserKnowsLanguage> _UserKnowsLanguage;
 		
@@ -1716,9 +1716,9 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
     partial void OnLinkedInURLChanged();
     partial void OnGitHubURLChanging(string value);
     partial void OnGitHubURLChanged();
-    partial void OnSpecialityFKChanging(int value);
+    partial void OnSpecialityFKChanging(System.Nullable<int> value);
     partial void OnSpecialityFKChanged();
-    partial void OnUserTypeFKChanging(int value);
+    partial void OnUserTypeFKChanging(System.Nullable<int> value);
     partial void OnUserTypeFKChanged();
     #endregion
 		
@@ -1853,7 +1853,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -1953,8 +1953,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecialityFK", DbType="Int NOT NULL")]
-		public int SpecialityFK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecialityFK", DbType="Int")]
+		public System.Nullable<int> SpecialityFK
 		{
 			get
 			{
@@ -1977,8 +1977,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserTypeFK", DbType="Int NOT NULL")]
-		public int UserTypeFK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserTypeFK", DbType="Int")]
+		public System.Nullable<int> UserTypeFK
 		{
 			get
 			{
@@ -2080,7 +2080,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 					}
 					else
 					{
-						this._SpecialityFK = default(int);
+						this._SpecialityFK = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Speciality");
 				}
@@ -2114,7 +2114,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 					}
 					else
 					{
-						this._UserTypeFK = default(int);
+						this._UserTypeFK = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("UserType");
 				}

@@ -90,7 +90,6 @@
                 </ul>
                 <div class="navbar__login">
                     <i class="fa-solid fa-user login__logo"></i>
-                    <%--<asp:Label ID="lbl" runat="server" Text="Label"></asp:Label>--%>
                     <span class="login__text"><a href="Login.aspx" class="navbar__option" id="login__text" runat="server">Iniciar sesión/Registrarse</a></span>
                 </div>
             </nav>
