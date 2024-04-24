@@ -4,16 +4,14 @@
         <main class="proyectos">
             <h1>&#60;Proyectos&#62;</h1>
             <section id="project__filters">
-                <div id="project__CheckBoxes">
-                    <div>
+                <div>
                         <asp:Button ID="butClean" runat="server" Text="Limpiar filtros" />
+                </div>
+                <div id="project__CheckBoxes">
                         <asp:CheckBox ID="checkOpen" runat="server" />
-                        <asp:Label ID="lblCheckOpen" runat="server" Text="Proceso abierto"></asp:Label>
-                    </div>
-                   <div>
+                        <asp:Label ID="lblCheckOpen" runat="server" Text="Proceso abierto"></asp:Label> 
                         <asp:CheckBox ID="checkEnded" runat="server" />
                         <asp:Label ID="lblCheckEnded" runat="server" Text="Solo finalizados"></asp:Label>
-                    </div>
                 </div>
                 <div id="project__DropDownLists">
                     <div>

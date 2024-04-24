@@ -52,7 +52,7 @@ namespace CodeLinker
                 UserTypeFK = null
             };
 
-            creationStatus = uDAL.CreateUser(nuevoUsuario);
+            creationStatus = uDAL.CreateUser(newUser);
             //If the Insert gets an exception which type is SqlConnection (Since UserName and Email are Unique constraints) it will tell the user that email or user are on use
             if (creationStatus)
                 Response.Redirect("Default.aspx");
