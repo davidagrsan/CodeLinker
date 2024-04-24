@@ -23,7 +23,7 @@ namespace CodeLinker
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CodeLinker")]
-	public partial class DBConnectionDataContext : System.Data.Linq.DataContext
+	public partial class DBConnectionDataContextDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -76,19 +76,19 @@ namespace CodeLinker
 			OnCreated();
 		}
 		
-		public DBConnectionDataContext(System.Data.IDbConnection connection) : 
+		public DBConnectionDataContextDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DBConnectionDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DBConnectionDataContextDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DBConnectionDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DBConnectionDataContextDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
