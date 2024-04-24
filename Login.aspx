@@ -11,7 +11,7 @@
             </div>
             <div>
                 <br /><br />
-                <asp:Label ID="lblConnectedLogIn" runat="server"></asp:Label>
+                <asp:Label ID="lblConnectedLogIn" CssClass="connected" runat="server"></asp:Label>
                 <br /><br />
                 <label for="loginName"><b>Usuario o Correo</b></label><br />
                 <asp:TextBox ID="txtBoxUserLogIn" runat="server" placeholder="Usuario o Correo"></asp:TextBox>

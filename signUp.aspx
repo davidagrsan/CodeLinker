@@ -11,7 +11,7 @@
             </div>
             <div>
                 <br /><br />
-                <asp:Label ID="lblCreationStatus" runat="server"></asp:Label>
+                <asp:Label ID="lblCreationStatus" CssClass="connected" runat="server"></asp:Label>
                 <br /><br />
                 <label for="loginName"><b>Usuario</b></label><br />
                 <asp:TextBox ID="txtBoxUser" runat="server" placeholder="Usuario"></asp:TextBox>

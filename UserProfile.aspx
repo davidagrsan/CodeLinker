@@ -12,6 +12,11 @@
         <div>
             <asp:Button ID="btnChangePhoto" runat="server" Text="Foto" OnClick="btnChangePhoto_Click" />
             <asp:Button ID="btnDisconnect" runat="server" OnClick="btnDisconnect_Click" Text="Desconectar" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <asp:Image ID="ProfilePicture" runat="server" />
         </div>
     </form>
 </body>
