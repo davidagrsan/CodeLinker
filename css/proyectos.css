@@ -39,10 +39,10 @@ section#project__filters {
 div#project__DropDownLists {
     display: flex;
 }
-.project__language, .project__type {
+.project__language, .project__category {
     background-color: #5B2A79;
 }
-p.project__language, p.project__type {
+p.project__language, p.project__category {
     color: #ffff!important;
 }
 .project__language {
@@ -53,11 +53,11 @@ p.project__language, p.project__type {
     border-radius: 100px;
     padding: 1em;
 }
-.project__language p, .project__language span, .project__category p, .project__category span {
+.project__language p, .project__language span, .project__type p, .project__type span {
     color: white;
 }
 p.project__type {
-    color: #5b2a79;
+    color: #5b2a79!important;
     font-weight: bolder;
     font-size: 1.25rem;
 }

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace CodeLinker
@@ -56,90 +57,93 @@ namespace CodeLinker
 
             foreach (Project project in projectList)
             {
-                DrawProjectHTML(project);
+                HtmlGenericControl projectHtml = DrawProjectHTML(project);
+                project__projects.Controls.Add(projectHtml);
             }
         }
 
-        private void DrawProjectHTML(Project project)
+        private HtmlGenericControl DrawProjectHTML(Project project)
         {
-            StringBuilder htmlBuilder = new StringBuilder();
-            int actualParticipants = dalProjects.CountParticipants(project.ProjectId);
-
-            // Inicio del contenedor principal
-            htmlBuilder.Append("<div class=\"project__container\">");
+            // Crear el contenedor principal
+            HtmlGenericControl projectContainer = new HtmlGenericControl("div");
+            projectContainer.Attributes["class"] = "project__container";
 
             // Primera fila
-            htmlBuilder.Append("<div class=\"project__firstRow\">");
-            htmlBuilder.Append($"<p class=\"project__language\">{project.ProgrammingLanguage}</p>");
-            htmlBuilder.Append("<p class=\"project__lblStartDate\">Fecha comienzo: <span class=\"project__numStartDate\">" + project.StartDate + "</span></p>");
-            htmlBuilder.Append($"<p class=\"project__type\">{project.ProjectType}</p>");
-            htmlBuilder.Append("<p class=\"project__lblEndDate\">Fecha límite: <span class=\"project__numEndDate\">" + project.DeliveryDate + "</span></p>");
-            // Iconos diferentes según la categoría
-            switch(project.Category)
+            HtmlGenericControl firstRow = new HtmlGenericControl("div");
+            firstRow.Attributes["class"] = "project__firstRow";
+            firstRow.Controls.Add(new LiteralControl($"<p class=\"project__language\">{project.ProgrammingLanguage}</p>"));
+            firstRow.Controls.Add(new LiteralControl($"<p class=\"project__lblStartDate\">Fecha comienzo: <span class=\"project__numStartDate\">{project.StartDate.ToString("dd/MM/yyyy")}</span></p>"));
+
+            // Icono de categoría
+            HtmlGenericControl categoryIcon = new HtmlGenericControl("p");
+            categoryIcon.Attributes["class"] = "project__category";
+            switch (project.ProjectCategoryFK)
             {
-                // Juegos
                 case 1:
-                    htmlBuilder.Append("<p class=\"project__category\"><i class=\"fa-solid fa-gamepad\"></i></p>");
+                    categoryIcon.InnerHtml = "<i class=\"fa-solid fa-gamepad\"></i>";
                     break;
-                // Herramientas y utilidades
                 case 2:
-                    htmlBuilder.Append("<p class=\"project__category\"><i class=\"fa-solid fa-screwdriver-wrench\"></i></p>");
+                    categoryIcon.InnerHtml = "<i class=\"fa-solid fa-screwdriver-wrench\"></i>";
                     break;
-                // Base de datos
                 case 3:
-                    htmlBuilder.Append("<p class=\"project__category\"><i class=\"fa-solid fa-database\"></i></p>");
+                    categoryIcon.InnerHtml = "<i class=\"fa-solid fa-database\"></i>";
                     break;
-                // Nutrición
                 case 4:
-                    htmlBuilder.Append("<p class=\"project__category\"><i class=\"fa-solid fa-apple-whole\"></i></p>");
+                    categoryIcon.InnerHtml = "<i class=\"fa-solid fa-apple-whole\"></i>";
                     break;
-                // Salud y bienestar
                 case 5:
-                    htmlBuilder.Append("<p class=\"project__category\"><i class=\"fa-solid fa-stethoscope\"></i></p>");
+                    categoryIcon.InnerHtml = "<i class=\"fa-solid fa-stethoscope\"></i>";
                     break;
             }
-            htmlBuilder.Append($"<p class=\"project__category\">{project.}</p>");
-            htmlBuilder.Append("</div>");
+            firstRow.Controls.Add(categoryIcon);
+
+            firstRow.Controls.Add(new LiteralControl($"<p class=\"project__lblEndDate\">Fecha límite: <span class=\"project__numEndDate\">{project.DeliveryDate.ToString("dd/MM/yyyy")}</span></p>"));
+
+            firstRow.Controls.Add(new LiteralControl($"<p class=\"project__type\">{project.ProjectType}</p>"));
+
+            projectContainer.Controls.Add(firstRow);
 
             // Segunda fila
-            htmlBuilder.Append("<div class=\"project__secondRow\">");
-            htmlBuilder.Append($"<h2 class=\"project__title\">{project.ProjectName}</h2>");
-            htmlBuilder.Append($"<p class=\"project__shortDesc\">{project.ShortDescription}</p>");
-            htmlBuilder.Append("</div>");
+            HtmlGenericControl secondRow = new HtmlGenericControl("div");
+            secondRow.Attributes["class"] = "project__secondRow";
+            secondRow.Controls.Add(new LiteralControl($"<h2 class=\"project__title\">{project.ProjectName}</h2>"));
+            secondRow.Controls.Add(new LiteralControl($"<p class=\"project__shortDesc\">{project.ShortDescription}</p>"));
+            projectContainer.Controls.Add(secondRow);
 
             // Tercera fila
-            htmlBuilder.Append("<div class=\"project__thirdRow\">");
-            htmlBuilder.Append("<div class=\"project__participantsContainer\">");
-            htmlBuilder.Append("<i class=\"fa-solid fa-users\"></i>");
-            htmlBuilder.Append("<div class=\"project__users\">");
-            htmlBuilder.Append($"<p class=\"project__actualParticipants\">{actualParticipants}</p>");
-            htmlBuilder.Append("<span class=\"separator\">/</span>");
-            htmlBuilder.Append($"<p class=\"project__maxParticipants\">{project.MaxUsers}</p>");
-            htmlBuilder.Append("</div>");
-            htmlBuilder.Append("</div>");
-            htmlBuilder.Append("<button class=\"project__moreInfo\">Ver más</button>");
+            HtmlGenericControl thirdRow = new HtmlGenericControl("div");
+            thirdRow.Attributes["class"] = "project__thirdRow";
 
-            // Estado (Abierto/Cerrado y En progreso/Cerrado)
-            htmlBuilder.Append("<div class=\"project__state\">");
-            if (project.Open)
-                htmlBuilder.Append("<span class=\"project__open\">Abierto</span>");
-            else
-                htmlBuilder.Append("<span class=\"project__closed\">Cerrado</span>");
+            // Participantes
+            HtmlGenericControl participantsContainer = new HtmlGenericControl("div");
+            participantsContainer.Attributes["class"] = "project__participantsContainer";
+            participantsContainer.InnerHtml = "<i class=\"fa-solid fa-users\"></i>";
 
-            if (project.Finalized)
-                htmlBuilder.Append("<span class=\"project__running\">En progreso</span>");
-            else
-                htmlBuilder.Append("<span class=\"project__running\">Cerrado</span>");
+            HtmlGenericControl usersContainer = new HtmlGenericControl("div");
+            usersContainer.Attributes["class"] = "project__users";
+            usersContainer.Controls.Add(new LiteralControl($"<p class=\"project__actualParticipants\">{dalProjects.CountParticipants(project.ProjectId)}</p>"));
+            usersContainer.Controls.Add(new LiteralControl("<span class=\"separator\">/</span>"));
+            usersContainer.Controls.Add(new LiteralControl($"<p class=\"project__maxParticipants\">{project.MaxUsers}</p>"));
+            participantsContainer.Controls.Add(usersContainer);
 
-            // Cierre de contenedores div
-            htmlBuilder.Append("</div>");
+            thirdRow.Controls.Add(participantsContainer);
 
-            htmlBuilder.Append("</div>");
+            // Botón "Ver más"
+            HtmlGenericControl moreInfoButton = new HtmlGenericControl("button");
+            moreInfoButton.Attributes["class"] = "project__moreInfo";
+            moreInfoButton.InnerText = "Ver más";
+            thirdRow.Controls.Add(moreInfoButton);
 
-            htmlBuilder.Append("</div>");
+            // Estado del proyecto
+            HtmlGenericControl stateContainer = new HtmlGenericControl("div");
+            stateContainer.Attributes["class"] = "project__state";
+            stateContainer.InnerHtml = project.Open ? "<span class=\"project__open\">Abierto</span>" : "<span class=\"project__closed\">Cerrado</span>";
+            stateContainer.InnerHtml += project.Finalized ? "<span class=\"project__running\">En progreso</span>" : "<span class=\"project__running\">Cerrado</span>";
+            thirdRow.Controls.Add(stateContainer);
 
-            return htmlBuilder.ToString();
+            projectContainer.Controls.Add(thirdRow);
+
+            return projectContainer;
         }
-    }
     }
 }
