@@ -30,8 +30,8 @@ namespace CodeLinker
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor navbar__header;
-        protected global::System.Web.UI.WebControls.Button login__text;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor login__text;
+        //protected global::System.Web.UI.WebControls.Button login__text;
 
         /// <summary>
         /// Control MainContent.
