@@ -8,9 +8,9 @@
                         <asp:Button ID="butClean" runat="server" Text="Limpiar filtros" />
                 </div>
                 <div id="project__CheckBoxes">
-                        <asp:CheckBox ID="checkOpen" runat="server" />
+                        <asp:CheckBox ID="checkOpen" runat="server" AutoPostBack="True"/>
                         <asp:Label ID="lblCheckOpen" runat="server" Text="Proceso abierto"></asp:Label> 
-                        <asp:CheckBox ID="checkEnded" runat="server" />
+                        <asp:CheckBox ID="checkEnded" runat="server" AutoPostBack="True" />
                         <asp:Label ID="lblCheckEnded" runat="server" Text="Solo finalizados"></asp:Label>
                 </div>
                 <div id="project__DropDownLists">
