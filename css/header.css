@@ -76,6 +76,11 @@
     text-decoration: none;
 }
 
+.navbar__sublist a {
+    color: white;
+    text-decoration: none;
+}
+
 .navbar__sublist{
     list-style: none;
     position: absolute;

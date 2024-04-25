@@ -55,6 +55,7 @@
     background-color: var(--primary);
     color: #fff;
     width: 50%;
+    height: fit-content;
     padding: 20px;
     border: 0;
     border-radius: 16px;
@@ -73,4 +74,14 @@
 
 .description__parrafo{
     margin-bottom: 45px;
+}
+input[type=text], input[type=email], textarea {
+    border-radius: 2px;
+    text-align: center;
+    color: black!important;
+    background-color: white!important;
+}
+input[type=text]::placeholder, input[type=email]::placeholder, textarea::placeholder {
+    color: black!important;
+    font-style: italic;
 }
