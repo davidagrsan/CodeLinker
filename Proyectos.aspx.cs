@@ -16,6 +16,9 @@ namespace CodeLinker
         DBConnectionDataContext dc = new DBConnectionDataContext();
         DALFilters dalFilters = new DALFilters();
         DALProjects dalProjects = new DALProjects();
+        List<Project> projectList = new List<Project>();
+        HtmlGenericControl projectHtml;
+        HtmlGenericControl projectContainer;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +27,12 @@ namespace CodeLinker
                 if (!IsPostBack)
                 {
                     LoadComboBoxes();
+                    projectList = dalProjects.LoadProjects();
                     LoadAllProjects();
+                }
+                else
+                {
+                    CheckOpen();
                 }
             }
             catch
@@ -52,12 +60,11 @@ namespace CodeLinker
 
         private void LoadAllProjects()
         {
-            List<Project> projectList = new List<Project>();
             projectList = dalProjects.LoadProjects();
 
             foreach (Project project in projectList)
             {
-                HtmlGenericControl projectHtml = DrawProjectHTML(project);
+                projectHtml = DrawProjectHTML(project);
                 project__projects.Controls.Add(projectHtml);
             }
         }
@@ -67,6 +74,8 @@ namespace CodeLinker
             // Crear el contenedor principal
             HtmlGenericControl projectContainer = new HtmlGenericControl("div");
             projectContainer.Attributes["class"] = "project__container";
+            projectContainer.ID = "projectContainer";
+            projectContainer.Attributes.Add("runat", "server");
 
             // Primera fila
             HtmlGenericControl firstRow = new HtmlGenericControl("div");
@@ -144,6 +153,36 @@ namespace CodeLinker
             projectContainer.Controls.Add(thirdRow);
 
             return projectContainer;
+        }
+
+        private void CheckOpen()
+        {
+            if (checkOpen.Checked)
+            {
+                foreach (Project project in projectList)
+                {
+                    if (!project.Open)
+                    {
+                        projectContainer.Attributes["class"] = projectHtml.Attributes["class"].Replace("visible", "").Trim();
+                        projectContainer.Attributes["class"] += "hidden";
+                    }
+                    else
+                    {
+                        projectContainer.Attributes["class"] = projectHtml.Attributes["class"].Replace("hidden", "").Trim();
+                        projectContainer.Attributes["class"] += "visible";
+                    }
+                }
+            } 
+            else
+            {
+                foreach (Project project in projectList)
+                {
+                    if (!project.Open)
+                        projectContainer.Attributes["class"] += "visible";
+                    else
+                        projectContainer.Attributes["class"] += "hidden";
+                }
+            }
         }
     }
 }
