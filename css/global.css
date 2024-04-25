@@ -1,3 +1,5 @@
+/* Arreglos generales */
+
 :root {
     --primary: #5b2a79;
     --secondary: #beaec2;
@@ -25,12 +27,19 @@ body::before {
     min-height: 100vh;
     background-image: url('../Content/img/fondo-1.jpeg');
     background-size: cover;
-    background-position: 0 -200px;
+    background-position: 0;
+    background-repeat: no-repeat;
     opacity: 0.1;
     z-index: -1;
 }
 a:hover {
     color: white!important;
+}
+
+/* Corrección header por debajo de main */
+.container.body-content {
+    z-index: 0;
+    position: relative;
 }
 
 /* Transición de invisible a visible */
