@@ -32,3 +32,50 @@ body::before {
 a:hover {
     color: white!important;
 }
+
+/* Transición de invisible a visible */
+main {
+    animation: fadeInMain ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.header {
+    animation: fadeInHeader ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+footer {
+    animation: fadeInFooter ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+	transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+	transform: translateY(0px);
+    }
+}
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+	transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes fadeInFooter {
+    0% {
+        opacity: 0;
+	transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
