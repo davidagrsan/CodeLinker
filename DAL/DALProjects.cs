@@ -17,6 +17,24 @@ namespace CodeLinker
             return data;
         }
 
+        public List<Project> LoadOpenClosedProjects(bool option)
+        {
+            var data = (from project in dc.Project
+                        where project.Open == option
+                        select project).ToList();
+
+            return data;
+        }
+
+        public List<Project> LoadInProgressEndedProjects(bool option)
+        {
+            var data = (from project in dc.Project
+                        where project.Finalized == option
+                        select project).ToList();
+
+            return data;
+        }
+
         public int CountParticipants(int projectId)
         {
             int countParticipants = (from up in dc.UserParticipatesProject

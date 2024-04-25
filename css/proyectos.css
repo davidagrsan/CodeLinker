@@ -15,8 +15,8 @@ section#MainContent_project__projects {
     font-size: 1.5rem;
     text-align: center;
 }
-div#project__CheckBoxes, div#project__DropDownLists {
-    margin-bottom: 1em;
+div#project__DropDownLists {
+    margin: 1em 0;
 }
 input#MainContent_butClean {
     background-color: #5b2a79;
@@ -29,9 +29,10 @@ input#MainContent_butClean {
 select#MainContent_comboProgrammingLanguage, select#MainContent_comboType, select#MainContent_comboCategory {
     padding: 0.5em;
 }
-input#MainContent_checkOpen, input#MainContent_checkEnded {
+input#MainContent_checkOpen, input#MainContent_checkClosed, input#MainContent_checkInProgress, input#MainContent_checkEnded {
     height: 20px;
     width: 20px;
+    margin: 0.5em;
 }
 section#project__filters {
     display: flex;
@@ -79,10 +80,14 @@ p.project__lblStartDate, span.project__numStartDate, p.project__lblEndDate, span
 .project__container p, .project__container span {
     color: black;
 }
-.project__CheckBoxes, .project__DropDownLists {
+.project__CheckBoxesFirst, .project__CheckBoxesSecond, .project__DropDownLists {
     display: flex;
 }
-#project__CheckBoxes div, #project__DropDownLists div {
+div#project__CheckBoxesFirst, div#project__CheckBoxesSecond {
+    display: flex;
+    align-items: center;
+}
+#project__DropDownLists div {
     padding: 0 1em;
 }
 .project__firstRow, .project__secondRow, .project__thirdRow {
