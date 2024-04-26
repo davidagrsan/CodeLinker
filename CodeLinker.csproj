@@ -122,6 +122,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateProject.aspx" />
     <Content Include="css\contacto.css" />
     <Content Include="css\footer.css" />
     <Content Include="css\global.css" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALFilters.cs" />
     <Compile Include="DAL\DALProjects.cs" />

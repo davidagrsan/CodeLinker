@@ -44,7 +44,9 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <%--<asp:ScriptReference Name="CreateProject.js" Assembly="System.Web" Path="~/Scripts/WebForms/CreateProject.js" />--%>
                 <asp:ScriptReference Name="WebFormsBundle" />
+
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -63,7 +65,7 @@
                             </div>
                             <ul class="navbar__sublist">
                                 <a href="Proyectos.aspx"><li class="navbar__suboption">Ver proyectos</li></a>
-                                <li class="navbar__suboption">Crear proyecto</li>
+                                <a href="CreateProject.aspx"><li class="navbar__suboption">Crear proyecto</li></a>
                             </ul>
                         </div>
                     </li>
