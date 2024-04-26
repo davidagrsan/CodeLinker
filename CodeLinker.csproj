@@ -129,6 +129,7 @@
     <Content Include="css\header.css" />
     <Content Include="css\home.css" />
     <Content Include="css\login.css" />
+    <Content Include="css\perfil.css" />
     <Content Include="css\proyectos.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -169,6 +170,7 @@
       <LastGenOutput>DBConnection.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Perfil.aspx" />
     <None Include="DBConnection.dbml.layout">
       <DependentUpon>DBConnection.dbml</DependentUpon>
     </None>
@@ -300,6 +302,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
