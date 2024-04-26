@@ -2,29 +2,59 @@
     max-width: 1400px;
     margin: auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+}
+section#MainContent_project__projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
 }
 .proyectos h1 {
     font-size: 1.5rem;
     text-align: center;
-    height: 120px;
+}
+div#project__DropDownLists {
+    margin: 1em 0;
+}
+input#MainContent_butClean {
+    background-color: #5b2a79;
+    border: none;
+    color: white;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+}
+select#MainContent_comboProgrammingLanguage, select#MainContent_comboType, select#MainContent_comboCategory {
+    padding: 0.5em;
+}
+input#MainContent_checkOpen, input#MainContent_checkClosed, input#MainContent_checkInProgress, input#MainContent_checkEnded {
+    height: 20px;
+    width: 20px;
+    margin: 0.5em;
 }
 section#project__filters {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.project__language, .project__type {
+div#project__DropDownLists {
+    display: flex;
+}
+.project__language, .project__category {
     background-color: #5B2A79;
+}
+p.project__language, p.project__category {
+    color: #ffff!important;
 }
 .project__language {
     border-radius: 25px;
-    padding: 1em 2em;
+    padding: 0.5em 1em;
 }
-.project__type {
+.project__category {
     border-radius: 100px;
-    padding: 1em;
+    padding: 0.5em;
 }
 .project__language p, .project__language span, .project__type p, .project__type span {
     color: white;
@@ -50,18 +80,36 @@ p.project__lblStartDate, span.project__numStartDate, p.project__lblEndDate, span
 .project__container p, .project__container span {
     color: black;
 }
-.project__CheckBoxes, .project__DropDownLists {
+.project__CheckBoxesFirst, .project__CheckBoxesSecond, .project__DropDownLists {
     display: flex;
 }
-#project__CheckBoxes div, #project__DropDownLists div {
+div#project__CheckBoxesFirst, div#project__CheckBoxesSecond {
+    display: flex;
+    align-items: center;
+}
+#project__DropDownLists div {
     padding: 0 1em;
 }
 .project__firstRow, .project__secondRow, .project__thirdRow {
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-between;
 }
-.project_secondRow {
+.project__secondRow {
     flex-direction: column;
+    margin: 2em 0;
+}
+.project__thirdRow {
+    align-items: flex-end;
+    justify-content: space-around;
+}
+h2.project__title {
+    color: black;
+    font-weight: bolder;
+    font-size: 1.50rem;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    margin-bottom: 0.5em;
 }
 .project__users {
     display: flex;
@@ -70,4 +118,49 @@ p.project__lblStartDate, span.project__numStartDate, p.project__lblEndDate, span
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 20%;
+}
+.project__participantsContainer i {
+    color: #5b2a79;
+    font-size: 1.50rem;
+}
+p.project__actualParticipants, span.separator, p.project__maxParticipants {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #5b2a79;
+}
+button.project__moreInfo {
+    background-color: #5b2a79;
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 1rem;
+    height: fit-content;
+    width: fit-content !important;
+}
+.project__state {
+    display: flex;
+    flex-direction: column;
+}
+span.project__open, span.project__closed {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+span.project__open {
+    color: #008900;
+}
+span.project__closed {
+    color: #ab0000;
+}
+span.project__running {
+    background-color: #5b2a79;
+    color: white;
+    padding: 0.5em;
+    border-radius: 50px;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
 }

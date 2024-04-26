@@ -49,7 +49,7 @@
         </asp:ScriptManager>
         <header id="navbar__header" class="header" runat="server">
             <nav class="header__navbar">
-                <img src="Content/img/header-logo.png" alt="Logo" class="navbar__logo">
+                <a href="Default.aspx"><img src="Content/img/header-logo.png" alt="Logo" class="navbar__logo"></a>
                 <ul class="navbar__list">
                     <li class="navbar__option-container">
                         <div>
@@ -100,7 +100,7 @@
         <footer id="footer" runat="server">
             <section id="footertop">
                 <div id="footerlogo">
-                    <img src="Content/img/logo-vertical.png" alt="logo-web-codelinkers">
+                    <a href="Default.aspx"><img src="Content/img/logo-vertical.png" alt="logo-web-codelinkers"></a>
                 </div>
                 <div id="footerproyectos">
                     <h4>Proyectos</h4>

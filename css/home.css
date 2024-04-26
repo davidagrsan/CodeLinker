@@ -1,12 +1,11 @@
 .home {
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     max-width: 1400px;
     width: 100%;
     padding: 20px;
     margin: auto;
 }
-
 .home__titulo, .home__titulo--violet {
     font-size: 2rem;
     margin: 50px auto;
@@ -88,7 +87,8 @@
 }
 
 .botones__btn {
-    height: 70px;
+    height: fit-content!important;
+    width: fit-content!important;
     padding: 20px;
     color: white;
     font-weight: bold;

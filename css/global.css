@@ -1,3 +1,5 @@
+/* Arreglos generales */
+
 :root {
     --primary: #5b2a79;
     --secondary: #beaec2;
@@ -25,10 +27,64 @@ body::before {
     min-height: 100vh;
     background-image: url('../Content/img/fondo-1.jpeg');
     background-size: cover;
-    background-position: 0 -200px;
+    background-position: 0;
+    background-repeat: no-repeat;
     opacity: 0.1;
     z-index: -1;
 }
 a:hover {
     color: white!important;
+}
+
+/* Corrección header por debajo de main */
+.container.body-content {
+    z-index: 0;
+    position: relative;
+}
+
+/* Transición de invisible a visible */
+main {
+    animation: fadeInMain ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.header {
+    animation: fadeInHeader ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+footer {
+    animation: fadeInFooter ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+	transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+	transform: translateY(0px);
+    }
+}
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+	transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes fadeInFooter {
+    0% {
+        opacity: 0;
+	transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
