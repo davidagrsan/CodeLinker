@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-arrow-down saber--mas__icon"></i>
 
                 <div class="saber-mas__logo-container">
-                    <img class="saber-mas__logo" src="Content/img/logo-without-letters.png" alt="Logo">
+                    <a href="AboutUs.aspx"><img class="saber-mas__logo" src="Content/img/logo-without-letters.png" alt="Logo"></a>
                 </div>
 
             </div>

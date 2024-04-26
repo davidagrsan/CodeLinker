@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/contacto.css"/>
     <link rel="stylesheet" href="css/login.css"/>
     <link rel="stylesheet" href="css/proyectos.css"/>
+    <link rel="stylesheet" href="css/sobre-nosotros.css"/>
 </head>
 <body>
     <form runat="server">
