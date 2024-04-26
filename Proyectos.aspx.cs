@@ -20,7 +20,7 @@ namespace CodeLinker
         List<Project> projectList = new List<Project>();
         HtmlGenericControl projectHtml;
         int containerIndex = 1;
-        List<string> filterNames = new List<string>();
+        List<string> actualFilters = new List<string>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,11 +34,10 @@ namespace CodeLinker
                 }
                 else
                 {
-                    // Si ha recargado en postback significa que hay un filtro activándose, por lo que se comprueban todos los posibles
-                    CheckOpen();
-                    CheckClosed();
-                    CheckInProgress();
-                    CheckEnded();
+                    FilterCheckBoxes();
+                    FilterProgrammingLanguage();
+                    FilterType();
+                    FilterCategory();
                 }
             }
             catch
@@ -119,6 +118,8 @@ namespace CodeLinker
 
         private HtmlGenericControl DrawProjectHTML(Project project)
         {
+            int actualParticipants = dalProjects.CountParticipants(project.ProjectId);
+
             // Genera indices nuevos para cada contenedor ya que cada control debe tener un nombre diferente
             string containerId = $"projectContainer_{containerIndex}";
             containerIndex++;
@@ -182,7 +183,7 @@ namespace CodeLinker
 
             HtmlGenericControl usersContainer = new HtmlGenericControl("div");
             usersContainer.Attributes["class"] = "project__users";
-            usersContainer.Controls.Add(new LiteralControl($"<p class=\"project__actualParticipants\">{dalProjects.CountParticipants(project.ProjectId)}</p>"));
+            usersContainer.Controls.Add(new LiteralControl($"<p class=\"project__actualParticipants\">{actualParticipants}</p>"));
             usersContainer.Controls.Add(new LiteralControl("<span class=\"separator\">/</span>"));
             usersContainer.Controls.Add(new LiteralControl($"<p class=\"project__maxParticipants\">{project.MaxUsers}</p>"));
             participantsContainer.Controls.Add(usersContainer);
@@ -198,8 +199,15 @@ namespace CodeLinker
             // Estado del proyecto
             HtmlGenericControl stateContainer = new HtmlGenericControl("div");
             stateContainer.Attributes["class"] = "project__state";
-            stateContainer.InnerHtml = project.Open ? "<span class=\"project__open\">Abierto</span>" : "<span class=\"project__closed\">Completo</span>";
-            stateContainer.InnerHtml += project.Finalized ? "<span class=\"project__running inProgress\">En progreso</span>" : "<span class=\"project__running finished\">Finalizado</span>";
+
+            // En caso de que el proyecto haya llegado al máximo de participantes se considerará completo automáticamente
+            if (dalProjects.CountParticipants(project.ProjectId) < project.MaxUsers)
+                stateContainer.InnerHtml = "<span class=\"project__open\">Abierto</span>";
+            else
+                stateContainer.InnerHtml = "<span class=\"project__closed\">Completo</span>";
+
+            stateContainer.InnerHtml += project.Finalized ? "<span class=\"project__running finished\">Finalizado</span>" : "<span class=\"project__running inProgress\">En progreso</span>";
+
             thirdRow.Controls.Add(stateContainer);
 
             projectContainer.Controls.Add(thirdRow);
@@ -207,71 +215,93 @@ namespace CodeLinker
             return projectContainer;
         }
 
-        private void CheckOpen()
+        private void FilterCheckBoxes()
         {
+            actualFilters.RemoveAll(filter => filter == "filterOpen" || filter == "filterClosed" || filter == "filterInProgress" || filter == "filterEnded");
+
             if (checkOpen.Checked)
             {
-                filterNames.Add("filterOpen");
-                LoadProjectsFiltered();
+                if (!checkEnded.Checked)
+                {
+                    actualFilters.Add("filterOpen");
+                }
             }
-            else if (!checkOpen.Checked)
-            {
-                filterNames.Remove("filterOpen");
-                LoadProjectsFiltered();
-            }
-        }
 
-        private void CheckClosed()
-        {
-            if (checkClosed.Checked)
-            {
-                filterNames.Add("filterClosed");
-                LoadProjectsFiltered();
-            }
-            else if (!checkClosed.Checked)
-            {
-                filterNames.Remove("filterClosed");
-                LoadProjectsFiltered();
-            }
-        }
-
-        private void CheckInProgress()
-        {
-            if (checkInProgress.Checked)
-            {
-                filterNames.Add("filterInProgress");
-                LoadProjectsFiltered();
-            }
-            else if (!checkInProgress.Checked)
-            {
-                filterNames.Remove("filterInProgress");
-                LoadProjectsFiltered();
-            }
-        }
-
-        private void CheckEnded()
-        {
             if (checkEnded.Checked)
             {
-                filterNames.Add("filterEnded");
-                LoadProjectsFiltered();
+                if (!checkOpen.Checked)
+                {
+                    actualFilters.Add("filterEnded");
+                }
             }
-            else if (!checkEnded.Checked)
+
+            LoadProjectsFiltered();
+        }
+
+        private void FilterProgrammingLanguage()
+        {
+            actualFilters.RemoveAll(filter => filter == ("filterLanguage"));
+
+            if (comboProgrammingLanguage.SelectedItem != null)
             {
-                filterNames.Remove("filterEnded");
-                LoadProjectsFiltered();
+                actualFilters.Add($"filterLanguage_{comboProgrammingLanguage.SelectedItem.ToString()}");
+            }
+
+            LoadProjectsFiltered();
+        }
+
+        private void FilterType()
+        {
+            actualFilters.RemoveAll(filter => filter == ("filterType"));
+
+            if (comboType.SelectedItem != null)
+            {
+                actualFilters.Add($"filterType_{comboType.SelectedItem.ToString()}");
+            }
+
+            LoadProjectsFiltered();
+        }
+
+        private void FilterCategory()
+        {
+            actualFilters.RemoveAll(filter => filter == ("filterCategory"));
+
+            if (comboCategory.SelectedItem != null)
+            {
+                actualFilters.Add($"filterCategory_{comboCategory.SelectedItem.ToString()}");
+            }
+
+            LoadProjectsFiltered();
+        }
+
+        private void LoadProjectsFiltered()
+        {
+            // Borra los controles actuales
+            project__projects.Controls.Clear();
+
+            // Crea una lista temporal de filtros para guardar aquí los proyectos filtrados
+            List<Project> filteredProjects = new List<Project>();
+
+            filteredProjects = dalProjects.LoadFilteredProjects(actualFilters);
+
+            // Por cada proyecto específico dentro de los filtrados, dibujará su contenedor con todo su HTML
+            foreach (Project project in filteredProjects)
+            {
+                projectHtml = DrawProjectHTML(project);
+                project__projects.Controls.Add(projectHtml);
             }
         }
 
         protected void butClean_Click(object sender, EventArgs e)
         {
-            CleanFilters();
+            CleanAllFilters();
         }        
 
-        private void CleanFilters()
+        private void CleanAllFilters()
         {
             project__projects.Controls.Clear();
             LoadAllProjects();
         }
+
     }
 }
