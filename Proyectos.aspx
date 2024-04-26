@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Proyectos.aspx.cs" Inherits="CodeLinker.Proyectos" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+        <link rel="stylesheet" href="css/proyectos.css"/>
         <main class="proyectos">
             <h1>&#60;Proyectos&#62;</h1>
             <section id="project__filters">
