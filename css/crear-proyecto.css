@@ -1,0 +1,179 @@
+.crear-proyecto{
+    max-width: 1400px;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crear-proyecto__titulo{
+    font-size: 1.5rem;
+    height: 80px;
+    padding-top: 0px;
+    margin-bottom: 30px;
+}
+
+.crear-proyecto__contenido{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.crear-proyecto__tarjeta{
+    position: relative;
+    width: 70%;
+    height: 740px;
+    background-color: #593311;
+    border-radius: 24px;
+    display: flex;
+    justify-content: end;
+}
+
+.crear-proyecto__formulario{
+    margin: 20px 20px 20px 20px;
+    padding: 40px;
+    width: calc(100% - 100px);
+    height: calc(100% - 40px);
+    border-radius: 16px;
+    background-color: #d9d9d9;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.formulario__titulo{
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.formulario__parrafo-guia{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.formulario__parrafo-guia ul{
+    list-style: none;
+    padding: 10px 0 0 20px;
+    font-weight: 400;
+}
+
+.formulario__input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 30px;
+    padding: 0 8px;
+    border: 1px solid #767676;
+    border-radius: 8px;
+}
+
+.formulario__botones-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario__botones-container--paso-1{
+    justify-content: end;
+}
+
+.botones-container__boton{
+    width: 30%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: var(--primary);
+}
+
+.botones-container__boton:hover{
+    scale: 1.1;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.botones-container__boton button{
+    border: 0;
+    background-color: transparent;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.botones-container__boton i{
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.fa-less-than{
+    padding-right: 20px;
+}
+
+.fa-greater-than{
+    padding-left: 20px;
+}
+
+.tarjeta__paso{
+    position: absolute;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 16px 0 0 16px;
+    font-weight: bold;
+}
+
+.tarjeta__paso-1{
+    width: 220px;
+    background-color: #1d229b;
+    top: 61px;
+    left: -140px;
+    transition: all 0.2s linear;
+}
+
+.tarjeta__paso-1--hidden{
+    width: 110px;
+    background-color: #1d229b;
+    top: 61px;
+    left: -30px;
+    transition: all 0.2s linear;
+}
+
+.tarjeta__paso-2{
+    width: 220px;
+    background-color: #9b1d1d;
+    top: 320px;
+    left: -140px;
+    transition: all 0.2s linear;
+}
+
+.tarjeta__paso-2--hidden{
+    width: 110px;
+    background-color: #9b1d1d;
+    top: 320px;
+    left: -30px;
+    transition: all 0.2s linear;
+}
+
+.tarjeta__paso-3{
+    width: 220px;
+    background-color: #1d9b39;
+    top: 579px;
+    left: -140px;
+    transition: all 0.2s linear;
+}
+
+.tarjeta__paso-3--hidden{
+    width: 110px;
+    background-color: #1d9b39;
+    top: 579px;
+    left: -30px;
+    transition: all 0.2s linear;
+}
+
+.ocultar {
+    display: none;
+}
