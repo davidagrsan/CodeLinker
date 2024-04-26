@@ -76,6 +76,7 @@ namespace CodeLinker
             }
 
              return allProjects.ToList();
+
         }
 
         public int CountParticipants(int projectId)

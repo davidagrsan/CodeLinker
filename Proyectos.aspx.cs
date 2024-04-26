@@ -1,6 +1,7 @@
 ﻿using Antlr.Runtime;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
@@ -25,10 +26,10 @@ namespace CodeLinker
         {
             try
             {
+                // En caso de no ser postback (primera recarga), carga los comboBoxes y todos los proyectos sin filtro
                 if (!IsPostBack)
                 {
                     LoadComboBoxes();
-                    projectList = dalProjects.LoadProjects();
                     LoadAllProjects();
                 }
                 else
@@ -46,6 +47,7 @@ namespace CodeLinker
 
         private void LoadComboBoxes()
         {
+            // Carga de ListBox para escoger filtros
             comboProgrammingLanguage.DataSource = dalFilters.LoadProgrammingLanguage();
             comboProgrammingLanguage.DataBind();
             comboProgrammingLanguage.Items.Add(new ListItem("Lenguaje", "default"));
@@ -64,6 +66,7 @@ namespace CodeLinker
 
         private void LoadAllProjects()
         {
+            // Carga todos los proyectos cuando ya no haya filtros (para diferentes usos)
             projectList = dalProjects.LoadProjects();
 
             foreach (Project project in projectList)
@@ -73,9 +76,50 @@ namespace CodeLinker
             }
         }
 
+        private void LoadProjectsFiltered()
+        {
+            // Borra los controles actuales
+            project__projects.Controls.Clear();
+
+            // Crea una lista temporal de filtros para guardar aquí los proyectos filtrados
+            List<Project> filteredProjects = new List<Project>();
+
+            // Por cada nombre de filtro añadirá los proyectos con una búsqueda en la BBDD sin dejar de lado los anteriores ya añadidos
+            // porque los saca de una variable que no se limpia hasta que se cumplen unas condiciones
+            foreach (string filterName in filterNames)
+            {
+                switch (filterName)
+                {
+                    case "filterOpen":
+                        filteredProjects.AddRange(dalProjects.LoadOpenClosedProjects(true));
+                        break;
+                    case "filterClosed":
+                        filteredProjects.AddRange(dalProjects.LoadOpenClosedProjects(false));
+                        break;
+                    case "filterInProgress":
+                        filteredProjects.AddRange(dalProjects.LoadInProgressEndedProjects(true));
+                        break;
+                    case "filterEnded":
+                        filteredProjects.AddRange(dalProjects.LoadInProgressEndedProjects(false));
+                        break;
+                    default:
+                        CleanFilters();
+                        break;
+                }
+            }
+
+            // Por cada proyecto específico dentro de los filtrados, dibujará su contenedor con todo su HTML
+            foreach (Project project in filteredProjects)
+            {
+                projectHtml = DrawProjectHTML(project);
+                project__projects.Controls.Add(projectHtml);
+            }
+        }
+
         private HtmlGenericControl DrawProjectHTML(Project project)
         {
             int actualParticipants = dalProjects.CountParticipants(project.ProjectId);
+
             // Genera indices nuevos para cada contenedor ya que cada control debe tener un nombre diferente
             string containerId = $"projectContainer_{containerIndex}";
             containerIndex++;
@@ -83,7 +127,7 @@ namespace CodeLinker
             // Crear el contenedor principal
             HtmlGenericControl projectContainer = new HtmlGenericControl("div");
             projectContainer.Attributes["class"] = "project__container";
-            projectContainer.ID = "projectContainer";
+            projectContainer.ID = containerId;
             projectContainer.Attributes.Add("runat", "server");
 
             // Primera fila

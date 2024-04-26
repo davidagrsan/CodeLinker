@@ -13,7 +13,9 @@ namespace CodeLinker
         DALUser uDAL = new DALUser();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            User actualUser = (User)Session["connectedUser"];
+            string profilePicture = Convert.ToBase64String(actualUser.ProfilePhoto.ToArray());
+            ProfilePicture.ImageUrl = "data:image/png;base64," + profilePicture;
         }
 
         protected void btnDisconnect_Click(object sender, EventArgs e)

@@ -103,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -121,6 +122,15 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateProject.aspx" />
+    <Content Include="css\contacto.css" />
+    <Content Include="css\footer.css" />
+    <Content Include="css\global.css" />
+    <Content Include="css\header.css" />
+    <Content Include="css\home.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\perfil.css" />
+    <Content Include="css\proyectos.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -160,6 +170,7 @@
       <LastGenOutput>DBConnection.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Perfil.aspx" />
     <None Include="DBConnection.dbml.layout">
       <DependentUpon>DBConnection.dbml</DependentUpon>
     </None>
@@ -198,6 +209,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contacto.aspx.cs">
@@ -206,6 +224,13 @@
     </Compile>
     <Compile Include="Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALFilters.cs" />
     <Compile Include="DAL\DALProjects.cs" />
@@ -277,6 +302,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
