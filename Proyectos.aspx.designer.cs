@@ -87,13 +87,13 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.CheckBox checkEnded;
 
         /// <summary>
-        /// Control lblcheckEnded.
+        /// Control lblCheckEnded.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcheckEnded;
+        protected global::System.Web.UI.WebControls.Label lblCheckEnded;
 
         /// <summary>
         /// Control comboProgrammingLanguage.
