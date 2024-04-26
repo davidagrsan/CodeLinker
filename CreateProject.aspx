@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contacto.aspx.cs" Inherits="CodeLinker.Contacto" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <head>
         <link rel="stylesheet" href="css/crear-proyecto.css"/>
-    </head>
-    <body>
+
         <main class="crear-proyecto">
 
         <h1 class="crear-proyecto__titulo">&lt;CREAR PROYECTO&gt;</h1>
@@ -13,7 +11,7 @@
 
             <div class="crear-proyecto__tarjeta">
 
-                <form class="crear-proyecto__formulario" id="form-paso-1">
+                <div class="crear-proyecto__formulario" id="form-paso-1">
 
                     <h2 class="formulario__titulo">PASO 1: TU REPOSITORIO DE GITHUB</h2>
 
@@ -39,9 +37,9 @@
                         </div>
                     </div>
                 
-                </form>
+                </div>
 
-                <form class="crear-proyecto__formulario ocultar" id="form-paso-2">
+                <div class="crear-proyecto__formulario ocultar" id="form-paso-2">
 
                     <h2 class="formulario__titulo">PASO 2</h2>
 
@@ -71,9 +69,9 @@
                         </div>
                     </div>
                 
-                </form>
+                </div>
 
-                <form class="crear-proyecto__formulario ocultar" id="form-paso-3">
+                <div class="crear-proyecto__formulario ocultar" id="form-paso-3">
 
                     <h2 class="formulario__titulo">PASO 3</h2>
 
@@ -103,7 +101,7 @@
                         </div>
                     </div>
                 
-                </form>
+                </div>
             
                 <div class="tarjeta__paso tarjeta__paso-1 active" id="paso-1">PASO 1</div>
                 <div class="tarjeta__paso tarjeta__paso-2--hidden" id="paso-2">PASO 2</div>
@@ -203,5 +201,4 @@
             })
 
         </script>
-    </body>
 </asp:Content>

@@ -171,11 +171,12 @@
     margin: 5px;
 }
 
-.formulario__campo input{
+.formulario__campo input {
     height: 40px;
     background-color: var(--secondary);
     border: 0px;
     border-radius: 16px;
+    padding: 0 8px;
 }
 
 .privacidad__boton{
