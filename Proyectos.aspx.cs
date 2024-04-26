@@ -76,7 +76,7 @@ namespace CodeLinker
             }
         }
 
-        private void LoadProjectsFiltered()
+        private void LoadProjectsWithFilter()
         {
             // Borra los controles actuales
             project__projects.Controls.Clear();
@@ -86,27 +86,7 @@ namespace CodeLinker
 
             // Por cada nombre de filtro añadirá los proyectos con una búsqueda en la BBDD sin dejar de lado los anteriores ya añadidos
             // porque los saca de una variable que no se limpia hasta que se cumplen unas condiciones
-            foreach (string filterName in filterNames)
-            {
-                switch (filterName)
-                {
-                    case "filterOpen":
-                        filteredProjects.AddRange(dalProjects.LoadOpenClosedProjects(true));
-                        break;
-                    case "filterClosed":
-                        filteredProjects.AddRange(dalProjects.LoadOpenClosedProjects(false));
-                        break;
-                    case "filterInProgress":
-                        filteredProjects.AddRange(dalProjects.LoadInProgressEndedProjects(true));
-                        break;
-                    case "filterEnded":
-                        filteredProjects.AddRange(dalProjects.LoadInProgressEndedProjects(false));
-                        break;
-                    default:
-                        CleanFilters();
-                        break;
-                }
-            }
+            dalProjects.LoadFilteredProjects(actualFilters);
 
             // Por cada proyecto específico dentro de los filtrados, dibujará su contenedor con todo su HTML
             foreach (Project project in filteredProjects)
