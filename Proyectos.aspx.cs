@@ -28,10 +28,10 @@ namespace CodeLinker
 
         private void LoadComboBoxes()
         {
+            comboProgrammingLanguage.SelectedValue = "default";
             comboProgrammingLanguage.DataSource = dalFilters.LoadProgrammingLanguage();
             comboProgrammingLanguage.DataBind();
-            comboProgrammingLanguage.Items.Add(new ListItem("", "empty"));
-            comboProgrammingLanguage.SelectedValue = "empty";
+            comboProgrammingLanguage.Items.Add(new ListItem("Lenguaje", "default"));
 
             comboType.DataSource = dalFilters.LoadType();
             comboType.DataBind();

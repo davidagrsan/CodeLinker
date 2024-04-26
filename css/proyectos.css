@@ -1,6 +1,5 @@
 .proyectos {
     max-width: 1400px;
-    padding: 20px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -25,16 +24,28 @@ section#project__filters {
 }
 .project__type {
     border-radius: 100px;
-    padding: 1.5em;
+    padding: 1em;
 }
 .project__language p, .project__language span, .project__type p, .project__type span {
     color: white;
 }
+p.project__type {
+    color: #5b2a79!important;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+p.project__lblStartDate, span.project__numStartDate, p.project__lblEndDate, span.project__numEndDate {
+    font-size: 0.85rem;
+}
 .project__container {
     background-color: #BEAEC2;
-    width: 50%;
-    padding: 2em;
+    width: 45%;
+    margin: 1em;
+    padding: 1em;
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .project__container p, .project__container span {
     color: black;
