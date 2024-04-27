@@ -65,7 +65,7 @@ namespace CodeLinker
     partial void DeleteUserReviewsProject(UserReviewsProject instance);
         #endregion
         public DBConnectionDataContext() :
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
+base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
@@ -485,8 +485,6 @@ namespace CodeLinker
 		
 		private System.DateTime _DeliveryDate;
 		
-		private int _CurrentUsers;
-		
 		private int _MaxUsers;
 		
 		private bool _Finalized;
@@ -535,8 +533,6 @@ namespace CodeLinker
     partial void OnStartDateChanged();
     partial void OnDeliveryDateChanging(System.DateTime value);
     partial void OnDeliveryDateChanged();
-    partial void OnCurrentUsersChanging(int value);
-    partial void OnCurrentUsersChanged();
     partial void OnMaxUsersChanging(int value);
     partial void OnMaxUsersChanged();
     partial void OnFinalizedChanging(bool value);
@@ -685,26 +681,6 @@ namespace CodeLinker
 					this._DeliveryDate = value;
 					this.SendPropertyChanged("DeliveryDate");
 					this.OnDeliveryDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentUsers", DbType="Int NOT NULL")]
-		public int CurrentUsers
-		{
-			get
-			{
-				return this._CurrentUsers;
-			}
-			set
-			{
-				if ((this._CurrentUsers != value))
-				{
-					this.OnCurrentUsersChanging(value);
-					this.SendPropertyChanging();
-					this._CurrentUsers = value;
-					this.SendPropertyChanged("CurrentUsers");
-					this.OnCurrentUsersChanged();
 				}
 			}
 		}

@@ -186,7 +186,8 @@ namespace CodeLinker
                 }
             }
 
-            List<Project> checkBoxProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+            //List<Project> checkBoxProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+            List<Project> checkBoxProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
             LoadProjectsFiltered(checkBoxProjects);
         }
@@ -204,7 +205,8 @@ namespace CodeLinker
 
                 actualFiltersId.Add(languageId);
 
-                List<Project> languageProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> languageProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> languageProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(languageProjects);
             }
@@ -223,7 +225,8 @@ namespace CodeLinker
 
                 actualFiltersId.Add(typeId);
 
-                List<Project> typeProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> typeProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> typeProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(typeProjects);
             }
@@ -242,7 +245,8 @@ namespace CodeLinker
 
                 actualFiltersId.Add(categoryId);
 
-                List<Project> categoryProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> categoryProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> categoryProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(categoryProjects);
             }

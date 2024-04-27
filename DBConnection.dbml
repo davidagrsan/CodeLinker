@@ -23,7 +23,6 @@
       <Column Name="FullDescription" Type="System.String" DbType="VarChar(1500) NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="CurrentUsers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MaxUsers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Finalized" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="[Open]" Member="Open" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
