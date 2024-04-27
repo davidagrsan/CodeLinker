@@ -44,7 +44,7 @@ namespace CodeLinker
                             if (languageName != "Lenguaje") // Verifica si no es el filtro predeterminado
                             {
                                 allProjects = (from p in allProjects
-                                               join l in dc.ProgrammingLanguage on p.Mainlanguage equals l.LanguageId
+                                               join l in dc.ProgrammingLanguage on p.MainLanguage equals l.LanguageId
                                                where l.LanguageName == languageName
                                                select p).ToList();
                             }
