@@ -186,7 +186,8 @@ namespace CodeLinker
                 }
             }
 
-            List<Project> checkBoxProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+            //List<Project> checkBoxProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+            List<Project> checkBoxProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
             LoadProjectsFiltered(checkBoxProjects);
         }
@@ -204,12 +205,11 @@ namespace CodeLinker
 
                 actualFiltersId.Add(languageId);
 
-                List<Project> languageProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> languageProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> languageProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(languageProjects);
             }
-
-            LoadProjectsFiltered();
         }
 
         // Filtro del combobox de tipo
@@ -225,12 +225,11 @@ namespace CodeLinker
 
                 actualFiltersId.Add(typeId);
 
-                List<Project> typeProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> typeProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> typeProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(typeProjects);
             }
-
-            LoadProjectsFiltered();
         }
 
         // Filtro del combobox de categoría
@@ -246,12 +245,11 @@ namespace CodeLinker
 
                 actualFiltersId.Add(categoryId);
 
-                List<Project> categoryProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                //List<Project> categoryProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
+                List<Project> categoryProjects = dalProjects.LoadFilteredProjects(actualFilters);
 
                 LoadProjectsFiltered(categoryProjects);
             }
-
-            LoadProjectsFiltered();
         }
 
         private void LoadProjectsFiltered(List<Project> projects)
