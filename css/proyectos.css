@@ -5,6 +5,9 @@
     align-items: center;
     flex-direction: column;
 }
+#MainContent_project__projects p, #MainContent_project__projects span, #MainContent_project__projects h2 {
+    text-align: center;
+}
 section#MainContent_project__projects {
     display: flex;
     flex-wrap: wrap;
