@@ -41,35 +41,26 @@ namespace CodeLinker
                         if (filter.StartsWith("filterLanguage_"))
                         {
                             string languageName = filter.Substring("filterLanguage_".Length);
-                            if (languageName != "Lenguaje") // Verifica si no es el filtro predeterminado
-                            {
-                                allProjects = (from p in allProjects
-                                               join l in dc.ProgrammingLanguage on p.MainLanguage equals l.LanguageId
-                                               where l.LanguageName == languageName
-                                               select p).ToList();
-                            }
+                            allProjects = (from p in allProjects
+                                           join l in dc.ProgrammingLanguage on p.MainLanguage equals l.LanguageId
+                                           where l.LanguageName == languageName
+                                           select p).ToList();
                         }
                         if (filter.StartsWith("filterType_"))
                         {
                             string typeName = filter.Substring("filterType_".Length);
-                            if (typeName != "Tipo") // Verifica si no es el filtro predeterminado
-                            {
-                                allProjects = (from p in allProjects
-                                               join t in dc.ProjectType on p.ProjectTypeFK equals t.ProjectTypeId
-                                               where t.ProjectTypeName == typeName
-                                               select p).ToList();
-                            }
+                            allProjects = (from p in allProjects
+                                           join t in dc.ProjectType on p.ProjectTypeFK equals t.ProjectTypeId
+                                           where t.ProjectTypeName == typeName
+                                           select p).ToList();
                         }
                         if (filter.StartsWith("filterCategory_"))
                         {
                             string categoryName = filter.Substring("filterCategory_".Length);
-                            if (categoryName != "Categoría") // Verifica si no es el filtro predeterminado
-                            {
-                                allProjects = (from p in allProjects
-                                               join c in dc.ProjectCategory on p.ProjectCategoryFK equals c.CategoryId
-                                               where c.CategoryName == categoryName
-                                               select p).ToList();
-                            }
+                            allProjects = (from p in allProjects
+                                           join c in dc.ProjectCategory on p.ProjectCategoryFK equals c.CategoryId
+                                           where c.CategoryName == categoryName
+                                           select p).ToList();
                         }
                         break;
                 }
