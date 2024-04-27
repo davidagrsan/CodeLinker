@@ -208,6 +208,8 @@ namespace CodeLinker
 
                 LoadProjectsFiltered(languageProjects);
             }
+
+            LoadProjectsFiltered();
         }
 
         // Filtro del combobox de tipo
@@ -227,6 +229,8 @@ namespace CodeLinker
 
                 LoadProjectsFiltered(typeProjects);
             }
+
+            LoadProjectsFiltered();
         }
 
         // Filtro del combobox de categoría
@@ -246,6 +250,8 @@ namespace CodeLinker
 
                 LoadProjectsFiltered(categoryProjects);
             }
+
+            LoadProjectsFiltered();
         }
 
         private void LoadProjectsFiltered(List<Project> projects)

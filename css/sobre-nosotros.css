@@ -1,0 +1,67 @@
+.sobre-nosotros{
+    max-width: 1000px;
+    padding: 20px;
+    margin: auto;
+}
+
+.sobre-nosotros__titulo{
+    font-size: 1.5rem;
+    height: 80px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sobre-nosotros__info{
+    margin-bottom: 150px;
+}
+
+.info__titulo{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.info__datos__titulo--violet{
+    color: #b96ccc;
+}
+
+.info__parrafo{
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+.sobre-nosotros__equipo{
+    text-align: center;
+}
+
+.equipo__integrante{
+    position: relative;
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    color: #000;
+    background-color: var(--secondary);
+    font-weight: bold;
+    margin-bottom: 60px;
+    border-radius: 24px;
+}
+
+.integrante__imagen-izq{
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+
+.integrante__imagen-der{
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    width: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
