@@ -1,0 +1,12 @@
+img.tutorial-img {
+    max-width: 20%;
+}
+img.aprende__logo {
+    max-width: 5%;
+}
+.aprende__gitHubReadme li {
+    list-style: none;
+}
+p.aprende__step {
+    font-weight: bold;
+}

@@ -11,7 +11,7 @@ namespace CodeLinker
 {
 
 
-    public partial class Proyectos
+    public partial class Projects
     {
 
         /// <summary>
