@@ -134,6 +134,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Learn.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Projects.aspx" />
@@ -249,6 +250,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Learn.aspx.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Learn.aspx.designer.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
