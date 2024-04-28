@@ -8,13 +8,13 @@
     text-align: center;
     margin: 1em 0;
 }
-div#freeCertifications__container {
-    width: 40%;
+div#freeCertifications__container, #paidCertifications__container, #tutorials__container, #programRecomendations__container {
     text-align: center;
-    background-color: #beaec2;
     color: black;
-    padding: 1em;
     border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .learnContent__container i {
     color: white;
@@ -25,8 +25,13 @@ div#freeCertifications__container {
 .learnContent__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
+    background-color: #beaec2;
+    padding: 1em;
+    width: 40%;
+    margin: 1em;
+    border-radius: 30px;
+    align-items: center;
 }
 .learnContent__container button {
     border: none;
