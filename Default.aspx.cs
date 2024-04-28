@@ -20,9 +20,14 @@ namespace CodeLinker
             footer.Style["display"] = "none";
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btn_createProject_Click(object sender, EventArgs e)
         {
+            Response.Redirect("CreateProject.aspx");
+        }
 
+        protected void btn_joinProject_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Projects.aspx");
         }
     }
 }

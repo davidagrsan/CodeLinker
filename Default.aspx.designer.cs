@@ -13,5 +13,23 @@ namespace CodeLinker
 
     public partial class _Default
     {
+
+        /// <summary>
+        /// Control btn_createProject.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_createProject;
+
+        /// <summary>
+        /// Control btn_joinProject.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_joinProject;
     }
 }

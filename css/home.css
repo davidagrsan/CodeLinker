@@ -86,9 +86,9 @@
     justify-content: space-between;
 }
 
-.botones__btn {
-    height: fit-content!important;
-    width: fit-content!important;
+input#MainContent_btn_createProject, input#MainContent_btn_joinProject {
+    height: fit-content !important;
+    width: fit-content !important;
     padding: 20px;
     color: white;
     font-weight: bold;
@@ -97,9 +97,10 @@
     border-radius: 16px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
 }
 
-.botones__btn:hover {
+input#MainContent_btn_createProject:hover, input#MainContent_btn_joinProject:hover {
     scale: 1.1;
     box-shadow: 0 0 10px var(--secondary);
 }

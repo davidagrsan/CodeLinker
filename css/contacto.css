@@ -75,13 +75,12 @@
 .description__parrafo{
     margin-bottom: 45px;
 }
-input[type=text], input[type=email], textarea {
+.contacto input[type=text], .contacto input[type=email], .contacto textarea {
     border-radius: 2px;
-    text-align: center;
-    color: black!important;
-    background-color: white!important;
+    background-color: #beaec2;
+    text-align: left;
 }
 input[type=text]::placeholder, input[type=email]::placeholder, textarea::placeholder {
-    color: black!important;
+    color: gray;
     font-style: italic;
 }

@@ -12,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace CodeLinker
 {
-    public partial class Proyectos : System.Web.UI.Page
+    public partial class Projects : System.Web.UI.Page
     {
         DBConnectionDataContext dc = new DBConnectionDataContext();
         DALFilters dalFilters = new DALFilters();

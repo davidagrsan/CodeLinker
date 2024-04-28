@@ -86,7 +86,7 @@
 .navbar__sublist{
     list-style: none;
     position: absolute;
-    width: 100%;
+    width: fit-content;
     top: 0px;
     padding: 10px 0;
     margin-top: -60px;

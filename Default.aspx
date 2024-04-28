@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CodeLinker._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <link rel="stylesheet" href="css/home.css" />
     <main class="home">
 
         <h2 class="home__titulo">Aquí es donde empieza tu aventura.<br>
@@ -25,10 +25,8 @@
         </section>
 
         <section class="home__botones">
-
-            <button class="botones__btn" type="button">CREA TU PROYECTO</button>
-            <button class="botones__btn" type="button">ÚNETE A UN PROYECTO</button>
-
+            <asp:Button ID="btn_createProject" runat="server" Text="Crea tu proyecto" OnClick="btn_createProject_Click" />
+            <asp:Button ID="btn_joinProject" runat="server" Text="Únete a un proyecto" OnClick="btn_joinProject_Click" />
         </section>
     </main>
 
