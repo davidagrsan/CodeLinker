@@ -87,6 +87,24 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.DropDownList comboMaxUsers;
 
         /// <summary>
+        /// Control lblDiscord.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDiscord;
+
+        /// <summary>
+        /// Control urlDiscord.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox urlDiscord;
+
+        /// <summary>
         /// Control lblShortDesc.
         /// </summary>
         /// <remarks>

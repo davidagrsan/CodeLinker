@@ -192,6 +192,8 @@
 textarea#MainContent_txtShortDesc {
     max-height: 150px;
     max-width: 800px;
+    min-height: 100px;
+    min-width: 700px;
 }
 
 .newProject__Dates {
@@ -217,5 +219,11 @@ textarea#MainContent_txtFullDesc {
     min-height: 150px;
     margin-bottom: 0.5em;
 }
-
+.newProject__Discord p {
+    margin: 0.5em 0;
+    text-align: left;
+}
+input#MainContent_urlDiscord {
+    width: 100%;
+}
 

@@ -11,7 +11,7 @@ namespace CodeLinker
 {
 
 
-    public partial class UserProfile
+    public partial class BasuraMatteoLogin
     {
 
         /// <summary>

@@ -18,9 +18,12 @@ namespace CodeLinker.DAL
                              where user.UserName == userOrMail || user.Email == userOrMail
                              select user).FirstOrDefault();
 
-                if (query == null) return (false, null);
-                if (query.Password == password) return (true, query);
-                else return (false, null);
+                if (query == null) 
+                    return (false, null);
+                if (query.Password == password) 
+                    return (true, query);
+                else 
+                    return (false, null);
             }
             catch (Exception)
             {
