@@ -99,7 +99,7 @@
 
                     <p>Ahora que tienes las bases de tu proyecto creadas, necesitaremos que nos des un breve resumen del proyecto y otra que será la descripción completa del mismo, 
                         ¡así podremos mostrarsela a los demás usuarios interesados en unirse!</p>
-                    <p>Si quieres utilizar lo que escribas aquí como una plantilla para el archivo README.txt de tu repositorio en GitHub, te invitamos a hacerlo. 
+                    <p>Si quieres utilizar lo que escribas aquí como una plantilla para el archivo README.md de tu repositorio en GitHub, te invitamos a hacerlo. 
                         Si no sabes hacerlo, te lo explicamos <a href="#" target="_blank">aquí.</a></p>
                     <div class="newProject__FullDesc">
                         <asp:Label ID="lblFullDescription" runat="server" Text="Descripción completa (máximo 1200 caracteres):" class="formulario__parrafo-guia"></asp:Label>
