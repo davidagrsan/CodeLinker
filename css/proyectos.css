@@ -24,6 +24,7 @@ div#project__DropDownLists {
 input#MainContent_butClean {
     background-color: #5b2a79;
     border: none;
+    border-radius: 16px;
     color: white;
     padding: 1em;
     margin: 1em;
@@ -31,6 +32,7 @@ input#MainContent_butClean {
 }
 select#MainContent_comboProgrammingLanguage, select#MainContent_comboType, select#MainContent_comboCategory {
     padding: 0.5em;
+    border-radius: 8px;
 }
 input#MainContent_checkOpen, input#MainContent_checkClosed, input#MainContent_checkInProgress, input#MainContent_checkEnded {
     height: 20px;
@@ -136,10 +138,12 @@ button.project__moreInfo {
     background-color: #5b2a79;
     color: white;
     border: none;
+    border-radius:16px;
     padding: 1em 2em;
     font-size: 1rem;
     height: fit-content;
     width: fit-content !important;
+    cursor: pointer;
 }
 .project__state {
     display: flex;

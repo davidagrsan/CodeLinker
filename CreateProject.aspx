@@ -15,22 +15,22 @@
                     <h2 class="formulario__titulo">PASO 1: DEFINE TU PROYECTO</h2>
 
                     <div class="newProject__Name">
-                        <asp:Label ID="lblProjectName" runat="server" Text="Nombre del proyecto:" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtProjectName" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblProjectName" runat="server" Text="Nombre del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:TextBox ID="txtProjectName" runat="server" CssClass="input"></asp:TextBox>
                     </div>
                     <div class="newProject__ProgrammingLanguage">
-                        <asp:Label ID="lblProgrammingLanguage" runat="server" Text="Lenguaje principal de programación:" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:DropDownList ID="comboProgrammingLanguage" runat="server">
+                        <asp:Label ID="lblProgrammingLanguage" runat="server" Text="Lenguaje principal de programación:"  CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:DropDownList ID="comboProgrammingLanguage" runat="server" CssClass="input">
                         </asp:DropDownList>
                     </div>
                     <div class="newProject__Category">
-                        <asp:Label ID="lblCategory" runat="server" Text="Categoría del proyecto:" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:DropDownList ID="comboCategory" runat="server">
+                        <asp:Label ID="lblCategory" runat="server" Text="Categoría del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:DropDownList ID="comboCategory" runat="server" CssClass="input">
                         </asp:DropDownList>
                     </div>
                     <div class="newProject__MaxParticipants">
-                        <asp:Label ID="lblMaxParticipantsNumber" runat="server" Text="Número máximo de participantes (de 2 a 5):" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:DropDownList ID="comboMaxUsers" runat="server">
+                        <asp:Label ID="lblMaxParticipantsNumber" runat="server" Text="Número máximo de participantes (de 2 a 5):" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:DropDownList ID="comboMaxUsers" runat="server" CssClass="input">
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
                             <asp:ListItem>4</asp:ListItem>
@@ -38,17 +38,17 @@
                         </asp:DropDownList>
                     </div>
                     <div class="newProject__ShortDesc">
-                        <asp:Label ID="lblShortDesc" runat="server" Text="Descripción corta (máximo 400 caracteres):" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtShortDesc" runat="server" TextMode="MultiLine" MaxLength="400"></asp:TextBox>
+                        <asp:Label ID="lblShortDesc" runat="server" Text="Descripción corta (máximo 400 caracteres):" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:TextBox ID="txtShortDesc" runat="server" TextMode="MultiLine" MaxLength="400" CssClass="input" Height="100px" Width="400px"></asp:TextBox>
                     </div>
                     <div class="newProject__Dates">
                         <div class="newProject__startDate">
-                            <asp:Label ID="lblStartDate" runat="server" Text="Fecha de inicio:" class="formulario__parrafo-guia"></asp:Label>
-                            <asp:TextBox ID="startDate" runat="server" type="date"></asp:TextBox>
+                            <asp:Label ID="lblStartDate" runat="server" Text="Fecha de inicio:" CssClass="formulario__parrafo-guia"></asp:Label>
+                            <asp:TextBox ID="startDate" runat="server" type="date" CssClass="input"></asp:TextBox>
                         </div>
                          <div class="newProject__limitDate">
-                            <asp:Label ID="lblLimitDate" runat="server" Text="Fecha límite de finalización:" type="date" class="formulario__parrafo-guia"></asp:Label>
-                            <asp:TextBox ID="limitDate" runat="server" type="date"></asp:TextBox>
+                            <asp:Label ID="lblLimitDate" runat="server" Text="Fecha límite de finalización:" type="date" CssClass="formulario__parrafo-guia"></asp:Label>
+                            <asp:TextBox ID="limitDate" runat="server" type="date" CssClass="input"></asp:TextBox>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         Si no sabes hacerlo, te lo explicamos <a href="#" target="_blank">aquí.</a></p>
                     <div class="newProject__FullDesc">
                         <asp:Label ID="lblFullDescription" runat="server" Text="Descripción completa (máximo 1200 caracteres):" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtFullDesc" runat="server" TextMode="MultiLine" MaxLength="1200"></asp:TextBox>
+                        <asp:TextBox ID="txtFullDesc" runat="server" TextMode="MultiLine" CssClass="input" MaxLength="1200"></asp:TextBox>
                     </div>
 
                     <div class="formulario__botones-container">

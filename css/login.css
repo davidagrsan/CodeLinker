@@ -14,11 +14,12 @@ main.login img, main.signup img{
 main.login input[type=text], main.login [type=password], main.signup input[type=text], main.signup [type=password] {
     width: 100%;
     height: 50px;
-    border-radius: 2px;
+    border-radius: 8px;
     text-align: center;
     background-color: #beaec2;
     color: black;
     margin: 1em 0;
+    border: 0;
 }
 
 main.login .connected{
@@ -33,10 +34,17 @@ div#login__form, #signUp__form {
     border: none;
     padding: 1em 2em;
     margin: 1em 0;
+    border-radius: 16px;
+    cursor: pointer;
+}
+#login__submit input:hover, #signUp__submit input:hover {
+    scale: 1.1;
+    box-shadow: 0 0 10px var(--secondary);
 }
 #login__toRegister p {
     margin-top: 2em;
 }
 a#forgotPasswordLink, #login__toRegister a, #signUp__toLogin a {
     color: #beaec2;
+    text-decoration: none;
 }
