@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contacto.aspx.cs" Inherits="CodeLinker.Contacto" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <link rel="stylesheet" href="css/sobre-nosotros.css"/>
     <main class="sobre-nosotros">
 
         <h1 class="sobre-nosotros__titulo">&lt;SOBRE NOSOTROS&gt;</h1>

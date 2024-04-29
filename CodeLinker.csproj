@@ -135,9 +135,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Learn.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Proyectos.aspx" />
+    <Content Include="Projects.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -252,6 +253,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Learn.aspx.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Learn.aspx.designer.cs">
+      <DependentUpon>Learn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -270,12 +278,12 @@
     <Compile Include="Model\ProjectCategory.cs" />
     <Compile Include="Model\ProjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proyectos.aspx.cs">
-      <DependentUpon>Proyectos.aspx</DependentUpon>
+    <Compile Include="Projects.aspx.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Proyectos.aspx.designer.cs">
-      <DependentUpon>Proyectos.aspx</DependentUpon>
+    <Compile Include="Projects.aspx.designer.cs">
+      <DependentUpon>Projects.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

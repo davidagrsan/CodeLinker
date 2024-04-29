@@ -64,8 +64,9 @@ namespace CodeLinker
     partial void UpdateUserReviewsProject(UserReviewsProject instance);
     partial void DeleteUserReviewsProject(UserReviewsProject instance);
         #endregion
+
         public DBConnectionDataContext() :
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
+base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
             OnCreated();
         }
@@ -257,7 +258,7 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_Project", ThisKey="LanguageId", OtherKey="Mainlanguage")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_Project", ThisKey="LanguageId", OtherKey="MainLanguage")]
 		public EntitySet<Project> Project
 		{
 			get
@@ -485,13 +486,9 @@ namespace CodeLinker
 		
 		private System.DateTime _DeliveryDate;
 		
-		private int _CurrentUsers;
-		
 		private int _MaxUsers;
 		
 		private bool _Finalized;
-		
-		private bool _Open;
 		
 		private string _GithubURL;
 		
@@ -535,20 +532,16 @@ namespace CodeLinker
     partial void OnStartDateChanged();
     partial void OnDeliveryDateChanging(System.DateTime value);
     partial void OnDeliveryDateChanged();
-    partial void OnCurrentUsersChanging(int value);
-    partial void OnCurrentUsersChanged();
     partial void OnMaxUsersChanging(int value);
     partial void OnMaxUsersChanged();
     partial void OnFinalizedChanging(bool value);
     partial void OnFinalizedChanged();
-    partial void OnOpenChanging(bool value);
-    partial void OnOpenChanged();
     partial void OnGithubURLChanging(string value);
     partial void OnGithubURLChanged();
     partial void OnPropietaryIdChanging(int value);
     partial void OnPropietaryIdChanged();
-    partial void OnMainlanguageChanging(int value);
-    partial void OnMainlanguageChanged();
+    partial void OnMainLanguageChanging(int value);
+    partial void OnMainLanguageChanged();
     partial void OnSecondaryLanguageChanging(System.Nullable<int> value);
     partial void OnSecondaryLanguageChanged();
     partial void OnProjectTypeFKChanging(int value);
@@ -689,26 +682,6 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentUsers", DbType="Int NOT NULL")]
-		public int CurrentUsers
-		{
-			get
-			{
-				return this._CurrentUsers;
-			}
-			set
-			{
-				if ((this._CurrentUsers != value))
-				{
-					this.OnCurrentUsersChanging(value);
-					this.SendPropertyChanging();
-					this._CurrentUsers = value;
-					this.SendPropertyChanged("CurrentUsers");
-					this.OnCurrentUsersChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaxUsers", DbType="Int NOT NULL")]
 		public int MaxUsers
 		{
@@ -745,26 +718,6 @@ namespace CodeLinker
 					this._Finalized = value;
 					this.SendPropertyChanged("Finalized");
 					this.OnFinalizedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Open]", Storage="_Open", DbType="Bit NOT NULL")]
-		public bool Open
-		{
-			get
-			{
-				return this._Open;
-			}
-			set
-			{
-				if ((this._Open != value))
-				{
-					this.OnOpenChanging(value);
-					this.SendPropertyChanging();
-					this._Open = value;
-					this.SendPropertyChanged("Open");
-					this.OnOpenChanged();
 				}
 			}
 		}
@@ -809,8 +762,8 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mainlanguage", DbType="Int NOT NULL")]
-		public int Mainlanguage
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Mainlanguage", Storage="_Mainlanguage", DbType="Int NOT NULL")]
+		public int MainLanguage
 		{
 			get
 			{
@@ -820,15 +773,11 @@ namespace CodeLinker
 			{
 				if ((this._Mainlanguage != value))
 				{
-					if (this._ProgrammingLanguage.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMainlanguageChanging(value);
+					this.OnMainLanguageChanging(value);
 					this.SendPropertyChanging();
 					this._Mainlanguage = value;
-					this.SendPropertyChanged("Mainlanguage");
-					this.OnMainlanguageChanged();
+					this.SendPropertyChanged("MainLanguage");
+					this.OnMainLanguageChanged();
 				}
 			}
 		}
@@ -944,7 +893,7 @@ namespace CodeLinker
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_ProgrammingLanguage", ThisKey="Mainlanguage", OtherKey="LanguageId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_ProgrammingLanguage", ThisKey="MainLanguage", OtherKey="LanguageId", IsForeignKey=true)]
 		public ProgrammingLanguage ProgrammingLanguage
 		{
 			get

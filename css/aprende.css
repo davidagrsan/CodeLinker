@@ -1,0 +1,59 @@
+/*Aprende Index*/
+.aprende h1 {
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 1em 0;
+}
+.aprende h2 {
+    text-align: center;
+    margin: 1em 0;
+}
+div#freeCertifications__container, #paidCertifications__container, #tutorials__container, #programRecomendations__container {
+    text-align: center;
+    color: black;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.learnContent__container i {
+    color: white;
+    background-color: #5b2a79;
+    border-radius: 100px;
+    padding: 0.5em;
+}
+.learnContent__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #beaec2;
+    padding: 1em;
+    width: 40%;
+    margin: 1em;
+    border-radius: 30px;
+    align-items: center;
+}
+.learnContent__container button {
+    border: none;
+    background-color: #5b2a79;
+    color: white;
+    padding: 1em 2em;
+    margin-top: 1em;
+    border-radius: 100px;
+}
+.learnContent__container h3 {
+    margin: 1em 0;
+}
+/*Páginas específicas de Aprende*/
+img.tutorial-img {
+    max-width: 20%;
+}
+img.aprende__logo {
+    max-width: 5%;
+}
+.aprende__gitHubReadme li {
+    list-style: none;
+}
+p.aprende__step {
+    font-weight: bold;
+}

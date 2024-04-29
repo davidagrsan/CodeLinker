@@ -14,6 +14,10 @@
     margin-bottom: 30px;
 }
 
+.crear-proyecto a {
+    color: #5b2a79;
+}
+
 .crear-proyecto__contenido{
     display: flex;
     justify-content: center;
@@ -41,12 +45,13 @@
     display: flex;
     flex-direction: column;
     z-index: 999;
+    justify-content: space-between;
 }
 
 .formulario__titulo{
     font-size: 1.25rem;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 0.5em;
     font-weight: bold;
 }
 
@@ -177,3 +182,40 @@
 .ocultar {
     display: none;
 }
+
+.newProject__ShortDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea#MainContent_txtShortDesc {
+    max-height: 150px;
+    max-width: 800px;
+}
+
+.newProject__Dates {
+    display: flex;
+    justify-content: space-around;
+}
+
+.newProject__startDate, .newProject__limitDate {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.newProject__FullDesc {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em 0;
+}
+textarea#MainContent_txtFullDesc {
+    max-height: 300px;
+    max-width: 780px;
+    min-height: 150px;
+    margin-bottom: 0.5em;
+}
+
+

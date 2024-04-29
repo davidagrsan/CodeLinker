@@ -15,120 +15,148 @@ namespace CodeLinker
     {
 
         /// <summary>
-        /// Control nombre.
+
+        /// Control lblProjectName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
+        protected global::System.Web.UI.WebControls.Label lblProjectName;
 
         /// <summary>
-        /// Control apellido.
+        /// Control txtProjectName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox apellido;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectName;
 
         /// <summary>
-        /// Control email.
+        /// Control lblProgrammingLanguage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.Label lblProgrammingLanguage;
 
         /// <summary>
-        /// Control telefono.
+        /// Control comboProgrammingLanguage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telefono;
+        protected global::System.Web.UI.WebControls.DropDownList comboProgrammingLanguage;
 
         /// <summary>
-        /// Control fecha.
+        /// Control lblCategory.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fecha;
+        protected global::System.Web.UI.WebControls.Label lblCategory;
 
         /// <summary>
-        /// Control linkedin.
+        /// Control comboCategory.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox linkedin;
+        protected global::System.Web.UI.WebControls.DropDownList comboCategory;
 
         /// <summary>
-        /// Control github.
+        /// Control lblMaxParticipantsNumber.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox github;
+        protected global::System.Web.UI.WebControls.Label lblMaxParticipantsNumber;
 
         /// <summary>
-        /// Control frontend.
+        /// Control comboMaxUsers.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton frontend;
+        protected global::System.Web.UI.WebControls.DropDownList comboMaxUsers;
 
         /// <summary>
-        /// Control frontendLabel.
+        /// Control lblShortDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label frontendLabel;
+        protected global::System.Web.UI.WebControls.Label lblShortDescription;
 
         /// <summary>
-        /// Control backend.
+        /// Control txtShortDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton backend;
+        protected global::System.Web.UI.WebControls.TextBox txtShortDesc;
 
         /// <summary>
-        /// Control backendLabel.
+        /// Control lblFullDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label backendLabel;
+        protected global::System.Web.UI.WebControls.Label lblFullDescription;
 
         /// <summary>
-        /// Control fullstack.
+        /// Control txtFullDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton fullstack;
+        protected global::System.Web.UI.WebControls.TextBox txtFullDesc;
 
         /// <summary>
-        /// Control fullstackLabel.
+        /// Control lblStartDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fullstackLabel;
+        protected global::System.Web.UI.WebControls.Label lblStartDate;
+
+        /// <summary>
+        /// Control startDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox startDate;
+
+        /// <summary>
+        /// Control lblLimitDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLimitDate;
+
+        /// <summary>
+        /// Control limitDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox limitDate;
     }
 }

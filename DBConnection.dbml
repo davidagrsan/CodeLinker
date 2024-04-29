@@ -3,7 +3,7 @@
     <Type Name="ProgrammingLanguage">
       <Column Name="LanguageId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LanguageName" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Association Name="ProgrammingLanguage_Project" Member="Project" ThisKey="LanguageId" OtherKey="Mainlanguage" Type="Project" />
+      <Association Name="ProgrammingLanguage_Project" Member="Project" ThisKey="LanguageId" OtherKey="MainLanguage" Type="Project" />
       <Association Name="ProgrammingLanguage_Project1" Member="Project1" ThisKey="LanguageId" OtherKey="SecondaryLanguage" Type="Project" />
       <Association Name="ProgrammingLanguage_UserKnowsLanguage" Member="UserKnowsLanguage" ThisKey="LanguageId" OtherKey="LanguageFK" Type="UserKnowsLanguage" />
     </Type>
@@ -23,20 +23,18 @@
       <Column Name="FullDescription" Type="System.String" DbType="VarChar(1500) NOT NULL" CanBeNull="false" />
       <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="CurrentUsers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MaxUsers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Finalized" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="[Open]" Member="Open" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="GithubURL" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="PropietaryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Mainlanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Mainlanguage" Member="MainLanguage" Storage="_Mainlanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SecondaryLanguage" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ProjectTypeFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProjectCategoryFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Project_UserLikesProject" Member="UserLikesProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserLikesProject" />
       <Association Name="Project_UserParticipatesProject" Member="UserParticipatesProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserParticipatesProject" />
       <Association Name="Project_UserReviewsProject" Member="UserReviewsProject" ThisKey="ProjectId" OtherKey="ProjectFK" Type="UserReviewsProject" />
-      <Association Name="ProgrammingLanguage_Project" Member="ProgrammingLanguage" ThisKey="Mainlanguage" OtherKey="LanguageId" Type="ProgrammingLanguage" IsForeignKey="true" />
+      <Association Name="ProgrammingLanguage_Project" Member="ProgrammingLanguage" ThisKey="MainLanguage" OtherKey="LanguageId" Type="ProgrammingLanguage" IsForeignKey="true" />
       <Association Name="ProgrammingLanguage_Project1" Member="ProgrammingLanguage1" ThisKey="SecondaryLanguage" OtherKey="LanguageId" Type="ProgrammingLanguage" IsForeignKey="true" />
       <Association Name="ProjectCategory_Project" Member="ProjectCategory" ThisKey="ProjectCategoryFK" OtherKey="CategoryId" Type="ProjectCategory" IsForeignKey="true" />
       <Association Name="ProjectType_Project" Member="ProjectType" ThisKey="ProjectTypeFK" OtherKey="ProjectTypeId" Type="ProjectType" IsForeignKey="true" />

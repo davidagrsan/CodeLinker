@@ -11,7 +11,7 @@ namespace CodeLinker
 {
 
 
-    public partial class Proyectos
+    public partial class Projects
     {
 
         /// <summary>
@@ -40,42 +40,6 @@ namespace CodeLinker
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCheckOpen;
-
-        /// <summary>
-        /// Control checkClosed.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox checkClosed;
-
-        /// <summary>
-        /// Control lblCheckClosed.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCheckClosed;
-
-        /// <summary>
-        /// Control checkInProgress.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox checkInProgress;
-
-        /// <summary>
-        /// Control lblcheckInProgress.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcheckInProgress;
 
         /// <summary>
         /// Control checkEnded.

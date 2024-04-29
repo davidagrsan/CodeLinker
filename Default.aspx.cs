@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,14 +13,21 @@ namespace CodeLinker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Nombre de la página
+            Page.Title = ConfigurationManager.AppSettings["Inicio"];
             // Deshabilitamos el footer en la página Home
             var footer = Master.FindControl("footer") as HtmlGenericControl;
             footer.Style["display"] = "none";
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btn_createProject_Click(object sender, EventArgs e)
         {
+            Response.Redirect("CreateProject.aspx");
+        }
 
+        protected void btn_joinProject_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Projects.aspx");
         }
     }
 }
