@@ -134,6 +134,12 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="HTML pendientes\aprende_freeCertifications_C#.html" />
+    <Content Include="HTML pendientes\aprende_github_README.html" />
+    <Content Include="HTML pendientes\css\aprende.css" />
+    <Content Include="HTML pendientes\img\csharplogo.png" />
+    <Content Include="HTML pendientes\img\github_readme_1.png" />
+    <Content Include="HTML pendientes\img\github_readme_2.png" />
     <Content Include="Learn.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Login.aspx" />

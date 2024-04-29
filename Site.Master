@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <ul class="navbar__sublist">
-                                <a href="Proyectos.aspx"><li class="navbar__suboption">Ver proyectos</li></a>
+                                <a href="Projects.aspx"><li class="navbar__suboption">Ver proyectos</li></a>
                                 <a href="CreateProject.aspx"><li class="navbar__suboption">Crear proyecto</li></a>
                             </ul>
                         </div>
@@ -67,7 +67,7 @@
                     <li class="navbar__option-container">
                         <div>
                             <div class="navbar-aprende__container">
-                                <a href="#" class="navbar__option">Aprende</a>
+                                <a href="Learn.aspx" class="navbar__option">Aprende</a>
                                 <div class="dropdown__icon">
                                     <span></span>
                                     <span></span>
@@ -76,6 +76,7 @@
                             <ul class="navbar__sublist">
                                 <li class="navbar__suboption">Certificaciones gratuitas</li>
                                 <li class="navbar__suboption">Certificaciones de pago</li>
+                                <li class="navbar__suboption">Tutoriales</li>
                                 <li class="navbar__suboption">Recomendaciones de programas</li>
                             </ul>
                         </div>
@@ -103,9 +104,8 @@
                 <div id="footerproyectos">
                     <h4>Proyectos</h4>
                     <ul>
-                        <a href="#"><li>Proyectos de CodeLinker</li></a>
-                        <a href="#"><li>Proyectos de la comunidad</a>
-                        <a href="#"><li>Crea tu proyecto</a>
+                        <a href="Project.aspx"><li>Ver todos los proyectos</li></a>
+                        <a href="Create.aspx"><li>Crea tu proyecto</a>
                     </ul>
                 </div>
                 <div id="footeraprende">
@@ -113,6 +113,7 @@
                     <ul>
                         <a href="#"><li>Certificaciones gratuitas</li></a>
                         <a href="#"><li>Certificaciones de pago</li></a>
+                        <a href="#"><li>Tutoriales</li></a>
                         <a href="#"><li>Recomendaciones de programas</li></a>
                     </ul>
                 </div>
@@ -123,7 +124,7 @@
                         <a href="#"><i class="fa-brands fa-instagram"><li>Instagram</li></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"><li>Twitter</li></i></a>
                         <a href="#"><i class="fa-brands fa-discord"><li>Discord</li></i></a>
-                        <a href="#"><li>Envíanos tu mensaje</li></a>
+                        <a href="Contacto.aspx"><li>Envíanos tu mensaje</li></a>
                     </ul>
                 </div>
             </section>
