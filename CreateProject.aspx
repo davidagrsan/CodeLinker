@@ -37,6 +37,11 @@
                             <asp:ListItem>5</asp:ListItem>
                         </asp:DropDownList>
                     </div>
+                    <div class="newProject__Discord">
+                        <p>Creemos en la comunicación para el equipo, ¡utilicemos Discord para fomentarla! Si no sabes utilizar Discord, puedes aprender a crear un servidor una vez tienes tu cuenta <a href="aprende_discordServer.aspx">aquí</a></p>
+                       <asp:Label ID="lblDiscord" runat="server" Text="Tu servidor de Discord: " class="formulario__parrafo-guia"></asp:Label>
+                       <asp:TextBox ID="urlDiscord" runat="server"></asp:TextBox>
+                    </div>
                     <div class="newProject__ShortDesc">
                         <asp:Label ID="lblShortDesc" runat="server" Text="Descripción corta (máximo 400 caracteres):" CssClass="formulario__parrafo-guia"></asp:Label>
                         <asp:TextBox ID="txtShortDesc" runat="server" TextMode="MultiLine" MaxLength="400" CssClass="input" Height="100px" Width="400px"></asp:TextBox>

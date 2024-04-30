@@ -17,7 +17,7 @@ namespace CodeLinker
             if (connected)
             {
                 login__text.InnerHtml = connectedUser.UserName;
-                login__text.HRef = "UserProfile.aspx";
+                login__text.HRef = "Perfil.aspx";
             }
         }
     }

@@ -54,22 +54,25 @@ namespace CodeLinker
             comboProgrammingLanguage.DataTextField = "LanguageName";
             comboProgrammingLanguage.DataValueField = "LanguageId";
             comboProgrammingLanguage.DataBind();
-            comboProgrammingLanguage.Items.Add(new ListItem("Sin lenguaje seleccionado", "default"));
+            comboProgrammingLanguage.Items.Insert(0, new ListItem("Sin lenguaje seleccionado", "default"));
             comboProgrammingLanguage.SelectedValue = "default";
+            comboProgrammingLanguage.SelectedIndex = 0;
 
             comboType.DataSource = dalFilters.LoadType();
             comboType.DataTextField = "ProjectTypeName";
             comboType.DataValueField = "ProjectTypeId";
             comboType.DataBind();
-            comboType.Items.Add(new ListItem("Sin tipo seleccionado", "default"));
+            comboType.Items.Insert(0, new ListItem("Sin tipo seleccionado", "default"));
             comboType.SelectedValue = "default";
+            comboType.SelectedIndex = 0;
 
             comboCategory.DataSource = dalFilters.LoadCategory();
             comboCategory.DataTextField = "CategoryName";
             comboCategory.DataValueField = "CategoryId";
             comboCategory.DataBind();
-            comboCategory.Items.Add(new ListItem("Sin categoría seleccionada", "default"));
+            comboCategory.Items.Insert(0, new ListItem("Sin categoría seleccionada", "default"));
             comboCategory.SelectedValue = "default";
+            comboCategory.SelectedIndex = 0;
         }
 
         private void LoadAllProjects()
@@ -278,6 +281,12 @@ namespace CodeLinker
         private void CleanAllFilters()
         {
             project__projects.Controls.Clear();
+            checkOpen.Checked = false;
+            checkEnded.Checked = false;
+            comboProgrammingLanguage.SelectedIndex = 0;
+            comboType.SelectedIndex = 0;
+            comboCategory.SelectedIndex = 0;
+
             LoadAllProjects();
         }
 

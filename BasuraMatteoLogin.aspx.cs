@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace CodeLinker
 {
-    public partial class UserProfile : System.Web.UI.Page
+    public partial class BasuraMatteoLogin : System.Web.UI.Page
     {
         DALUser uDAL = new DALUser();
         protected void Page_Load(object sender, EventArgs e)

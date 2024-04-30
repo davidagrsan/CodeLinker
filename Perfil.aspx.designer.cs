@@ -60,22 +60,32 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.TextBox fecha;
 
         /// <summary>
-        /// Control linkedin.
+        /// Control linksContainer.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox linkedin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linksContainer;
 
         /// <summary>
-        /// Control github.
+        /// Control linkLinkedIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox github;
+      
+        protected global::System.Web.UI.WebControls.TextBox linkLinkedIn;
+
+        /// <summary>
+        /// Control linkGitHub.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox linkGitHub;
 
         /// <summary>
         /// Control frontend.
@@ -130,5 +140,23 @@ namespace CodeLinker
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label fullstackLabel;
+
+        /// <summary>
+        /// Control BtnCloseSession.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCloseSession;
+
+        /// <summary>
+        /// Control BtnDeleteAccount.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnDeleteAccount;
     }
 }
