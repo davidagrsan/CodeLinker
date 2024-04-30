@@ -123,14 +123,19 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CreateProject.aspx" />
+    <Content Include="css\aprende.css" />
     <Content Include="css\contacto.css" />
+    <Content Include="css\crear-proyecto.css" />
     <Content Include="css\footer.css" />
     <Content Include="css\global.css" />
     <Content Include="css\header.css" />
     <Content Include="css\home.css" />
     <Content Include="css\login.css" />
     <Content Include="css\perfil.css" />
+    <Content Include="css\proyecto.css" />
     <Content Include="css\proyectos.css" />
+    <Content Include="css\sobre-nosotros.css" />
+    <Content Include="css\ver-proyecto.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -210,6 +215,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="BasuraMatteoLogin.aspx" />
+    <Content Include="VerProyecto.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -309,6 +315,13 @@
     </Compile>
     <Compile Include="BasuraMatteoLogin.aspx.designer.cs">
       <DependentUpon>BasuraMatteoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerProyecto.aspx.cs">
+      <DependentUpon>VerProyecto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerProyecto.aspx.designer.cs">
+      <DependentUpon>VerProyecto.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

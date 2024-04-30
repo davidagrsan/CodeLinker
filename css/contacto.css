@@ -76,7 +76,7 @@
     margin-bottom: 45px;
 }
 .contacto input[type=text], .contacto input[type=email], .contacto textarea {
-    border-radius: 2px;
+    border-radius: 8px;
     background-color: #beaec2;
     text-align: left;
 }
