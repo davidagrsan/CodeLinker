@@ -171,3 +171,13 @@ span.project__running {
 .visible {
     display: block;
 }
+a.project__moreInfo {
+    background-color: #5b2a79;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+}
+a.project__moreInfo:hover, input#MainContent_butClean:hover {
+    scale: 1.1;
+    box-shadow: 0 0 10px var(--secondary);
+}
