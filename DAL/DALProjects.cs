@@ -16,6 +16,13 @@ namespace CodeLinker
             return data;
         }
 
+        public Project LoadSingleProject(int projectId)
+        {
+            var project = dc.Project.FirstOrDefault(p => p.ProjectId == projectId);
+
+            return project;
+        }
+
         public List<Project> LoadFilteredProjects(List<string> filters)
         {
             // Obtener todos los proyectos de la base de datos
@@ -77,107 +84,5 @@ namespace CodeLinker
 
             return countParticipants;
         }
-
-        //public List<Project> LoadFilters(List<string> filters, List<int> filtersId)
-        //{
-        //    IQueryable<Project> allProjects = dc.Project;
-
-        //    List<Project> filteredProjects = allProjects.ToList();
-
-        //    foreach (string filter in filters)
-        //    {
-        //        switch (filter)
-        //        {
-        //            case "filterOpen":
-        //                filteredProjects = filteredProjects.Where(p => CountParticipants(p.ProjectId) < p.MaxUsers && !p.Finalized).ToList();
-        //                break;
-        //            case "filterClosed":
-        //                filteredProjects = filteredProjects.Where(p => CountParticipants(p.ProjectId) == p.MaxUsers && !p.Finalized).ToList();
-        //                break;
-        //            case "filterInProgress":
-        //                filteredProjects = filteredProjects.Where(p => !p.Finalized).ToList();
-        //                break;
-        //            case "filterEnded":
-        //                filteredProjects = filteredProjects.Where(p => p.Finalized).ToList();
-        //                break;
-        //            default:
-        //                for (int i = 0; i < filtersId.Count; i++)
-        //                {
-        //                    if (filters[i].StartsWith("filterLanguage_"))
-        //                    {
-        //                        int filterId = filtersId[i];
-        //                        filteredProjects = filteredProjects.Where(p => p.Mainlanguage == filterId).ToList();
-        //                    }
-        //                    else if (filters[i].StartsWith("filterType_"))
-        //                    {
-        //                        int filterId = filtersId[i];
-        //                        filteredProjects = filteredProjects.Where(p => p.ProjectTypeFK == filterId).ToList();
-        //                    }
-        //                    else if (filters[i].StartsWith("filterCategory_"))
-        //                    {
-        //                        int filterId = filtersId[i];
-        //                        filteredProjects = filteredProjects.Where(p => p.ProjectCategoryFK == filterId).ToList();
-        //                    }
-        //                }
-        //                break;
-        //        }
-        //    }
-
-        //    for (int i = 0; i < filtersId.Count; i++)
-        //    {
-        //        if (filters[i].StartsWith("filterLanguage_"))
-        //        {
-        //            int filterId = filtersId[i];
-        //            filteredProjects = filteredProjects.Where(p => p.Mainlanguage == filterId).ToList();
-        //        }
-        //        else if (filters[i].StartsWith("filterType_"))
-        //        {
-        //            int filterId = filtersId[i];
-        //            filteredProjects = filteredProjects.Where(p => p.ProjectTypeFK == filterId).ToList();
-        //        }
-        //        else if (filters[i].StartsWith("filterCategory_"))
-        //        {
-        //            int filterId = filtersId[i];
-        //            filteredProjects = filteredProjects.Where(p => p.ProjectCategoryFK == filterId).ToList();
-        //        }
-        //    }
-
-        //    return filteredProjects;
-        //}
-
-        //public List<Project> LoadFilterComboBox(List<string> filters, List<int> filtersId)
-        //{
-        //    IEnumerable<Project> allProjects = dc.Project;
-
-        //    //foreach (string filter in filters)
-        //    for (int i = 0; i < filters.Count(); i++)
-        //    {
-        //        string filter = filters[i];
-        //        int filterId = filtersId[i];
-
-        //        if (filter.StartsWith("filterLanguage_"))
-        //        {
-        //            allProjects = (from p in allProjects
-        //                           where p.Mainlanguage == filterId
-        //                           select p).ToList();
-        //        }
-
-        //        if (filter.StartsWith("filterType_"))
-        //        {
-        //            allProjects = (from p in allProjects
-        //                           where p.ProjectTypeFK == filterId
-        //                           select p).ToList();
-        //        }
-
-        //        if (filter.StartsWith("filterCategory_"))
-        //        {
-        //            allProjects = (from p in allProjects
-        //                           where p.ProjectCategoryFK == filterId
-        //                           select p).ToList();
-        //        }
-        //    }
-
-        //    return allProjects.ToList();
-        //}
     }
 }

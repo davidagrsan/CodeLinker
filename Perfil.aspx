@@ -17,6 +17,10 @@
             <h1 class="usuario__titulo">&lt;Perfil&gt;</h1>
 
             <div class="usuario__datos">
+                <article class="datos__dato">
+                   <label for="username">Nombre de usuario</label>
+                   <asp:TextBox ID="username" runat="server"></asp:TextBox>
+                </article>
 
                 <article class="datos__dato">
                     <label for="nombre">Nombre</label>
@@ -89,37 +93,35 @@
             <h2 class="privacidad__titulo">&lt;Privacidad&gt;</h2>
 
             <h3 class="privacidad__subtitulo">Quieres que su perfil sea <span class="privacidad__subtitulo--violet">privado</span> o <span class="privacidad__subtitulo--violet">publico?</span></h3>
-            <p>Al seleccionar la opción “On” en la casilla de abajo, bloquearemos su informació personal a los visitantes de su perfil personal.</p>
+            <p>Al seleccionar la opción “On” en la casilla de abajo, bloquearemos su información personal a los visitantes de su perfil personal.</p>
             <p>Solamente mostraremos su nombre y su foto de perfil.</p>
             <div class="privacidad__activar">
                 <p>Activar modo privado</p>
-                <div class="privacidad__switch">
-                    <div class="switch__option switch__active">Off</div>
-                    <div class="switch__option">On</div>
+                <div class="privacidad__switch" runat="server" id="divswitch">
+                    <div class="switch__option" id="divswitchoff" runat="server">Off</div>
+                    <div class="switch__option" id="divswitchon" runat="server">On</div>
                 </div>
             </div>
 
             <h3 class="privacidad__subtitulo">Quieres modificar tu <span class="privacidad__subtitulo--violet">contraseña</span>?</h3>
 
             <div class="privacidad__formulario">
+                    <article class="formulario__campo">
+                        <label for="actual-pass">Contraseña actual</label>
+                        <asp:TextBox ID="txtActualPass" TextMode="password" runat="server"></asp:TextBox>
+                    </article>
 
-                <article class="formulario__campo">
-                    <label for="actual-pass">Contraseña actual</label>
-                    <input type="password" id="actual-pass">
-                </article>
+                    <article class="formulario__campo">
+                        <label for="new-pass">Nueva contraseña</label>
+                        <asp:TextBox ID="txtNewPass" TextMode="password" runat="server"></asp:TextBox>
+                    </article>
 
-                <article class="formulario__campo">
-                    <label for="new-pass">Nueva contraseña</label>
-                    <input type="password" id="new-pass">
-                </article>
+                    <article class="formulario__campo">
+                        <label for="rep-new-pass">Repetir nueva contraseña</label>
+                        <asp:TextBox ID="txtRepNewPass" TextMode="password" runat="server"></asp:TextBox>
+                    </article>
 
-                <article class="formulario__campo">
-                    <label for="rep-new-pass">Repetir nueva contraseña</label>
-                    <input type="password" id="rep-new-pass">
-                </article>
-
-                <button class="privacidad__boton" type="button">Guardar</button>
-
+                    <asp:Button ID="savePassChanges__btn" runat="server" Text="Cambiar contraseña" OnClick="savePassChanges__btn_Click" />
             </div>
 
         </section>
@@ -130,9 +132,12 @@
 
             <div class="gestion__botones">
                 <asp:Button ID="BtnCloseSession" runat="server" Text="Cerrar sesión" CssClass="boton__cerrarSesion" OnClick="BtnCloseSession_Click" />
-                <asp:Button ID="BtnDeleteAccount" runat="server" Text="Eliminar cuenta" CssClass="boton__eliminarCuenta" OnClick="BtnDeleteAccount_Click" />
+                <asp:HiddenField ID="confirmValue" runat="server" />
+                <asp:Button ID="BtnSaveProfileChanges" runat="server" Text="Guardar cambios de perfil" OnClick="BtnSaveProfileChanges_Click" />
             </div>
-
+            <div>
+                <asp:Button ID="BtnDeleteAccount" runat="server" Text="Eliminar cuenta" CssClass="boton__eliminarCuenta" OnClick="BtnDeleteAccount_Click" OnClientClick="return confirmacionEliminacion();"/>
+            </div>
         </section>
 
     </main>
@@ -157,15 +162,16 @@
                 e.classList.add('switch__active')
             })
         })
-        // Función para confirmar la eliminación de cuenta
-        function clicked() {
-            if (confirm('Do you want to submit?')) {
-                yourformelement.submit();
-            } else {
-                return false;
-            }
-        }
 
+        function confirmacionEliminacion() {
+            var respuesta = confirm('¿De verdad que quieres eliminar tu cuenta?');
+            if (respuesta) {
+                document.getElementById('<%= confirmValue.ClientID %>').value = 'Si';
+        } else {
+            document.getElementById('<%= confirmValue.ClientID %>').value = 'No';
+                }
+                return respuesta;
+            }
     </script>
 
 </asp:Content>

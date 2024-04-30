@@ -179,6 +179,8 @@
     background-color: var(--secondary);
     border: 0px;
     border-radius: 16px;
+    padding: 0.5em;
+    font-size: 1.50rem;
 }
 
 .privacidad__boton{
@@ -225,7 +227,7 @@ article#MainContent_linksContainer div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em;
+    margin: 1em 0;
 }
 #MainContent_linksContainer input {
     padding: 0.5em;
@@ -239,4 +241,24 @@ article#MainContent_linksContainer div {
     color: white;
     padding: 0.5em;
     border-radius: 100px;
+}
+input#MainContent_savePassChanges__btn, input#MainContent_BtnCloseSession, input#MainContent_BtnSaveProfileChanges {
+    background-color: #5b2a79;
+    border: none;
+    color: white;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+input#MainContent_BtnDeleteAccount {
+    background: #beaec2;
+    border: none;
+    color: #870000;
+    padding: 1em;
+    margin: 1em 0;
+    font-weight: bold;
+}
+input#MainContent_savePassChanges__btn:hover, input#MainContent_BtnCloseSession:hover, input#MainContent_BtnSaveProfileChanges:hover,
+input#MainContent_BtnDeleteAccount:hover {
+    scale: 1.1;
+    box-shadow: 0 0 10px var(--secondary);
 }

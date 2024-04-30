@@ -58,7 +58,69 @@ namespace CodeLinker.DAL
                              select user).FirstOrDefault();
 
                 query.ProfilePhoto = updatedUser.ProfilePhoto;
+                query.UserName = updatedUser.UserName;
+                query.FirstName = updatedUser.FirstName;
+                query.LastName = updatedUser.LastName;
+                query.Email = updatedUser.Email;
+                query.Password = updatedUser.Password;
+                query.PhoneNumber = updatedUser.PhoneNumber;
+                query.BirthDate = updatedUser.BirthDate;
+                query.LinkedInURL = updatedUser.LinkedInURL;
+                query.GitHubURL = updatedUser.GitHubURL;
+                query.SpecialityFK = updatedUser.SpecialityFK;
+                query.Privacy = updatedUser.Privacy;
                 dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DeleteUser(User userToDelete)
+        {
+            try
+            {
+                var query = (from user in dc.User
+                             where user.UserId == userToDelete.UserId
+                             select user).FirstOrDefault();
+
+                dc.User.DeleteOnSubmit(query);
+                dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void UpdatePassword(User updatedUser, string password)
+        {
+            try
+            {
+                var query = (from user in dc.User
+                             where user.UserId == updatedUser.UserId
+                             select user).FirstOrDefault();
+
+                query.Password = updatedUser.Password;
+
+                dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool CheckPassword(User connectedUser, string password)
+        {
+            try
+            {
+                var query = (from user in dc.User
+                             where user.UserId == connectedUser.UserId
+                             select user).FirstOrDefault();
+
+                return query.Password == password;
             }
             catch (Exception)
             {

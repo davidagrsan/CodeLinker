@@ -130,7 +130,7 @@ namespace CodeLinker
                     <p class='project__maxParticipants'>{project.MaxUsers}</p>
                 </div>
             </div>
-            <button class='project__moreInfo'>Ver más</button>
+            <a href='VerProyecto.aspx?id={project.ProjectId}' class='project__moreInfo'>Ver más</a>
             <div class='project__state'>{GetProjectStateHtml(project)}</div>
         </div>";
 
@@ -289,6 +289,5 @@ namespace CodeLinker
 
             LoadAllProjects();
         }
-
     }
 }
