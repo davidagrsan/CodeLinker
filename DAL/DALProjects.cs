@@ -161,5 +161,19 @@ namespace CodeLinker
             }
 
         }
+
+        public void InsertProject(Project newProject)
+        {
+            try
+            {
+                dc.Project.InsertOnSubmit(newProject);
+                dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

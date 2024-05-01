@@ -2,6 +2,7 @@
 using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BCrypt.Net;
 
 namespace CodeLinker
 {
@@ -36,12 +37,19 @@ namespace CodeLinker
         // Genera la información del perfil del usuario
         private void GenerateProfileInfo()
         {
+            User actualUser = (User)Session["connectedUser"];
+            string profilePicture = Convert.ToBase64String(actualUser.ProfilePhoto.ToArray());
+
             // Se asignan los datos básicos en los campos del perfil
             username.Text = user.UserName;
             nombre.Text = user.FirstName;
             apellido.Text = user.LastName;
             email.Text = user.Email;
             telefono.Text = user.PhoneNumber;
+
+            //Imagen
+            fotoPerfil.Src = "data:image/png;base64," + profilePicture;
+
             // Conversión de fecha a string de formato necesario
             DateTime birthDate = Convert.ToDateTime(user.BirthDate);
             fecha.Text = birthDate.ToString("yyyy-MM-dd");
@@ -89,19 +97,23 @@ namespace CodeLinker
         {
             user = (User)Session["connectedUser"];
 
-            if (dalUser.CheckPassword(user, txtActualPass.Text))
+            string storedPassword = user.Password;
+            bool passwordMatches = BCrypt.Net.BCrypt.Verify(txtActualPass.Text, storedPassword);
+
+            if (passwordMatches)
             {
                 if (txtNewPass.Text != txtRepNewPass.Text)
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('¡La nueva contraseña no coincide!')", true);
                 }
                 // Comprobación de que los campos no están vacíos
-                else if (txtNewPass.Text != "" || txtRepNewPass.Text != "")
+                else if (txtNewPass.Text == "" || txtRepNewPass.Text == "")
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('¡La nueva contraseña no pueden ser campos vacíos!')", true);
                 }
                 else
                 {
+
                     user.Password = txtNewPass.Text;
                     dalUser.UpdatePassword(user, user.Password);
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('¡Tu contraseña se cambió correctamente!')", true);
@@ -117,6 +129,12 @@ namespace CodeLinker
         protected void BtnSaveProfileChanges_Click(object sender, EventArgs e)
         {
             user = (User)Session["connectedUser"];
+            string newPhoto;
+
+            newPhoto = photoFile.PostedFile.FileName;
+            string imagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/img/"+newPhoto);
+
+            byte[] changedProfilePicture = System.IO.File.ReadAllBytes(imagePath);
 
             // Datos básicos, desde el campo de texto al usuario de la sesión
             user.UserName = username.Text;
@@ -127,6 +145,8 @@ namespace CodeLinker
             user.BirthDate = Convert.ToDateTime(fecha.Text);
             user.LinkedInURL = linkLinkedIn.Text;
             user.GitHubURL = linkLinkedIn.Text;
+
+            user.ProfilePhoto = changedProfilePicture;
 
             // Especialidad del usuario
             if (frontend.Checked)
@@ -156,8 +176,8 @@ namespace CodeLinker
             }
 
             dalUser.UpdateUser(user);
+            Session["connectedUser"] = user;
+            Response.Redirect("Perfil.aspx");
         }
-
-
     }
 }

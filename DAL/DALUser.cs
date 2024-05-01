@@ -19,12 +19,13 @@ namespace CodeLinker.DAL
                              where user.UserName == userOrMail || user.Email == userOrMail
                              select user).FirstOrDefault();
 
+                if (query == null) 
+                    return (false, null);
+
                 //Es necesario recoger la contraseña enviada por la base de datos, guardarla en una string y verificarla por separado
                 string storedPassword = query.Password;
                 bool passwordMatches = BCrypt.Net.BCrypt.Verify(password, storedPassword);
 
-                if (query == null) 
-                    return (false, null);
                 if (passwordMatches)
                     return (true, query);
                 else 
@@ -107,7 +108,9 @@ namespace CodeLinker.DAL
                              where user.UserId == updatedUser.UserId
                              select user).FirstOrDefault();
 
-                query.Password = updatedUser.Password;
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(12));
+
+                query.Password = hashedPassword;
 
                 dc.SubmitChanges();
             }
