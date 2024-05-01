@@ -16,6 +16,7 @@ namespace CodeLinker
             User connectedUser = (User)Session["connectedUser"];
             if (connected)
             {
+                crear__proyectos.HRef = "CreateProject.aspx";
                 login__text.InnerHtml = connectedUser.UserName;
                 login__text.HRef = "Perfil.aspx";
             }
