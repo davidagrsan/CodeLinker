@@ -58,9 +58,11 @@
             <div class="usuario__especialidad">
 
                 <div class="usuario__logo">
-                    <img class="logo__img" src="Content/img/img-alberto.png" alt="Foto usuario">
+                    <img class="logo__img" id="fotoPerfil" src="" alt="Foto usuario" runat="server">
                     <img class="logo__logo" src="Content/img/logo-without-letters.png" alt="Logo Codelinkers">
                 </div>
+                <asp:Label ID="lblChangePhoto" runat="server" Text="Cambia tu foto de perfil"></asp:Label>
+                <input type="file" id="photoFile" runat="server" name="photoFile" />
 
                 <div class="especialidad__datos">
                     <h3 class="especialidad__titulo">Especialidad</h3>
