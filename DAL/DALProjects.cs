@@ -49,7 +49,7 @@ namespace CodeLinker
                         {
                             string languageName = filter.Substring("filterLanguage_".Length);
                             allProjects = (from p in allProjects
-                                           join l in dc.ProgrammingLanguage on p.MainLanguage equals l.LanguageId
+                                           join l in dc.ProgrammingLanguage on p.Mainlanguage equals l.LanguageId
                                            where l.LanguageName == languageName
                                            select p).ToList();
                         }

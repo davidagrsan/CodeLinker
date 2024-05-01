@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using BCrypt.Net;
 
 namespace CodeLinker
 {
@@ -51,11 +52,17 @@ namespace CodeLinker
                 return;
             }
             //Si todo lo anterior se cumple, crea el nuevo usuario y lo sube
-            byte[] defaultProfilePicture = System.IO.File.ReadAllBytes("Content/img/logo-without-letters.png");
+            string imagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/img/logo-without-letters.png");
+            byte[] defaultProfilePicture = System.IO.File.ReadAllBytes(imagePath);
+
+            //Encriptamos la contraseña usando la librería de BCrypt.Net-Next
+            //La función GenerateSalt, determina las iteraciones que hacemos al proceso de hashing de la contraseña
+            //Cuantas más iteraciones, más segura, pero también más recursos requiere, lo aconsejado es usar de 10 a 12 rondas
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(txtBoxConfirmPwd.Text, BCrypt.Net.BCrypt.GenerateSalt(12));
             User newUser = new User
             {
                 UserName = txtBoxUser.Text,
-                Password = txtBoxConfirmPwd.Text,
+                Password = hashedPassword,
                 Email = txtBoxEmail.Text,
                 ProfilePhoto = defaultProfilePicture,
                 SpecialityFK = null,
