@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<main class="proyecto">
+    <main class="proyecto">
     <link rel="stylesheet" href="css/ver-proyecto.css" />
 
     <h1 class="proyecto__titulo">&lt;PROYECTO&gt;</h1>

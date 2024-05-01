@@ -80,7 +80,7 @@
 }
 
 .logo__img{
-    position: absolute;
+    /*position: absolute;*/
     border: 15px solid #fff;
     border-radius: 100%;
     width: 250px;
@@ -261,4 +261,9 @@ input#MainContent_savePassChanges__btn:hover, input#MainContent_BtnCloseSession:
 input#MainContent_BtnDeleteAccount:hover {
     scale: 1.1;
     box-shadow: 0 0 10px var(--secondary);
+}
+
+.usuario__logo {
+    display: flex;
+    justify-content: center;
 }

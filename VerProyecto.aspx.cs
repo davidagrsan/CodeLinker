@@ -180,10 +180,10 @@ namespace CodeLinker
         {
             projectId = Convert.ToInt32(Request.QueryString["id"]);
             user = (User)Session["connectedUser"];
-            userId = user.UserId;
 
             if (user != null)
             {
+                userId = user.UserId;
                 dalProjects.InsertNewUserIntoProject(projectId, userId);
                 Response.Redirect($"VerProyecto?id={projectId}");
             }
