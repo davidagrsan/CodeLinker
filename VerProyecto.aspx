@@ -9,6 +9,7 @@
 
     <div id="project__Container" runat="server">
 
+        <asp:Button ID='btnApuntarse' CssClass='datos__boton' runat='server' Text='Apuntarse al proyecto' />
     </div>
 
 </main>
