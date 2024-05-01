@@ -233,3 +233,9 @@ input#MainContent_urlDiscord {
     width: 100%;
 }
 
+.botones-aspnet-finalizar {
+    background-color: #5b2a79;
+    border: none;
+    color: white;
+    font-weight: bolder;
+}
