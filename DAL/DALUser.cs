@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using BCrypt.Net;
 
 namespace CodeLinker.DAL
 {
@@ -18,9 +19,13 @@ namespace CodeLinker.DAL
                              where user.UserName == userOrMail || user.Email == userOrMail
                              select user).FirstOrDefault();
 
+                //Es necesario recoger la contraseña enviada por la base de datos, guardarla en una string y verificarla por separado
+                string storedPassword = query.Password;
+                bool passwordMatches = BCrypt.Net.BCrypt.Verify(password, storedPassword);
+
                 if (query == null) 
                     return (false, null);
-                if (query.Password == password) 
+                if (passwordMatches)
                     return (true, query);
                 else 
                     return (false, null);
