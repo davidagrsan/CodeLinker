@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-.fa-gamepad{
+.encabezado__categoria-proyecto i {
     height: 60px;
     color: #fff;
     padding: 20px;
@@ -88,6 +88,13 @@
     gap: 15px;
     height: 60px;
     width: fit-content;
+    align-items: center;
+}
+
+.datos__fechas span {
+    font-weight: bolder;
+    margin: 0;
+    padding: 0;
 }
 
 .fechas__comienzo, .fechas__limite{
@@ -176,4 +183,34 @@
     display: flex;
     gap: 10px;
     margin: 30px;
+}
+
+span.estado-proyecto-completo {
+    color: #ab0000;
+}
+
+span.estado-proyecto-abierto {
+    color: #008900;
+}
+
+.buttonSubmit__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonSubmit__container span {
+    margin-right: 1em;
+}
+
+span.encabezado__tipo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    background-color: #5b2a79;
+    border-radius: 25px;
+    padding: 1em 2em;
 }

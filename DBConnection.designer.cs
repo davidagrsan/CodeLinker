@@ -64,7 +64,6 @@ namespace CodeLinker
     partial void UpdateUserReviewsProject(UserReviewsProject instance);
     partial void DeleteUserReviewsProject(UserReviewsProject instance);
         #endregion
-
         public DBConnectionDataContext() :
 base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
