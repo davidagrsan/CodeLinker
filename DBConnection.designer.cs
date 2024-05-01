@@ -64,7 +64,6 @@ namespace CodeLinker
     partial void UpdateUserReviewsProject(UserReviewsProject instance);
     partial void DeleteUserReviewsProject(UserReviewsProject instance);
         #endregion
-
         public DBConnectionDataContext() :
 base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLinkerConnectionString"].ConnectionString, mappingSource)
         {
@@ -490,8 +489,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 		
 		private bool _Finalized;
 		
-		private bool _Open;
-		
 		private string _GithubURL;
 		
 		private int _PropietaryId;
@@ -540,8 +537,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
     partial void OnMaxUsersChanged();
     partial void OnFinalizedChanging(bool value);
     partial void OnFinalizedChanged();
-    partial void OnOpenChanging(bool value);
-    partial void OnOpenChanged();
     partial void OnGithubURLChanging(string value);
     partial void OnGithubURLChanged();
     partial void OnPropietaryIdChanging(int value);
@@ -726,26 +721,6 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 					this._Finalized = value;
 					this.SendPropertyChanged("Finalized");
 					this.OnFinalizedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Open]", Storage="_Open", DbType="Bit NOT NULL")]
-		public bool Open
-		{
-			get
-			{
-				return this._Open;
-			}
-			set
-			{
-				if ((this._Open != value))
-				{
-					this.OnOpenChanging(value);
-					this.SendPropertyChanging();
-					this._Open = value;
-					this.SendPropertyChanged("Open");
-					this.OnOpenChanged();
 				}
 			}
 		}

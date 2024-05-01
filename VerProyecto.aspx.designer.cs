@@ -24,12 +24,12 @@ namespace CodeLinker
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl project__Container;
 
         /// <summary>
-        /// Control btnApuntarse.
+        /// Control btnDesapuntarse.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApuntarse;
+        protected global::System.Web.UI.WebControls.Button btnDesapuntarse;
     }
 }

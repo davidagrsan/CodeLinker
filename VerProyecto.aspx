@@ -8,8 +8,11 @@
     <h1 class="proyecto__titulo">&lt;PROYECTO&gt;</h1>
 
     <div id="project__Container" runat="server">
-
-        <asp:Button ID='btnApuntarse' CssClass='datos__boton' runat='server' Text='Apuntarse al proyecto' />
+        <div>
+            <asp:Button ID="btnApuntarse" runat="server" CssClass="datos__boton" Text="" OnClick="btnApuntarse_Click" />
+            <asp:Button ID="btnDesapuntarse" runat="server" CssClass="datos__boton" Text="¿Desapuntarse del proyecto?" OnClick="btnDesapuntarse_Click" Visible="False" />
+        </div>
+        
     </div>
 
 </main>

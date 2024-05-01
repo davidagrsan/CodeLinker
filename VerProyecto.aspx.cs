@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeLinker.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,28 +17,41 @@ namespace CodeLinker
         int projectId;
         int userId;
         User user;
+        protected Button btnApuntarse;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = (User)Session["connectedUser"];
-            if (user != null)
+            if (!IsPostBack)
             {
-                if (!IsPostBack)
+                projectId = Convert.ToInt32(Request.QueryString["id"]);
+                user = (User)Session["connectedUser"];
+                if (user != null)
                 {
-                    projectId = Convert.ToInt32(Request.QueryString["id"]);
                     userId = user.UserId;
-                    LoadProjectInfo(projectId);
+                    bool userIsConnected = true;
+                    LoadProjectInfo(projectId, userIsConnected);
+                }
+                else
+                {
+                    bool userIsConnected = false;
+                    LoadProjectInfo(projectId, userIsConnected);
                 }
             }
         }
 
-        private void LoadProjectInfo(int projectId)
+        private void LoadProjectInfo(int projectId, bool userIsConnected)
         {
             // Cargamos los datos del proyecto de la base de datos
             Project project = dalProjects.LoadSingleProject(projectId);
 
+            // Contar participantes actuales
             int actualParticipants = dalProjects.CountParticipants(project.ProjectId);
-            string estadoProyecto = project.MaxUsers < actualParticipants ? "abierto" : "cerrado";
+
+            // Estado del proyecto según los participantes
+            string estadoProyecto = project.MaxUsers > actualParticipants ? "abierto" : "completo";
+
+            // Creamos la variable para comprobar si el usuario está en el proyecto ya
+            bool userIsInProject = dalProjects.CheckUserInProject(projectId, userId);
 
             // Crear el contenedor principal
             HtmlGenericControl projectContainer = new HtmlGenericControl("div");
@@ -69,7 +83,7 @@ namespace CodeLinker
                         <p>Fecha de inicio</p>
                         <span>{project.StartDate.ToString("dd/MM/yyyy")}</span>
                     </div>
-                    <i class=fa-solid fa-arrow-right'></i>
+                    <span>—</span>
                     <div class='fechas__limite'>
                         <p>Fecha límite</p>
                         <span>{project.DeliveryDate.ToString("dd/MM/yyyy")}</span>
@@ -102,7 +116,49 @@ namespace CodeLinker
 
         </section>";
 
-            projectContainer.InnerHtml = $"{firstRowHtml}";
+            projectContainer.InnerHtml = $"{firstRowHtml + secondRowHtml + thirdRowHtml}";
+
+            HtmlGenericControl buttonSubmitContainer = new HtmlGenericControl("div");
+            buttonSubmitContainer.Attributes["class"] = "buttonSubmit__container";
+
+            if (userIsConnected && !userIsInProject)
+            {
+                if (estadoProyecto == "completo")
+                {
+                    Label lblProjectFull = new Label();
+                    btnApuntarse.Visible = false;
+                    lblProjectFull.Visible = true;
+
+                    lblProjectFull.ID = "lblProjectFull";
+                    lblProjectFull.CssClass = "datos__label";
+                    lblProjectFull.Text = "El proyecto está completo...";
+                    buttonSubmitContainer.Controls.Add(lblProjectFull);
+                }
+                else
+                    btnApuntarse.Text = "Apuntarse al proyecto";
+            }
+            else if (userIsConnected && userIsInProject)
+            {
+                Label lblUserInProject = new Label();
+                btnApuntarse.Visible = false;
+                lblUserInProject.Visible = true;
+
+                lblUserInProject.ID = "lblUserInProject";
+                lblUserInProject.CssClass = "datos__label";
+                lblUserInProject.Text = "Ya estás participando en este proyecto";
+
+                btnDesapuntarse.Visible = true;
+
+                buttonSubmitContainer.Controls.Add(lblUserInProject);
+                buttonSubmitContainer.Controls.Add(btnDesapuntarse);
+            }
+            else
+                btnApuntarse.Text = "Inicia sesión para apuntarte a proyectos";
+
+            buttonSubmitContainer.Controls.Add(btnApuntarse);
+
+            projectContainer.Controls.Add(buttonSubmitContainer);
+
             project__Container.Controls.Add(projectContainer);
         }
 
@@ -122,7 +178,29 @@ namespace CodeLinker
 
         protected void btnApuntarse_Click(object sender, EventArgs e)
         {
-            dalProjects.InsertNewUserIntoProject(projectId, userId);
+            projectId = Convert.ToInt32(Request.QueryString["id"]);
+            user = (User)Session["connectedUser"];
+            userId = user.UserId;
+
+            if (user != null)
+            {
+                dalProjects.InsertNewUserIntoProject(projectId, userId);
+                Response.Redirect($"VerProyecto?id={projectId}");
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
+
+        protected void btnDesapuntarse_Click(object sender, EventArgs e)
+        {
+            projectId = Convert.ToInt32(Request.QueryString["id"]);
+            user = (User)Session["connectedUser"];
+            userId = user.UserId;
+
+            dalProjects.DeleteUserFromProject(projectId, userId);
+            Response.Redirect($"VerProyecto?id={projectId}");
         }
     }
 }

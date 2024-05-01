@@ -61,17 +61,6 @@ namespace CodeLinker
                     fullstack.Checked = true;
                     break;
             }
-
-            //if (user.Privacy == true)
-            //{
-            //    divswitchoff.Attributes["class"] = divswitchoff.Attributes["class"].Replace("switch__active", "");
-            //    divswitchon.Attributes["class"] = divswitchoff.Attributes["class"].Replace("", "switch__active");
-            //} 
-            //else if (user.Privacy == false || user.Privacy == null)
-            //{
-            //    divswitchon.Attributes["class"] = divswitchoff.Attributes["class"].Replace("switch__active", "");
-            //    divswitchoff.Attributes["class"] = divswitchoff.Attributes["class"].Replace("", "switch__active");
-            //}
         }
 
         // Método para cerrar la sesión
