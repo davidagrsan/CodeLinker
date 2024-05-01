@@ -96,6 +96,33 @@ namespace CodeLinker
         protected global::System.Web.UI.WebControls.TextBox linkGitHub;
 
         /// <summary>
+        /// Control fotoPerfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage fotoPerfil;
+
+        /// <summary>
+        /// Control lblChangePhoto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChangePhoto;
+
+        /// <summary>
+        /// Control photoFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile photoFile;
+
+        /// <summary>
         /// Control frontend.
         /// </summary>
         /// <remarks>

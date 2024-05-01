@@ -18,7 +18,7 @@ main.login input[type=text], main.login [type=password], main.signup input[type=
     text-align: center;
     background-color: #beaec2;
     color: black;
-    margin: 1em 0;
+    margin-bottom: 1em;
     border: 0;
 }
 
@@ -47,4 +47,13 @@ div#login__form, #signUp__form {
 a#forgotPasswordLink, #login__toRegister a, #signUp__toLogin a {
     color: #beaec2;
     text-decoration: none;
+}
+
+div#login__form {
+    display: flex;
+    flex-direction: column;
+}
+
+span#MainContent_lblConnectedLogIn {
+    margin: 1em 0;
 }
