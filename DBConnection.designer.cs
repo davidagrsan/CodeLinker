@@ -258,7 +258,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_Project", ThisKey="LanguageId", OtherKey="MainLanguage")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_Project", ThisKey="LanguageId", OtherKey="Mainlanguage")]
 		public EntitySet<Project> Project
 		{
 			get
@@ -490,6 +490,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 		
 		private bool _Finalized;
 		
+		private bool _Open;
+		
 		private string _GithubURL;
 		
 		private int _PropietaryId;
@@ -501,6 +503,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 		private int _ProjectTypeFK;
 		
 		private int _ProjectCategoryFK;
+		
+		private string _CommunicationMethod;
 		
 		private EntitySet<UserLikesProject> _UserLikesProject;
 		
@@ -536,18 +540,22 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
     partial void OnMaxUsersChanged();
     partial void OnFinalizedChanging(bool value);
     partial void OnFinalizedChanged();
+    partial void OnOpenChanging(bool value);
+    partial void OnOpenChanged();
     partial void OnGithubURLChanging(string value);
     partial void OnGithubURLChanged();
     partial void OnPropietaryIdChanging(int value);
     partial void OnPropietaryIdChanged();
-    partial void OnMainLanguageChanging(int value);
-    partial void OnMainLanguageChanged();
+    partial void OnMainlanguageChanging(int value);
+    partial void OnMainlanguageChanged();
     partial void OnSecondaryLanguageChanging(System.Nullable<int> value);
     partial void OnSecondaryLanguageChanged();
     partial void OnProjectTypeFKChanging(int value);
     partial void OnProjectTypeFKChanged();
     partial void OnProjectCategoryFKChanging(int value);
     partial void OnProjectCategoryFKChanged();
+    partial void OnCommunicationMethodChanging(string value);
+    partial void OnCommunicationMethodChanged();
     #endregion
 		
 		public Project()
@@ -722,6 +730,26 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Open]", Storage="_Open", DbType="Bit NOT NULL")]
+		public bool Open
+		{
+			get
+			{
+				return this._Open;
+			}
+			set
+			{
+				if ((this._Open != value))
+				{
+					this.OnOpenChanging(value);
+					this.SendPropertyChanging();
+					this._Open = value;
+					this.SendPropertyChanged("Open");
+					this.OnOpenChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GithubURL", DbType="VarChar(256) NOT NULL", CanBeNull=false)]
 		public string GithubURL
 		{
@@ -762,8 +790,8 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Mainlanguage", Storage="_Mainlanguage", DbType="Int NOT NULL")]
-		public int MainLanguage
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mainlanguage", DbType="Int NOT NULL")]
+		public int Mainlanguage
 		{
 			get
 			{
@@ -773,11 +801,15 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			{
 				if ((this._Mainlanguage != value))
 				{
-					this.OnMainLanguageChanging(value);
+					if (this._ProgrammingLanguage.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMainlanguageChanging(value);
 					this.SendPropertyChanging();
 					this._Mainlanguage = value;
-					this.SendPropertyChanged("MainLanguage");
-					this.OnMainLanguageChanged();
+					this.SendPropertyChanged("Mainlanguage");
+					this.OnMainlanguageChanged();
 				}
 			}
 		}
@@ -854,6 +886,26 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommunicationMethod", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string CommunicationMethod
+		{
+			get
+			{
+				return this._CommunicationMethod;
+			}
+			set
+			{
+				if ((this._CommunicationMethod != value))
+				{
+					this.OnCommunicationMethodChanging(value);
+					this.SendPropertyChanging();
+					this._CommunicationMethod = value;
+					this.SendPropertyChanged("CommunicationMethod");
+					this.OnCommunicationMethodChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_UserLikesProject", Storage="_UserLikesProject", ThisKey="ProjectId", OtherKey="ProjectFK")]
 		public EntitySet<UserLikesProject> UserLikesProject
 		{
@@ -893,7 +945,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_ProgrammingLanguage", ThisKey="MainLanguage", OtherKey="LanguageId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProgrammingLanguage_Project", Storage="_ProgrammingLanguage", ThisKey="Mainlanguage", OtherKey="LanguageId", IsForeignKey=true)]
 		public ProgrammingLanguage ProgrammingLanguage
 		{
 			get
@@ -1559,7 +1611,7 @@ base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CodeLi
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(60) NOT NULL", CanBeNull=false)]
 		public string Password
 		{
 			get
