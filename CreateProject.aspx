@@ -15,21 +15,21 @@
                     <h2 class="formulario__titulo">PASO 1: DEFINE TU PROYECTO</h2>
 
                     <div class="newProject__Name">
-                        <asp:Label ID="lblProjectName" runat="server" Text="Nombre del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtProjectName" runat="server" CssClass="input"></asp:TextBox>
+                        <asp:Label ID="lblProjectName" runat="server" Text="*Nombre del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:TextBox ID="txtProjectName" runat="server" CssClass="input idProjectName"></asp:TextBox>
                     </div>
                     <div class="newProject__ProgrammingLanguage">
-                        <asp:Label ID="lblProgrammingLanguage" runat="server" Text="Lenguaje principal de programación:"  CssClass="formulario__parrafo-guia"></asp:Label>
-                        <asp:DropDownList ID="comboProgrammingLanguage" runat="server" CssClass="input">
+                        <asp:Label ID="lblProgrammingLanguage" runat="server" Text="*Lenguaje principal de programación:"  CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:DropDownList ID="comboProgrammingLanguage" runat="server" CssClass="input selectionProgrammingLanguage">
                         </asp:DropDownList>
                     </div>
                     <div class="newProject__Category">
-                        <asp:Label ID="lblCategory" runat="server" Text="Categoría del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
-                        <asp:DropDownList ID="comboCategory" runat="server" CssClass="input">
+                        <asp:Label ID="lblCategory" runat="server" Text="*Categoría del proyecto:" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:DropDownList ID="comboCategory" runat="server" CssClass="input selectionCategory">
                         </asp:DropDownList>
                     </div>
                     <div class="newProject__MaxParticipants">
-                        <asp:Label ID="lblMaxParticipantsNumber" runat="server" Text="Número máximo de participantes (de 2 a 5):" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:Label ID="lblMaxParticipantsNumber" runat="server" Text="*Número máximo de participantes (de 2 a 5):" CssClass="formulario__parrafo-guia"></asp:Label>
                         <asp:DropDownList ID="comboMaxUsers" runat="server" CssClass="input">
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
@@ -40,20 +40,20 @@
                     <div class="newProject__Discord">
                         <p>Creemos en la comunicación para el equipo, ¡utilicemos Discord para fomentarla! Si no sabes utilizar Discord, puedes aprender a crear un servidor una vez tienes tu cuenta <a href="aprende_discordServer.aspx">aquí</a></p>
                        <asp:Label ID="lblDiscord" runat="server" Text="Tu servidor de Discord: " class="formulario__parrafo-guia"></asp:Label>
-                       <asp:TextBox ID="urlDiscord" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="urlDiscord" runat="server" CssClass="input discordUrl"></asp:TextBox>
                     </div>
                     <div class="newProject__ShortDesc">
-                        <asp:Label ID="lblShortDesc" runat="server" Text="Descripción corta (máximo 400 caracteres):" CssClass="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtShortDesc" runat="server" TextMode="MultiLine" MaxLength="400" CssClass="input" Height="100px" Width="400px"></asp:TextBox>
+                        <asp:Label ID="lblShortDesc" runat="server" Text="*Descripción corta (máximo 400 caracteres):" CssClass="formulario__parrafo-guia"></asp:Label>
+                        <asp:TextBox ID="txtShortDesc" runat="server" TextMode="MultiLine" MaxLength="400" CssClass="input textShortDescription" Height="100px" Width="400px"></asp:TextBox>
                     </div>
                     <div class="newProject__Dates">
                         <div class="newProject__startDate">
-                            <asp:Label ID="lblStartDate" runat="server" Text="Fecha de inicio:" CssClass="formulario__parrafo-guia"></asp:Label>
-                            <asp:TextBox ID="startDate" runat="server" type="date" CssClass="input"></asp:TextBox>
+                            <asp:Label ID="lblStartDate" runat="server" Text="*Fecha de inicio:" CssClass="formulario__parrafo-guia"></asp:Label>
+                            <asp:TextBox ID="startDate" runat="server" type="date" CssClass="input selectionStartDate"></asp:TextBox>
                         </div>
                          <div class="newProject__limitDate">
-                            <asp:Label ID="lblLimitDate" runat="server" Text="Fecha límite de finalización:" type="date" CssClass="formulario__parrafo-guia"></asp:Label>
-                            <asp:TextBox ID="limitDate" runat="server" type="date" CssClass="input"></asp:TextBox>
+                            <asp:Label ID="lblLimitDate" runat="server" Text="*Fecha límite de finalización:" type="date" CssClass="formulario__parrafo-guia"></asp:Label>
+                            <asp:TextBox ID="limitDate" runat="server" type="date" CssClass="input selectionLimitDate"></asp:TextBox>
                         </div>
                     </div>
 
@@ -82,8 +82,8 @@
                         </ul>
                     </div>
                     <p class="formulario__parrafo-guia">5. Crea el repositorio: Una vez hayas completado toda la información, haz click en el botón “Crear repositorio” para crear tu repositorio de GitHub.</p>
-                    <p class="formulario__parrafo-guia">6. Copia el enlace del repositorio:</p>
-                    <input type="text" class="formulario__input">
+                    <p class="formulario__parrafo-guia">6. *Copia el enlace del repositorio:</p>
+                    <asp:TextBox ID="githubUrl" CssClass="formulario__input githubUrl" runat="server" placeholder="Ejemplo: https://github.com/Propietario/Repositorio"></asp:TextBox>
 
                     <div class="formulario__botones-container">
                         <div class="botones-container__boton boton-atras">
@@ -108,7 +108,7 @@
                         Si no sabes hacerlo, te lo explicamos <a href="#" target="_blank">aquí.</a></p>
                     <div class="newProject__FullDesc">
                         <asp:Label ID="lblFullDescription" runat="server" Text="Descripción completa (máximo 1200 caracteres):" class="formulario__parrafo-guia"></asp:Label>
-                        <asp:TextBox ID="txtFullDesc" runat="server" TextMode="MultiLine" CssClass="input" MaxLength="1200"></asp:TextBox>
+                        <asp:TextBox ID="txtFullDesc" runat="server" TextMode="MultiLine" CssClass="input textFullDescription" MaxLength="1200"></asp:TextBox>
                     </div>
 
                     <div class="formulario__botones-container">
@@ -116,10 +116,7 @@
                             <i class="fa-solid fa-less-than"></i>
                             <button type="button">Atras</button>
                         </div>
-                        <div class="botones-container__boton boton-continuar">
-                            <button type="button">Finalizar</button>
-                            <i class="fa-solid fa-greater-than"></i>
-                        </div>
+                        <asp:Button ID="btnFinalizar"  runat="server" CssClass="botones-container__boton boton-continuar botones-aspnet-finalizar" Text="Finalizar" OnClientClick="return ValidarComposTres()" OnClick="btnFinalizar_Click"/>
                     </div>
 
                 </div>
@@ -176,6 +173,8 @@
         botonesContinuar.forEach(boton => {
             boton.addEventListener('click', () => {
                 if (paso1.classList.contains('active')) {
+                    const canContinue = ValidarCamposUno()
+                    if (!canContinue) return
                     paso1.classList.remove('active')
                     paso2.classList.add('active')
 
@@ -185,6 +184,9 @@
                     formPaso1.classList.add('ocultar')
                     formPaso2.classList.remove('ocultar')
                 } else if (paso2.classList.contains('active')) {
+                    const canContinue = ValidarCamposDos()
+                    if (!canContinue) return
+
                     paso2.classList.remove('active')
                     paso3.classList.add('active')
 
@@ -196,6 +198,7 @@
                 }
             })
         })
+
 
         botonesAtras.forEach(boton => {
             boton.addEventListener('click', () => {
@@ -220,6 +223,74 @@
                 }
             })
         })
+
+        function ValidarCamposUno() {
+            const nombreProyecto = document.querySelector('.idProjectName')
+            const lenguajeProyecto = document.querySelector('.selectionProgrammingLanguage')
+            const categoriaProyecto = document.querySelector('.selectionCategory')
+            const descripcionCorta = document.querySelector('.textShortDescription')
+            const urlDiscord = document.querySelector('.discordUrl')
+
+            if (!nombreProyecto.value) return false
+            if (lenguajeProyecto.value == "default") return false
+            if (categoriaProyecto.value == "default") return false
+            if (!descripcionCorta.value) return false
+            if (!urlDiscord.value) return false
+            if (!CheckStartDate()) return false
+            if (!CheckEndDate()) return false
+
+            return true;
+        }
+
+        function ValidarCamposDos() {
+            const urlGithub = document.querySelector(".githubUrl").value
+
+            const urlCorrecta = 'https://github.com/'
+            const validarUrl = urlGithub.split('/')
+
+            if (validarUrl.length == 5 && urlGithub.slice(0, 19) == urlCorrecta) {
+                if (validarUrl[4] != "" && validarUrl[3] != "") {
+                    return true
+                }
+            }
+
+            return false
+        }
+
+        function ValidarCamposTres() {
+            const fullDescription = document.querySelector(".textFullDescription")
+
+            if (!fullDescription.value) return false;
+            return true
+        }
+
+        function CheckStartDate() {
+            const dateValue = document.querySelector(".selectionStartDate").value
+
+            if (!dateValue) return false
+
+            const date = new Date(dateValue)
+            const currentDate = new Date()
+
+            if (date < currentDate) return false
+
+            return true;
+        }
+
+        function CheckEndDate() {
+            const startDateValue = document.querySelector(".selectionStartDate").value
+            const endDateValue = document.querySelector(".selectionLimitDate").value
+
+            if (!startDateValue || !endDateValue) return false
+
+            const startDate = new Date(startDateValue)
+            const endDate = new Date(endDateValue)
+
+            if (endDate < startDate) return false
+
+            return true;
+        }
+
 
     </script>
 </asp:Content>

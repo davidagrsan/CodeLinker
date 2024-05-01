@@ -84,5 +84,19 @@ namespace CodeLinker
 
             return countParticipants;
         }
+
+        public void InsertProject(Project newProject)
+        {
+            try
+            {
+                dc.Project.InsertOnSubmit(newProject);
+                dc.SubmitChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

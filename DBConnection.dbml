@@ -25,7 +25,6 @@
       <Column Name="DeliveryDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="MaxUsers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Finalized" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="[Open]" Member="Open" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="GithubURL" Type="System.String" DbType="VarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="PropietaryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Mainlanguage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
