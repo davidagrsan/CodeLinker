@@ -76,6 +76,13 @@ namespace CodeLinker
             return allProjects.ToList();
         }
 
+        public void InsertNewUserIntoProject(int projectId, int userId)
+        {
+            var newUserIntoProject = from userProject in dc.UserParticipatesProject
+                                     where userProject.UserFK == userId
+                                     select userProject.Project;
+        }
+
         public int CountParticipants(int projectId)
         {
             int countParticipants = (from up in dc.UserParticipatesProject
