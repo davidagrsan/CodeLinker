@@ -74,7 +74,7 @@
                         </article>
 
                         <article>
-                            <asp:RadioButton ID="backend" runat="server" GroupName="especialidad" />
+                            <asp:RadioButton ID="backend" runat="server" GroupName="especialidad" value=1/>
                             <asp:Label ID="backendLabel" runat="server" Text="Back-End" AssociatedControlID="backend"></asp:Label>
                         </article>
 
