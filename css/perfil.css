@@ -31,7 +31,7 @@
 }
 
 .perfil__usuario{
-    width: 70%;
+    width: 100%;
     display: grid;
     grid-template-columns: 55% 45%;
     justify-items: center;
@@ -40,6 +40,7 @@
 .usuario__titulo{
     font-size: 1.5rem;
     grid-column: 1/3;
+margin-bottom: 2em;
 }
 
 .usuario__datos{
@@ -266,4 +267,43 @@ input#MainContent_BtnDeleteAccount:hover {
 .usuario__logo {
     display: flex;
     justify-content: center;
+}
+
+span#MainContent_lblChangePhoto, #MainContent_photoFile {
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+.perfilPublico article.datos__dato label {
+    font-size: 1.25rem;
+}
+
+.perfilPublico div#MainContent_linksContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfilPublico div#MainContent_linksContainer i {
+    margin: 0.5em;
+}
+
+.perfilPublico div#MainContent_linksContainer div {
+    margin: 0.5em 0;
+}
+
+.perfilPublico .usuario__infoBasica {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.perfilPublico .perfil__usuario {
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
 }

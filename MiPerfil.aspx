@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="CodeLinker.Perfil" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MiPerfil.aspx.cs" Inherits="CodeLinker.Perfil" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/perfil.css">
@@ -131,7 +131,7 @@
 
         <section class="perfil__gestion" id="cuenta">
 
-            <h3 class="gestion__titulo">&lt;Gestionar de la cuenta&gt;</h3>
+            <h3 class="gestion__titulo">&lt;Gestionar la cuenta&gt;</h3>
 
             <div class="gestion__botones">
                 <asp:Button ID="BtnCloseSession" runat="server" Text="Cerrar sesión" CssClass="boton__cerrarSesion" OnClick="BtnCloseSession_Click" />

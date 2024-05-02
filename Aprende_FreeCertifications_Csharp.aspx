@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/css/aprende.css">
-    <main class="aprende__freeCertifications_C#">
+    <main class="aprende freeCertifications_Csharp">
     <h1>Certificación gratuita en C# con FreeCodeCamp</h1>
 
     <img class="aprende__logo" src="/Content/img/csharplogo.png">

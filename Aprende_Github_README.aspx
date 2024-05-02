@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Aprende_Github_README.aspx.cs" Inherits="CodeLinker.Contacto" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/css/aprende.css">
-    <main class="aprende__gitHubReadme">
+    <main class="aprende gitHubReadme">
      <h1>Guía para README.txt</h1>
 
      <h2>Básicos</h2>
@@ -21,7 +21,7 @@
      <ul>
          <li>-En el área de edición, puedes comenzar a escribir el contenido de tu archivo README.txt.</li>
          <li>-Puedes usar Markdown para dar formato al texto si lo deseas. Por ejemplo:</li>
-         <li><img class="tutorial-img" src="/Content/img/github_readme_1.png"></li>
+         <li class="img-tutorial"><img class="tutorial-img" src="/Content/img/github_readme_1.png"></li>
      </ul>
 
      <p class="aprende__step">5. Previsualización y Comentario Opcional:</p>
