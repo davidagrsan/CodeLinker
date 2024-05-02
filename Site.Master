@@ -74,10 +74,10 @@
                                 </div>
                             </div>
                             <ul class="navbar__sublist">
-                                <li class="navbar__suboption">Certificaciones gratuitas</li>
-                                <li class="navbar__suboption">Certificaciones de pago</li>
-                                <li class="navbar__suboption">Tutoriales</li>
-                                <li class="navbar__suboption">Recomendaciones de programas</li>
+                                <li class="navbar__suboption"><a href="Learn.aspx#freeCertifications__container">Certificaciones gratuitas</a></li>
+                                <li class="navbar__suboption"><a href="Learn.aspx#paidCertifications__container">Certificaciones de pago</a</li>
+                                <li class="navbar__suboption"><a href="Learn.aspx#tutorials__container">Tutoriales</a></li>
+                                <li class="navbar__suboption"><a href="Learn.aspx#programRecomendations__container">Recomendaciones de programas</a></li>
                             </ul>
                         </div>
                     </li>
