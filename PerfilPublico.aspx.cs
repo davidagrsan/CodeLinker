@@ -49,9 +49,11 @@ namespace CodeLinker
             DateTime birthDate = Convert.ToDateTime(user.BirthDate);
             fecha.Text = birthDate.ToString("yyyy-MM-dd");
 
-            linkLinkedIn.Text = user.LinkedInURL;
-            linkGitHub.Text = user.GitHubURL;
+            // Links a LinkedIn y Github
+            linkLinkedIn.NavigateUrl = user.LinkedInURL;
+            linkGitHub.NavigateUrl = user.GitHubURL;
 
+            // Opción de checkbox (está desactivada por defecto al ser perfil público)
             switch (user.SpecialityFK)
             {
                 case 1:
