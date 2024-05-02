@@ -177,6 +177,7 @@
     <Content Include="HTML pendientes\img\github_readme_1.png" />
     <Content Include="HTML pendientes\img\github_readme_2.png" />
     <Content Include="Learn.aspx" />
+    <Content Include="PerfilPublico.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Projects.aspx" />
@@ -208,7 +209,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Perfil.aspx" />
+    <Content Include="MiPerfil.aspx" />
     <Content Include="DBConnection.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DBConnection.designer.cs</LastGenOutput>
@@ -301,6 +302,13 @@
     <Compile Include="Learn.aspx.designer.cs">
       <DependentUpon>Learn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PerfilPublico.aspx.cs">
+      <DependentUpon>PerfilPublico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilPublico.aspx.designer.cs">
+      <DependentUpon>PerfilPublico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,12 +369,12 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Perfil.aspx.cs">
-      <DependentUpon>Perfil.aspx</DependentUpon>
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Perfil.aspx.designer.cs">
-      <DependentUpon>Perfil.aspx</DependentUpon>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

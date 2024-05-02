@@ -162,6 +162,23 @@ namespace CodeLinker
 
         }
 
+        public List<User> ListUsersInProject(int projectId)
+        {
+            try
+            {
+                var usersInsideProject = (from u in dc.UserParticipatesProject
+                                          join user in dc.User on u.UserFK equals user.UserId
+                                          where u.ProjectFK == projectId
+                                          select u.User).ToList();
+
+                return usersInsideProject;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void InsertProject(Project newProject)
         {
             try

@@ -120,6 +120,15 @@ namespace CodeLinker.DAL
             }
         }
 
+        public User SearchUserWithId(int userId)
+        {
+            var user = (from u in dc.User
+                         where u.UserId == userId
+                         select u).FirstOrDefault();
+
+            return user;
+        }
+
         public bool CheckPassword(User connectedUser, string password)
         {
             try

@@ -18,7 +18,7 @@ namespace CodeLinker
             {
                 crear__proyectos.HRef = "CreateProject.aspx";
                 login__text.InnerHtml = connectedUser.UserName;
-                login__text.HRef = "Perfil.aspx";
+                login__text.HRef = "MiPerfil.aspx";
             }
         }
     }
