@@ -12,7 +12,6 @@
             <asp:Button ID="btnApuntarse" runat="server" CssClass="datos__boton" Text="" OnClick="btnApuntarse_Click" />
             <asp:Button ID="btnDesapuntarse" runat="server" CssClass="datos__boton" Text="¿Desapuntarse del proyecto?" OnClick="btnDesapuntarse_Click" Visible="False" />
         </div>
-        
     </div>
 
 </main>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -24,17 +25,24 @@ namespace CodeLinker
             if (!IsPostBack)
             {
                 projectId = Convert.ToInt32(Request.QueryString["id"]);
-                user = (User)Session["connectedUser"];
-                if (user != null)
+                if (int.TryParse(Request.QueryString["id"], out userId))
                 {
-                    userId = user.UserId;
-                    bool userIsConnected = true;
-                    LoadProjectInfo(projectId, userIsConnected);
+                    user = (User)Session["connectedUser"];
+                    if (user != null)
+                    {
+                        userId = user.UserId;
+                        bool userIsConnected = true;
+                        LoadProjectInfo(projectId, userIsConnected);
+                    }
+                    else
+                    {
+                        bool userIsConnected = false;
+                        LoadProjectInfo(projectId, userIsConnected);
+                    }
                 }
                 else
                 {
-                    bool userIsConnected = false;
-                    LoadProjectInfo(projectId, userIsConnected);
+                    Response.Redirect("Default.aspx");
                 }
             }
         }
@@ -54,10 +62,10 @@ namespace CodeLinker
             bool userIsInProject = dalProjects.CheckUserInProject(projectId, userId);
 
             // Crear el contenedor principal
-            HtmlGenericControl projectContainer = new HtmlGenericControl("div");
-            projectContainer.Attributes["class"] = "proyecto__container";
-            projectContainer.ID = "projectContainer";
-            projectContainer.EnableViewState = false;
+            HtmlGenericControl projectData = new HtmlGenericControl("div");
+            projectData.Attributes["class"] = "proyecto__container";
+            projectData.ID = "projectContainer";
+            projectData.EnableViewState = false;
 
             // Genera HTML para la primera fila
             string firstRowHtml = $@"
@@ -88,8 +96,10 @@ namespace CodeLinker
                         <p>Fecha límite</p>
                         <span>{project.DeliveryDate.ToString("dd/MM/yyyy")}</span>
                     </div>
+                    <div class='metodo__comunicacion'>
+                        <a href='{project.CommunicationMethod}'><i class='fa-brands fa-discord'></i></a>
+                    </div>
                 </div>
-
                 <div class='datos__miembros'>
                     <p>Actualmente hay</p>
                     <div class='miembros__cantidad'>
@@ -116,13 +126,15 @@ namespace CodeLinker
 
         </section>";
 
-            projectContainer.InnerHtml = $"{firstRowHtml + secondRowHtml + thirdRowHtml}";
+            projectData.InnerHtml = $"{firstRowHtml + secondRowHtml + thirdRowHtml}";
 
             HtmlGenericControl buttonSubmitContainer = new HtmlGenericControl("div");
             buttonSubmitContainer.Attributes["class"] = "buttonSubmit__container";
 
+            // Condicional si el usuario está conectado pero no inscrito al proyecto
             if (userIsConnected && !userIsInProject)
             {
+                // En caso de estar completo no podrá inscribirse
                 if (estadoProyecto == "completo")
                 {
                     Label lblProjectFull = new Label();
@@ -137,6 +149,7 @@ namespace CodeLinker
                 else
                     btnApuntarse.Text = "Apuntarse al proyecto";
             }
+            // Si está conectado pero está ya en el proyecto, no podrá unirse
             else if (userIsConnected && userIsInProject)
             {
                 Label lblUserInProject = new Label();
@@ -152,17 +165,36 @@ namespace CodeLinker
                 buttonSubmitContainer.Controls.Add(lblUserInProject);
                 buttonSubmitContainer.Controls.Add(btnDesapuntarse);
             }
+            // Si no tiene la sesión iniciada, el botón tendrá un texto diferente (y le mandará al login en el evento del click)
             else
                 btnApuntarse.Text = "Inicia sesión para apuntarte a proyectos";
 
+            // Añadimos todo lo creado a su contenedor, después a la variable que envuelve el contenedor y después al contenedor ya existente en el HTML
             buttonSubmitContainer.Controls.Add(btnApuntarse);
 
-            projectContainer.Controls.Add(buttonSubmitContainer);
+            // Lógica de creación de los usuarios en el proyecto
+            HtmlGenericControl usersHeader = new HtmlGenericControl("h3");
+            usersHeader.InnerText = "Usuarios inscritos";
+            HtmlGenericControl usersInProjectContainer = new HtmlGenericControl("div");
 
-            project__Container.Controls.Add(projectContainer);
+            usersInProjectContainer.Attributes["class"] = "usuariosInscritos__proyecto";
+
+            LiteralControl usersInProyectList = LoadUsersInProject(projectId);
+
+            usersInProjectContainer.Controls.Add(usersHeader);
+            usersInProjectContainer.Controls.Add(usersInProyectList);
+
+            // Añadimos el botón
+            projectData.Controls.Add(buttonSubmitContainer);
+
+            // Añadimos los usuarios inscritos
+            projectData.Controls.Add(usersInProjectContainer);
+
+            // Se añade todo definitivamente al control en el aspx
+            project__Container.Controls.Add(projectData);
         }
 
-
+        // Dependiendo de la categoría tendrá diferente icono
         private string GetCategoryIcon(int category)
         {
             switch (category)
@@ -174,6 +206,25 @@ namespace CodeLinker
                 case 5: return "<i class='fa-solid fa-stethoscope'></i>";
                 default: return "";
             }
+        }
+
+        // Creación aparte de los usuarios en el proyecto
+        private LiteralControl LoadUsersInProject(int projectId)
+        {
+            List<User> usersInsideProject = dalProjects.ListUsersInProject(projectId);
+
+            // Construir la lista HTML
+            StringBuilder userListHtml = new StringBuilder();
+            userListHtml.Append("<ul>");
+
+            foreach (User user in usersInsideProject)
+            {
+                userListHtml.Append($"<li><a href='PerfilPublico.aspx?id={user.UserId}'>{user.UserName}</a></li>");
+            }
+
+            userListHtml.Append("</ul>");
+
+            return new LiteralControl(userListHtml.ToString());
         }
 
         protected void btnApuntarse_Click(object sender, EventArgs e)

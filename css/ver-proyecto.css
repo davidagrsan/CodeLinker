@@ -214,3 +214,30 @@ span.encabezado__tipo {
     border-radius: 25px;
     padding: 1em 2em;
 }
+
+.usuariosInscritos__proyecto a {
+    text-decoration: none;
+    color: #5b2a79;
+    font-size: 1.25rem;
+}
+
+.usuariosInscritos__proyecto h3 {
+    padding: 0.5em 0;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #5b2a79;
+}
+
+.usuariosInscritos__proyecto li {
+    list-style: none;
+}
+
+.metodo__comunicacion i {
+    background-color: #5b2a79;
+    padding: 1em;
+    border-radius: 100px;
+    color: white;
+}
