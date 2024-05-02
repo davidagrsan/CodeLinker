@@ -3,6 +3,7 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BCrypt.Net;
+using System.IO;
 
 namespace CodeLinker
 {
@@ -131,8 +132,19 @@ namespace CodeLinker
             user = (User)Session["connectedUser"];
             string newPhoto;
 
-            newPhoto = photoFile.PostedFile.FileName;
-            string imagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/img/"+newPhoto);
+            string fileName="";
+            string filePath;
+            string folderPath = Server.MapPath("./Content/img/");
+
+            fileName = Path.GetFileName(fileName) + photoFile.PostedFile.FileName;
+
+            if(photoFile.Value != "")
+            {
+                filePath = folderPath + fileName;
+                photoFile.PostedFile.SaveAs(filePath);
+            }
+
+            string imagePath = System.Web.HttpContext.Current.Server.MapPath("./Content/img/"+fileName);
 
             byte[] changedProfilePicture = System.IO.File.ReadAllBytes(imagePath);
 
