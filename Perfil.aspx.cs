@@ -130,23 +130,12 @@ namespace CodeLinker
         protected void BtnSaveProfileChanges_Click(object sender, EventArgs e)
         {
             user = (User)Session["connectedUser"];
-            string newPhoto;
 
-            string fileName="";
-            string filePath;
-            string folderPath = Server.MapPath("./Content/img/");
+            string fileName = Path.GetFileName(photoFile.FileName);
+            int fileSize = photoFile.PostedFile.ContentLength;
 
-            fileName = Path.GetFileName(fileName) + photoFile.PostedFile.FileName;
-
-            if(photoFile.Value != "")
-            {
-                filePath = folderPath + fileName;
-                photoFile.PostedFile.SaveAs(filePath);
-            }
-
-            string imagePath = System.Web.HttpContext.Current.Server.MapPath("./Content/img/"+fileName);
-
-            byte[] changedProfilePicture = System.IO.File.ReadAllBytes(imagePath);
+            byte[] changedProfilePicture = new byte[fileSize];
+            photoFile.PostedFile.InputStream.Read(changedProfilePicture, 0, fileSize);
 
             // Datos básicos, desde el campo de texto al usuario de la sesión
             user.UserName = username.Text;
