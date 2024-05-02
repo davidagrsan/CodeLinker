@@ -8,25 +8,38 @@
     text-align: center;
     margin: 1em 0;
 }
-div#freeCertifications__container {
+div#freeCertifications__container, #paidCertifications__container, #tutorials__container, #programRecomendations__container {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.learnContent__container {
     width: 40%;
     text-align: center;
     background-color: #beaec2;
     color: black;
     padding: 1em;
     border-radius: 30px;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.learnContent__container a {
+    border: none;
+    background-color: #5b2a79;
+    color: white;
+    padding: 1em 2em;
+    margin-top: 1em;
+    border-radius: 100px;
+    text-decoration: none;
 }
 .learnContent__container i {
     color: white;
     background-color: #5b2a79;
     border-radius: 100px;
     padding: 0.5em;
-}
-.learnContent__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 }
 .learnContent__container button {
     border: none;
@@ -41,14 +54,45 @@ div#freeCertifications__container {
 }
 /*Páginas específicas de Aprende*/
 img.tutorial-img {
-    max-width: 20%;
+    margin: 1em;
 }
 img.aprende__logo {
     max-width: 5%;
+    margin-top: 1em;
 }
-.aprende__gitHubReadme li {
+.aprende li {
     list-style: none;
 }
 p.aprende__step {
     font-weight: bold;
+}
+main.aprende {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+main.aprende p {
+    font-family: 'Montserrat';
+    line-height: 1.5em;
+    margin: 1em 0;
+}
+
+main.aprende h1 {
+    font-size: 1.50rem;
+    margin: 1em 0;
+}
+
+main.aprende a {
+    color: white;
+    background-color: #5b2a79;
+    padding: 1em 2em;
+    border-radius: 100px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.img-tutorial {
+    display: flex;
+    justify-content: center;
 }

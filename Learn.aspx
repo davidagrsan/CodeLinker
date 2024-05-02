@@ -11,13 +11,7 @@
                     <i class="fa-solid fa-scroll"></i>
                     <h3>Certificación gratuita de C# con FreeCodeCamp</h3>
                     <p>No pierdas tu oportunidad de conocer los básicos del lenguaje de programación más utilizado por Microsoft de forma totalmente gratuita, de la mano de la famosa web FreeCodeCamp.</p>
-                    <button>Leer más</button>
-                </div>
-                <div class="learnContent__container">
-                    <i class="fa-solid fa-scroll"></i>
-                    <h3>Lorem ipsum</h3>
-                    <p>Lorem ipsum</p>
-                    <button>Leer más</button>
+                    <a href="Aprende_FreeCertifications_Csharp.aspx">Leer más</a>
                 </div>
                 <div class="learnContent__container">
                     <i class="fa-solid fa-scroll"></i>
@@ -45,9 +39,9 @@
             <div id="tutorials__container">
                 <div class="learnContent__container">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Lorem ipsum</h3>
-                    <p>Lorem ipsum</p>
-                    <button>Leer más</button>
+                    <h3>Cómo modificar tu README en GitHub</h3>
+                    <p>A veces algo tan básico como modificar un archivo txt puede ser difícil si no conoces el cómo, ¡entra aquí y te enseñaremos cómo hacerlo para poder crear tus repositorios bien estilizados!</p>
+                    <a href="Aprende_Github_README.aspx">Leer más</a>
                 </div>
             </div>
             <h2>Recomendaciones de programas</h2>
