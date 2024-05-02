@@ -62,7 +62,8 @@
                     <%--<img class="logo__logo" src="Content/img/logo-without-letters.png" alt="Logo Codelinkers">--%>
                 </div>
                 <asp:Label ID="lblChangePhoto" runat="server" Text="Cambia tu foto de perfil"></asp:Label>
-                <input type="file" id="photoFile" runat="server" name="photoFile" />
+                <%--<input type="file" id="" runat="server" name="photoFile" />--%>
+                <asp:FileUpload ID="photoFile" runat="server" />
 
                 <div class="especialidad__datos">
                     <h3 class="especialidad__titulo">Especialidad</h3>
