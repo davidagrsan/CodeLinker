@@ -22,6 +22,7 @@ namespace CodeLinker
         int containerIndex = 1;
         List<string> actualFilters = new List<string>();
         List<int> actualFiltersId = new List<int>();
+        List<Project> projectsFiltered;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +40,8 @@ namespace CodeLinker
                     FilterProgrammingLanguage();
                     FilterType();
                     FilterCategory();
-                    actualFiltersId.Clear();
+                    LoadProjectsFiltered(projectsFiltered);
+                    //actualFiltersId.Clear();
                 }
             }
             catch
@@ -189,10 +191,9 @@ namespace CodeLinker
                 }
             }
 
-            //List<Project> checkBoxProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
-            List<Project> checkBoxProjects = dalProjects.LoadFilteredProjects(actualFilters);
+            projectsFiltered = dalProjects.LoadFilteredProjects(actualFilters);
 
-            LoadProjectsFiltered(checkBoxProjects);
+            //LoadProjectsFiltered(checkBoxProjects);
         }
 
         // Filtro del combobox de lenguajes de programación
@@ -206,12 +207,12 @@ namespace CodeLinker
 
                 int languageId = Convert.ToInt32(comboProgrammingLanguage.SelectedValue.ToString());
 
-                actualFiltersId.Add(languageId);
+                //actualFiltersId.Add(languageId);
 
                 //List<Project> languageProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
-                List<Project> languageProjects = dalProjects.LoadFilteredProjects(actualFilters);
+                projectsFiltered = dalProjects.LoadFilteredProjects(actualFilters);
 
-                LoadProjectsFiltered(languageProjects);
+                //LoadProjectsFiltered(languageProjects);
             }
         }
 
@@ -229,9 +230,9 @@ namespace CodeLinker
                 actualFiltersId.Add(typeId);
 
                 //List<Project> typeProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
-                List<Project> typeProjects = dalProjects.LoadFilteredProjects(actualFilters);
+                projectsFiltered = dalProjects.LoadFilteredProjects(actualFilters);
 
-                LoadProjectsFiltered(typeProjects);
+                //LoadProjectsFiltered(typeProjects);
             }
         }
 
@@ -249,21 +250,19 @@ namespace CodeLinker
                 actualFiltersId.Add(categoryId);
 
                 //List<Project> categoryProjects = dalProjects.LoadFilters(actualFilters, actualFiltersId);
-                List<Project> categoryProjects = dalProjects.LoadFilteredProjects(actualFilters);
+                projectsFiltered = dalProjects.LoadFilteredProjects(actualFilters);
 
-                LoadProjectsFiltered(categoryProjects);
+                //LoadProjectsFiltered(categoryProjects);
             }
         }
 
-        private void LoadProjectsFiltered(List<Project> projects)
+        private void LoadProjectsFiltered(List<Project> filteredProjects)
         {
             // Borra los controles actuales
             project__projects.Controls.Clear();
 
             //// Crea una lista temporal de filtros para guardar aquí los proyectos filtrados
             //List<Project> filteredProjects = new List<Project>();
-
-            List<Project> filteredProjects = projects;
 
             // Por cada proyecto específico dentro de los filtrados, dibujará su contenedor con todo su HTML
             foreach (Project project in filteredProjects)
